@@ -16,9 +16,6 @@ The EditorConfig rules are categorized into two types
 - [Coding analysis](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/)
 
 ```
-[*.{cs,vb}]
-#### Naming styles ####
-root = true;
 # Naming rules
 
 dotnet_naming_rule.interface_should_be_begins_with_i.severity = suggestion
@@ -148,4 +145,5 @@ csharp_style_var_elsewhere = false:error
 
 # CA2249: Consider using 'string.Contains' instead of 'string.IndexOf'
 dotnet_diagnostic.CA2249.severity = error
+csharp_space_around_binary_operators = before_and_after
 ```
