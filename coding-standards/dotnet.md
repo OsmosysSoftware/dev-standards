@@ -11,6 +11,9 @@ We adopted the security practices provided by [OWASP Cheat Series](https://cheat
 
 ## EditorConfig
 We use EditorConfig to enforce the coding style standards. The following is the configuration file for C#.
+The EditorConfig rules are categorized into two types
+- [Coding style](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/)
+- [Coding analysis](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/)
 
 ```
 [*.{cs,vb}]
