@@ -10,4 +10,4 @@ These are the standard built in protections we should be practicing against comm
 
 ## Standard Enforcing Tools
 
-ESLint - 
+ESLint
