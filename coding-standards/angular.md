@@ -29,52 +29,15 @@ ESLint, Prettier
 
 In root directory of project:
 
-#### **1. Add angular linting Schematics**
+1. npx install-peerdeps --dev eslint-config-airbnb-base
+2. npm install eslint-config-airbnb-typescript @typescript-eslint/eslint-plugin@^5.13.0 @typescript-eslint/parser@^5.0.0 --save-dev
+3. npm init @eslint/config
+4. npm install eslint-plugin-import --save-dev
+5. npm i prettier eslint-config-prettier --save-dev
+9. ng add @angular-eslint/schematics
+10. ng lint
 
-> ng add @angular-eslint/schematics
-
-This will create a .eslintrc file where you can create rules according to your wishes.
-
-#### **2. Install a Style Guide Plugin for Typescript linting: AirBnB**
-
-> pm install eslint-plugin-import eslint-config-airbnb-typescript --save-dev
-
-#### **3. Install & add Prettier extension**
-
-> npm i prettier eslint-config-prettier eslint-plugin-prettier --save-dev
-
-#### **4. Create Prettier config file if not already created**
-
-Prettier can format files with no configuration but for AirBnB code guide we need to specify some settings. Create `.prettierrc.js` in app root folder
-
-```js
-module.exports = {
-  trailingComma: "all",
-  tabWidth: 2,
-  semi: true,
-  singleQuote: true,
-  bracketSpacing: true,
-  printWidth: 100
-};
-```
-
-This configuration will be used by ESLint and by Prettier if you want to run it separately. You can format your code with Prettier itself with prettier --write . or with Prettier Plugin for VS Code.
-
-#### **5. Install additional eslint plugins - jasmine**
-
-If you want to install another plugin for ESLint, for example, to lint Jasmine spec files, install appropriate npm-package
-
-> npm install eslint-plugin-jasmine --save-dev
-
-#### **6. Get a list of errors**
-
-Use the following command in your working tree to get a list of linting errors in your project.
-
-> ng lint
-
-Your IDE will automatically show errors in the file if configured to do so.
-
-### **.eslintrc.json**
+### **`.eslintrc.json`**
 
 ```json
 {
@@ -83,132 +46,287 @@ Your IDE will automatically show errors in the file if configured to do so.
     "projects/**/*"
   ],
   "overrides": [
-    // Angular Rules
+    // Angular ESLint for Typescript files
     {
       "files": [
         "*.ts"
       ],
-      "parserOptions": {
-        "project": [
-          "tsconfig.*?.json",
-          "e2e/tsconfig.json"
-        ],
-        "createDefaultProgram": true
+      "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
       },
       "extends": [
+        // Airbnb's typescript rules
+        "airbnb-base",
+        "airbnb-typescript/base",
+        // Prettier Latest
+        "prettier",
+        // import file to remove errors
+        "plugin:import/recommended",
+        // Angular rules
         "plugin:@angular-eslint/recommended"
       ],
-      "rules": {}
-    },
-    {
-      "files": [
-        "*.component.html"
-      ],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended"
-      ],
-      "rules": {
-        "max-len": [
-          "error",
-          {
-            "code": 140
-          }
-        ]
-      }
-    },
-    {
-      "files": [
-        "*.component.ts"
-      ],
-      "extends": [
-        "plugin:@angular-eslint/template/process-inline-templates"
-      ]
-    },
-    // ESlint for typescript using AirBnB Style
-    {
-      "files": [
-        "*.ts"
-      ],
+      "overrides": [],
       "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "ecmaVersion": "latest",
         "project": [
-          "tsconfig.*?.json",
-          "e2e/tsconfig.json"
-        ],
-        "createDefaultProgram": true
+          "./tsconfig.eslint.json",
+          "e2e/tsconfig.json",
+          "./tsconfig.json"
+        ]
       },
-      "extends": [
-        "plugin:@angular-eslint/recommended",
-        // AirBnB Styleguide rules
-        "airbnb-typescript/base"
-      ],
       "rules": {
-      }
-    },
-    // Default overrides using @angular-eslint/schematics
-    {
-      "files": [
-        "*.ts"
-      ],
-      "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
-      ],
-      "rules": {
-        "@angular-eslint/directive-selector": [
+        // Custom rules for typescript by Osmosys
+        "@typescript-eslint/no-explicit-any": "error",
+        "arrow-body-style": [
           "error",
+          "as-needed",
           {
-            "type": "attribute",
-            "prefix": "app",
-            "style": "camelCase"
+            "requireReturnForObjectLiteral": false
           }
         ],
-        "@angular-eslint/component-selector": [
+        "@typescript-eslint/prefer-function-type": "error",
+        "@typescript-eslint/naming-convention": "error",
+        "capitalized-comments": [
+          "off",
+          "never",
+          {
+            "line": {
+              "ignorePattern": ".*",
+              "ignoreInlineComments": true,
+              "ignoreConsecutiveComments": true
+            },
+            "block": {
+              "ignorePattern": ".*",
+              "ignoreInlineComments": true,
+              "ignoreConsecutiveComments": true
+            }
+          }
+        ],
+        "spaced-comment": [
+          "error",
+          "always",
+          {
+            "line": {
+              "exceptions": [
+                "-",
+                "+"
+              ],
+              "markers": [
+                "=",
+                "!",
+                "/"
+              ]
+            },
+            "block": {
+              "exceptions": [
+                "-",
+                "+"
+              ],
+              "markers": [
+                "=",
+                "!",
+                ":",
+                "::"
+              ],
+              "balanced": true
+            }
+          }
+        ],
+        "eol-last": [
+          "error",
+          "always"
+        ],
+        "guard-for-in": "error",
+        "no-restricted-imports": [
+          "off",
+          {
+            "paths": [],
+            "patterns": []
+          }
+        ],
+        "indent": [
+          "error",
+          2,
+          {
+            "SwitchCase": 1,
+            "VariableDeclarator": 1,
+            "outerIIFEBody": 1,
+            "FunctionDeclaration": {
+              "parameters": 1,
+              "body": 1
+            },
+            "FunctionExpression": {
+              "parameters": 1,
+              "body": 1
+            },
+            "CallExpression": {
+              "arguments": 1
+            },
+            "ArrayExpression": 1,
+            "ObjectExpression": 1,
+            "ImportDeclaration": 1,
+            "flatTernaryExpressions": false,
+            "ignoredNodes": [
+              "JSXElement",
+              "JSXElement > *",
+              "JSXAttribute",
+              "JSXIdentifier",
+              "JSXNamespacedName",
+              "JSXMemberExpression",
+              "JSXSpreadAttribute",
+              "JSXExpressionContainer",
+              "JSXOpeningElement",
+              "JSXClosingElement",
+              "JSXFragment",
+              "JSXOpeningFragment",
+              "JSXClosingFragment",
+              "JSXText",
+              "JSXEmptyExpression",
+              "JSXSpreadChild"
+            ],
+            "ignoreComments": false
+          }
+        ],
+        "@typescript-eslint/consistent-type-definitions": "error",
+        "@typescript-eslint/explicit-member-accessibility": "off",
+        "@typescript-eslint/member-ordering": [
           "error",
           {
-            "type": "element",
-            "prefix": "app",
-            "style": "kebab-case"
+            "default": [
+              "static-field",
+              "instance-field",
+              "static-method",
+              "instance-method"
+            ]
+          }
+        ],
+        "no-empty-function": [
+          "error",
+          {
+            "allow": [
+              "arrowFunctions",
+              "functions",
+              "methods"
+            ]
+          }
+        ],
+        "no-bitwise": "error",
+        "no-console": "warn",
+        "no-new-wrappers": "error",
+        "no-debugger": "error",
+        "constructor-super": "error",
+        "no-empty": "error",
+        "@typescript-eslint/no-empty-interface": "error",
+        "no-eval": "error",
+        "@typescript-eslint/no-inferrable-types": "error",
+        "@typescript-eslint/no-misused-new": "error",
+        "@typescript-eslint/no-non-null-assertion": "error",
+        "no-shadow": "error",
+        "dot-notation": [
+          "error",
+          {
+            "allowKeywords": true
+          }
+        ],
+        "no-throw-literal": "error",
+        "no-fallthrough": "error",
+        "no-trailing-spaces": [
+          "error",
+          {
+            "skipBlankLines": false,
+            "ignoreComments": false
+          }
+        ],
+        "no-undef-init": "error",
+        "no-unused-expressions": [
+          "error",
+          {
+            "allowShortCircuit": false,
+            "allowTernary": false,
+            "allowTaggedTemplates": false
+          }
+        ],
+        "no-var": "error",
+        "sort-keys": [
+          "off",
+          "asc",
+          {
+            "caseSensitive": false,
+            "natural": true
+          }
+        ],
+        "brace-style": [
+          "error",
+          "1tbs",
+          {
+            "allowSingleLine": true
+          }
+        ],
+        "prefer-const": [
+          "error",
+          {
+            "destructuring": "any",
+            "ignoreReadBeforeAssign": true
+          }
+        ],
+        "quotes": [
+          "error",
+          "single",
+          {
+            "avoidEscape": true
+          }
+        ],
+        "radix": "error",
+        "eqeqeq": [
+          "error",
+          "always",
+          {
+            "null": "ignore"
+          }
+        ],
+        "@typescript-eslint/type-annotation-spacing": "error",
+        "@typescript-eslint/unified-signatures": "error",
+        "no-multi-spaces": [
+          "error",
+          {
+            "ignoreEOLComments": false
+          }
+        ],
+        "@angular-eslint/no-output-on-prefix": "error",
+        "@angular-eslint/no-inputs-metadata-property": "error",
+        "@angular-eslint/no-outputs-metadata-property": "error",
+        "@angular-eslint/no-host-metadata-property": "error",
+        "@angular-eslint/use-lifecycle-interface": "error",
+        "@angular-eslint/use-pipe-transform-interface": "error",
+        "@angular-eslint/component-class-suffix": "error",
+        "@angular-eslint/directive-class-suffix": "error",
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": false,
+            "optionalDependencies": false,
+            "peerDependencies": false
           }
         ]
       }
     },
+    // Eslint for HTML files
     {
       "files": [
-        "*.html"
+        "*.html", "*.component.html"
       ],
       "extends": [
         "plugin:@angular-eslint/template/recommended",
         "plugin:@angular-eslint/template/accessibility"
       ],
       "rules": {
-      }
-    },
-    // Jasmine linting
-    {
-      "files": [
-        "src/**/*.spec.ts",
-        "src/**/*.d.ts"
-      ],
-      "parserOptions": {
-        "project": "./src/tsconfig.spec.json"
-      },
-      // Jasmine rules
-      "extends": [
-        "plugin:jasmine/recommended"
-      ],
-      // Plugin to run Jasmine rules
-      "plugins": [
-        "jasmine"
-      ],
-      "env": {
-        "jasmine": true
-      },
-      "rules": {
-        // Custom rules
+        // Custom rules for HTML by Osmosys
       }
     }
   ]
 }
+
 ```
