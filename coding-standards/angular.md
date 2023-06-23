@@ -4,6 +4,10 @@
 
 We at osmosys follow all the conding standards mentioned here - https://angular.io/guide/styleguide
 
+For Typescript, we follow AirBnb's typescript guidelines - https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base
+
+List of All AirBnB's typescript rules - [Click here](https://osmosysasia-my.sharepoint.com/:x:/g/personal/rajkumar_p_osmosys_co/EcSnDteKjvhGr-6jgmdIRDEBVsW7hjqfXs7o8NwUTea7oQ?e=QQAVfR)
+
 ## Security 
 
 These are the standard built in protections we should be practicing against common web-application vulnerabilities and attacks such as cross-Standard scripting attacks - https://angular.io/guide/security
