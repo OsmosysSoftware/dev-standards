@@ -37,49 +37,54 @@ In root directory of project:
 2. npm install eslint-config-airbnb-typescript @typescript-eslint/eslint-plugin@^5.13.0 @typescript-eslint/parser@^5.0.0 --save-dev
 3. npm init @eslint/config
 4. npm install eslint-plugin-import --save-dev
-5. npm i prettier eslint-config-prettier --save-dev
-9. ng add @angular-eslint/schematics
-10. ng lint
+5. npm i prettier eslint-config-prettier eslint-plugin-prettier --save-dev
+6. ng add @angular-eslint/schematics
 
-### **`.eslintrc.json`**
+### **Files to be added in root directory**
+
+### Replace all data in `.eslintrc.json` with the following
 
 ```json
 {
-  "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "extends": ["plugin:@angular-eslint/recommended"],
+  "rules": {},
+  // Eslint for HTML files
   "overrides": [
-    // Angular ESLint for Typescript files
     {
-      "files": [
-        "*.ts"
-      ],
-      "env": {
-        "browser": true,
-        "es2021": true,
-        "node": true
+      "files": ["*.html", "*.component.html"],
+      // We set parserOptions.project for the project to allow TypeScript to create the type-checker behind the scenes when we run linting
+      "parserOptions": {
+        "project": ["tsconfig.(app|spec).json"]
       },
       "extends": [
-        // Airbnb's typescript rules
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:@angular-eslint/template/accessibility"
+      ],
+      "rules": {
+        // Custom rules for HTML by Osmosys
+        "max-len": "warn"
+      }
+    },
+    // Custom rules for TypeScript
+    {
+      "files": ["*.ts"],
+      "extends": [
+        // Added base
         "airbnb-base",
         "airbnb-typescript/base",
-        // Prettier Latest
+        // Added modern prettier
         "prettier",
-        // import file to remove errors
-        "plugin:import/recommended",
-        // Angular rules
-        "plugin:@angular-eslint/recommended"
       ],
-      "overrides": [],
+      "parser": "@typescript-eslint/parser",
       "parserOptions": {
         "parser": "@typescript-eslint/parser",
         "ecmaVersion": "latest",
-        "project": [
-          "./tsconfig.eslint.json",
-          "e2e/tsconfig.json",
-          "./tsconfig.json"
-        ]
+        "project": ["./tsconfig.eslint.json", "./tsconfig.json"]
       },
       "rules": {
         // Custom rules for typescript by Osmosys
@@ -114,35 +119,17 @@ In root directory of project:
           "always",
           {
             "line": {
-              "exceptions": [
-                "-",
-                "+"
-              ],
-              "markers": [
-                "=",
-                "!",
-                "/"
-              ]
+              "exceptions": ["-", "+"],
+              "markers": ["=", "!", "/"]
             },
             "block": {
-              "exceptions": [
-                "-",
-                "+"
-              ],
-              "markers": [
-                "=",
-                "!",
-                ":",
-                "::"
-              ],
+              "exceptions": ["-", "+"],
+              "markers": ["=", "!", ":", "::"],
               "balanced": true
             }
           }
         ],
-        "eol-last": [
-          "error",
-          "always"
-        ],
+        "eol-last": ["error", "always"],
         "guard-for-in": "error",
         "no-restricted-imports": [
           "off",
@@ -199,22 +186,13 @@ In root directory of project:
         "@typescript-eslint/member-ordering": [
           "error",
           {
-            "default": [
-              "static-field",
-              "instance-field",
-              "static-method",
-              "instance-method"
-            ]
+            "default": ["static-field", "instance-field", "static-method", "instance-method"]
           }
         ],
         "no-empty-function": [
           "error",
           {
-            "allow": [
-              "arrowFunctions",
-              "functions",
-              "methods"
-            ]
+            "allow": ["arrowFunctions", "functions", "methods"]
           }
         ],
         "no-bitwise": "error",
@@ -314,21 +292,212 @@ In root directory of project:
             "optionalDependencies": false,
             "peerDependencies": false
           }
+        ],
+
+        // Additional Custom Rules
+
+        "camelcase": [
+          "error",
+          {
+            "properties": "never",
+            "ignoreDestructuring": false
+          }
+        ],
+        "comma-dangle": [
+          "error",
+          {
+            "arrays": "always-multiline",
+            "objects": "always-multiline",
+            "imports": "always-multiline",
+            "exports": "always-multiline",
+            "functions": "always-multiline"
+          }
+        ],
+        "comma-spacing": [
+          "error",
+          {
+            "before": false,
+            "after": true
+          }
+        ],
+        "default-param-last": "error",
+
+        "func-call-spacing": [
+          "error",
+          "never"
+        ],
+
+        "keyword-spacing": [
+          "error",
+          {
+            "before": true,
+            "after": true,
+            "overrides": {
+              "return": {
+                "after": true
+              },
+              "throw": {
+                "after": true
+              },
+              "case": {
+                "after": true
+              }
+            }
+          }
+        ],
+        "lines-between-class-members": [
+          "error",
+          "always",
+          {
+            "exceptAfterSingleLine": false
+          }
+        ],
+        "no-array-constructor": "error",
+        "no-dupe-class-members": "error",
+
+        "no-extra-parens": [
+          "off",
+          "all",
+          {
+            "conditionalAssign": true,
+            "nestedBinaryExpressions": false,
+            "returnAssign": false,
+            "ignoreJSX": "all", // delegate to eslint-plugin-react
+            "enforceForArrowConditionals": false
+          }
+        ],
+        "no-extra-semi": "error",
+        "no-implied-eval": "error",
+        "no-new-func": "error",
+        "no-loss-of-precision": "error",
+        "no-loop-func": "error",
+        "no-magic-numbers": [
+          "off",
+          {
+            "ignore": [],
+            "ignoreArrayIndexes": true,
+            "enforceConst": true,
+            "detectObjects": false
+          }
+        ],
+        "no-redeclare": "error",
+        "space-before-blocks": "error",
+
+        "no-unused-vars": [
+          "error",
+          {
+            "vars": "all",
+            "args": "after-used",
+            "ignoreRestSiblings": true
+          }
+        ],
+        "no-use-before-define": [
+          "error",
+          {
+            "functions": true,
+            "classes": true,
+            "variables": true
+          }
+        ],
+        "no-useless-constructor": "error",
+        "semi": [
+          "error",
+          "always"
+        ],
+        "space-before-function-paren": [
+          "error",
+          {
+            "anonymous": "always",
+            "named": "never",
+            "asyncArrow": "always"
+          }
+        ],
+        "require-await": "off",
+        "no-return-await": "error",
+        "space-infix-ops": "error",
+        "object-curly-spacing": [
+          "error",
+          "always"
         ]
       }
     },
-    // Eslint for HTML files
+    // Configuration for unit and e2e spec files
     {
-      "files": [
-        "*.html", "*.component.html"
-      ],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended",
-        "plugin:@angular-eslint/template/accessibility"
-      ],
+      "files": ["*.spec.ts"],
       "rules": {
-        // Custom rules for HTML by Osmosys
+        "@typescript-eslint/no-unused-vars": "off"
       }
+    },
+    /**
+     * This extra piece of configuration is only necessary if you make use of inline
+     * templates within Component metadata, e.g.:
+     */
+    {
+      "files": ["*.component.ts"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+      },
+      "plugins": ["@angular-eslint/template"],
+      "processor": "@angular-eslint/template/extract-inline-html"
+    }
+  ]
+}
+
+```
+
+### Create `tsconfig.eslint.json`
+
+```json
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.js", "test/**/*.ts", "src", "e2e", ".eslintrc.json"]
+}
+
+```
+
+### Create `.prettierrc.js`
+
+```js
+module.exports = {
+  trailingComma: "all",
+  tabWidth: 2,
+  semi: true,
+  singleQuote: true,
+  bracketSpacing: true,
+  printWidth: 100
+};
+
+```
+
+### **Add an extra line under `"scripts"` in `package.json` for Prettier run command**
+
+```json
+// package.json
+{
+  // ...
+  "scripts": {
+    // Other Commands
+    // Add the following line under "scripts"
+    "prettier-format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+  }
+  // ...
+}
+```
+
+### **Test Files using terminal commands**
+
+1. For linting
+
+> ng lint
+
+2. To automatically fix formatting issues as per Prettier rules
+
+> npm run prettier-format
     }
   ]
 }
