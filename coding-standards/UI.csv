@@ -1,8 +1,8 @@
 Sno,Element,Sub Element,Behaviour
-1,Allignment,design,"While creating components in an app, make sure they allign well from a UI perspective."
+1,Allignment,Design,"While creating components in an app, make sure they allign well from a UI perspective."
 2,Bulk import,Import process,Bulk import (users or anything) should be done asynchronously in the background.. we cannot hold the UI / portal / user waiting for a long time while import is happening.
 3,Button,Field positioning,By default - the save / cancel / ok buttons must be on the right side bottom (unless explicitly mentioned)
-4,"Button, Link, Icon",design,"Often, client systems are slow - and some clients are still used to double clicking buttons. Therefore, always put the logic inside the buttons in such a way that, once it is clicked, it does NOT take the second click unless the process is completed. You can incorporate the Loading symbol as soon as the first click is made."
+4,"Button, Link, Icon",Design,"Often, client systems are slow - and some clients are still used to double clicking buttons. Therefore, always put the logic inside the buttons in such a way that, once it is clicked, it does NOT take the second click unless the process is completed. You can incorporate the Loading symbol as soon as the first click is made."
 5,"Button, Link, Icon",Interactive,"Providing clear visual cues for interactive elements like buttons and links helps users easily identify and understand their purpose. 
  
  Example: Provide visual feedback when users hover over or click on a button. This can be achieved through color changes, shadows, or animations."
