@@ -172,13 +172,13 @@ Here are some key settings to be added -
 
 | Setting                          | Description                                                        | URL                                                                                                       |
 |----------------------------------|--------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| target_php_version               | Set the PHP version of your project.                                | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#target_php_version)                      |
-| directory_list                   | Directory list that should be checked for violations.              | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#directory_list)                          |
-| exclude_analysis_directory_list  | Directory list that will be skipped to check violations.           | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#exclude_analysis_directory_list)         |
-| plugins                          | A list of plugin files to execute.                                 | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#plugins)                                  |
-| suppress_issue_types             | Inhibits some issues which don't matter much.                      | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#suppress_issue_types)                     |
-| backward_compatibility_checks    | Backwards Compatibility Checking. It consumes a lot of memory, do only if necessary. | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#backward_compatibility_checks)       |
-| unused_variable_detection        | Set to true in order to attempt to detect unused variables.         | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#unused_variable_detection)               |
+| `target_php_version`               | Set the PHP version of your project.                                | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#target_php_version)                      |
+| `directory_list`                   | Directory list that should be checked for violations.              | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#directory_list)                          |
+| `exclude_analysis_directory_list`  | Directory list that will be skipped to check violations.           | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#exclude_analysis_directory_list)         |
+| `plugins`                          | A list of plugin files to execute.                                 | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#plugins)                                  |
+| `suppress_issue_types`             | Inhibits some issues which don't matter much.                      | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#suppress_issue_types)                     |
+| `backward_compatibility_checks`    | Backwards Compatibility Checking. It consumes a lot of memory, do only if necessary. | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#backward_compatibility_checks)       |
+| `unused_variable_detection`        | Set to true in order to attempt to detect unused variables.         | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#unused_variable_detection)               |
 
 
 All the phan settings can be found [here](https://github.com/phan/phan/wiki/Phan-Config-Settings)
