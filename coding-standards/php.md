@@ -162,3 +162,168 @@ This command will tokenize PHP, JavaScript and CSS files to detect violations of
 This command will automatically correct coding standard violations.
 
 ### PHP PHAN
+#### Installation 
+
+```json
+composer require phan/phan --dev
+```
+Inorder to let your project use php phan, you have to create a folder `.phan` and a file in it `config.php`. All the settings for phan are placed there. 
+Here are some key settings to be added -
+
+| Setting                          | Description                                                        | URL                                                                                                       |
+|----------------------------------|--------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| target_php_version               | Set the PHP version of your project.                                | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#target_php_version)                      |
+| directory_list                   | Directory list that should be checked for violations.              | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#directory_list)                          |
+| exclude_analysis_directory_list  | Directory list that will be skipped to check violations.           | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#exclude_analysis_directory_list)         |
+| plugins                          | A list of plugin files to execute.                                 | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#plugins)                                  |
+| suppress_issue_types             | Inhibits some issues which don't matter much.                      | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#suppress_issue_types)                     |
+| backward_compatibility_checks    | Backwards Compatibility Checking. It consumes a lot of memory, do only if necessary. | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#backward_compatibility_checks)       |
+| unused_variable_detection        | Set to true in order to attempt to detect unused variables.         | [Link](https://github.com/phan/phan/wiki/Phan-Config-Settings#unused_variable_detection)               |
+
+
+All the phan settings can be found [here](https://github.com/phan/phan/wiki/Phan-Config-Settings)
+
+
+PHP Phan works with plugins which comes along while installing it. Here are some plugins that we use
+
+| Plugin                           | Description                                                                   | URL                                                                                                      |
+|----------------------------------|-------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| `AlwaysReturnPlugin`               | Checks if a function or method with a non-void return type will unconditionally return or throw | [Link](https://github.com/phan/phan/tree/v5/.phan/plugins#alwaysreturnpluginphp)                |
+| `DollarDollarPlugin`               | Checks for complex variable access expressions `$$x`                           | [Link](https://github.com/phan/phan/tree/v5/.phan/plugins#dollardollarpluginphp)                |
+| `DuplicateArrayKeyPlugin`          | Warns about common errors in PHP array keys and switch statements             | [Link](https://github.com/phan/phan/tree/v5/.phan/plugins#duplicatearraykeypluginphp)           |
+| `DuplicateExpressionPlugin`        | Checks for duplicate expressions in a statement that are likely to be a bug  | [Link](https://github.com/phan/phan/tree/v5/.phan/plugins#duplicateexpressionpluginphp)         |
+| `PregRegexCheckerPlugin`           | This plugin checks for invalid regexes                                        | [Link](https://github.com/phan/phan/tree/v5/.phan/plugins#pregregexcheckerplugin)                |
+| `PrintfCheckerPlugin`              | Checks for invalid format strings, incorrect argument counts, and unused arguments in printf calls | [Link](https://github.com/phan/phan/tree/v5/.phan/plugins#printfcheckerplugin)            |
+| `SleepCheckerPlugin`               | Warn about returning non-arrays in `__sleep`, as well as about returning array values with invalid property names in `__sleep` | [Link](https://github.com/phan/phan/tree/v5/.phan/plugins#printfcheckerplugin)         |
+| `UnreachableCodePlugin`            | Checks for syntactically unreachable statements in the global scope or function bodies | [Link](https://github.com/phan/phan/tree/v5/.phan/plugins#unreachablecodepluginphp)          |
+| `UseReturnValuePlugin`             | This warns when code fails to use the return value of internal functions/methods | [Link](https://github.com/phan/phan/tree/v5/.phan/plugins#unreachablecodepluginphp)      |
+| `EmptyStatementListPlugin`         | Checks for empty statement lists in loops/branches                            | [Link](https://github.com/phan/phan/tree/v5/.phan/plugins#emptystatementlistpluginphp)          |
+| `LoopVariableReusePlugin`          | This plugin detects reuse of loop variables                                  | [Link](https://github.com/phan/phan/tree/v5/.phan/plugins#loopvariablereusepluginphp)            |
+
+
+All the php phan plugins are documented [here](https://github.com/phan/phan/tree/v5/.phan/plugins#readme)
+
+#### Configuration
+
+```php
+<?php
+
+/**
+ * This configuration will be read and overlaid on top of the
+ * default configuration. Command line arguments will be applied
+ * after this file is read.
+ */
+return [
+
+    // Supported values: `'5.6'`, `'7.0'`, `'7.1'`, `'7.2'`, `'7.3'`, `'7.4'`,
+    // `'8.0'`, `'8.1'`, `null`.
+    // If this is set to `null`,
+    // then Phan assumes the PHP version which is closest to the minor version
+    // of the php executable used to execute Phan.
+    "target_php_version" => '8.1',
+
+    // A list of directories that should be parsed for class and
+    // method information. After excluding the directories
+    // defined in exclude_analysis_directory_list, the remaining
+    // files will be statically analyzed for errors.
+    //
+    // Thus, both first-party and third-party code being used by
+    // your application should be included in this list.
+    
+    // Note - Keep adding to the vendor section below as we add more dependencies
+    // based on the errors you encounter when you run phan. 
+    
+    'directory_list' => [
+        'app',
+        'config',
+        'database',
+        'public',
+        'resources',
+        'routes',
+        'storage',
+        'tests',
+        'bootstrap',
+        'vendor/laravel',
+        'vendor/fakerphp'
+        'vendor/fruitcake',
+        'vendor/monolog',
+        'vendor/nesbot',
+        'vendor/ramsey',
+        'vendor/psr'
+        'vendor/symfony',        
+    ],
+
+    // A directory list that defines files that will be excluded
+    // from static analysis, but whose class and method
+    // information should be included.
+    //
+    // Generally, you'll want to include the directories for
+    // third-party code (such as "vendor/") in this list.
+    //
+    // n.b.: If you'd like to parse but not analyze 3rd
+    //       party code, directories containing that code
+    //       should be added to the `directory_list` as
+    //       to `exclude_analysis_directory_list`.
+    "exclude_analysis_directory_list" => [
+        'vendor'
+    ],
+
+    // A list of plugin files to execute.
+    // Plugins which are bundled with Phan can be added here by providing their name
+    // (e.g. 'AlwaysReturnPlugin')
+    //
+    // Documentation about available bundled plugins can be found
+    // at https://github.com/phan/phan/tree/v5/.phan/plugins
+    //
+    // Alternately, you can pass in the full path to a PHP file
+    // with the plugin's implementation.
+    // (e.g. 'vendor/phan/phan/.phan/plugins/AlwaysReturnPlugin.php')
+    'plugins' => [
+        // checks if a function, closure or method unconditionally returns.
+        // can also be written as 'vendor/phan/phan/.phan/plugins/AlwaysReturnPlugin.php'
+        'AlwaysReturnPlugin',
+        'DollarDollarPlugin',
+        'DuplicateArrayKeyPlugin',
+        'DuplicateExpressionPlugin',
+        'PregRegexCheckerPlugin',
+        'PrintfCheckerPlugin',
+        'SleepCheckerPlugin',
+        // Checks for syntactically unreachable statements in
+        // the global scope or function bodies.
+        'UnreachableCodePlugin',
+        'UseReturnValuePlugin',
+        'EmptyStatementListPlugin',
+        'LoopVariableReusePlugin',
+    ],
+    'suppress_issue_types' => [
+		// The following two have been added to not highlight issues
+		// raised due to variables added for interface methods that are
+		// then not used by the interface implementation
+		'PhanUnusedPublicMethodParameter',
+		'PhanUnusedProtectedMethodParameter',
+		'PhanUnusedPrivateMethodParameter',
+		// Allow unused values in foreach
+		'PhanUnusedVariableValueOfForeachWithKey'		
+	],
+	// Backwards Compatibility Checking
+	// (Disable this if the application no longer supports php 5,
+	// or use a different tool.
+	// Phan's checks are currently slow)
+	// Set it to false or omit it.
+	'backward_compatibility_checks' => false,
+	'unused_variable_detection' => true
+];
+
+```
+### Usage
+Add script command to run `phan` in `composer.json` file.
+
+```json
+"scripts": {
+    // ..<existing scripts>
+    "phan": "vendor/bin/phan --config-file .phan/config.php",
+  },
+```
+**`composer run phan`**
+
+This command will analyze and display all the issues if any.
