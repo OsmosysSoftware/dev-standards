@@ -39,8 +39,6 @@ composer require slevomat/coding-standard --dev
 <config name="installed_paths" value="../../slevomat/coding-standard"/>
 
 ````
-
-
 | Rule                                                                                                                          | Description                                                                                                                                      | URL                                                                                                                                                                                                                               |
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `SlevomatCodingStandard.TypeHints.UselessConstantTypeHint`                                                                      | Checks for useless constant type hints in function and method signatures.                                                                           | [Link](https://github.com/slevomat/coding-standard/blob/master/doc/type-hints.md#slevomatcodingstandardtypehintsuselessconstanttypehint-)                                                                                         |
