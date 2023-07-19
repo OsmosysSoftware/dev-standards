@@ -1,17 +1,12 @@
-# PHP development standards
-This contains PHP standards. 
+# PHP coding standards
+We adopted the standards for programming in PHP from from [slevomat standards](https://github.com/slevomat/coding-standard#alphabetical-list-of-sniffs) and popular [php phan](https://github.com/phan/phan/tree/v5/.phan/plugins#readme) recommendations. 
 
-## Coding Conventions
-https://github.com/slevomat/coding-standard#alphabetical-list-of-sniffs
-
-## Naming Conventions
-https://www.php-fig.org/psr/psr-12/
+## PHP best practides
+We follow the best practices compiled under [PSR12](https://www.php-fig.org/psr/psr-12/)
 
 ## Security Standards
-[https://cheatsheetseries.owasp.org/cheatsheets/Laravel_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/PHP_Configuration_Cheat_Sheet.html)
-
+We adopted the security practices provided by [OSWAP Cheat Series](https://cheatsheetseries.owasp.org/cheatsheets/PHP_Configuration_Cheat_Sheet.html) while building the applications using PHP.
 ## Enforcing tools and config
-
 ### PHPCS
 #### Installation 
 
