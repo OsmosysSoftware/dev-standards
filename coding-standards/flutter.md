@@ -28,6 +28,7 @@ Window Android Studio: go to "Languages & Frameworks" > "Dart" > "Lints". Click 
 **Enable flutter_lints rules**:
 In the "Select Dart Lints" window, check the box next to "flutter_lints" to enable its lint rules. Click "OK" to apply the changes.
 
+[Checkout here flutter_lints rules](https://github.com/flutter/flutter/blob/master/packages/flutter/lib/analysis_options_user.yaml)
 ### **Dart Formatter:**
 **Configure and Enable dartfmt**:
 In the "Preferences/Settings" window, go to "Languages & Frameworks" > "Dart" > "Enable 'Run 'dartfmt' on save' for .dart files". This will automatically format your Dart code using dartfmt whenever you save a file.
