@@ -1,28 +1,25 @@
 
-
 # HTML Development Standards
 
-## Coding Conventions
-
+## HTML Coding standards
+We will be using the guidelines provided in the link below as base
 [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
 
-## Additional Conventions
+# Additional coding standards
+Following are additional guidelines to be followed.
 
-# General
-
-## HTML is a Markup Language
-
+## General
+**HTML is a Markup Language** 
 HTML is used to markup your document and not style it. We have CSS for styling. This means it is not advisable to use h1, h2 to size your content.
 
-## Always Specify a DOCTYPE
-
+**Always Specify a DOCTYPE**
 Always specify the doctype at the top of the page. Ideally, this should be:
 
 ```html
 <!DOCTYPE html>
 ```
 
-## IE Compatibility Mode
+### IE Compatibility Mode
 
 Internet Explorer supports the use of a document compatibility tag to specify what version of IE the page should be rendered as. Unless circumstances require otherwise, it's most useful to instruct IE to use the latest supported mode with edge mode.
 
@@ -30,7 +27,7 @@ Internet Explorer supports the use of a document compatibility tag to specify wh
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 ```
 
-## Add Lang Attribute
+### Add Lang Attribute
 
 **Example**
 
@@ -38,7 +35,7 @@ Internet Explorer supports the use of a document compatibility tag to specify wh
 <html lang="en-US">
 ```
 
-## Don't Mix Quotation Marks
+### Don't Mix Quotation Marks
 
 **Bad**
 
@@ -52,7 +49,7 @@ Internet Explorer supports the use of a document compatibility tag to specify wh
 <input type="text" id="txtName">
 ```
 
-## Document Metadata and Character Encoding
+### Document Metadata and Character Encoding
 
 - Add a title element.
 - Add the `<meta charset="UTF-8">`, this tells the browser the character encoding for the HTML document.
@@ -64,7 +61,7 @@ Internet Explorer supports the use of a document compatibility tag to specify wh
 </head>
 ```
 
-## Specify MIME Type of Minor Linked Resources
+### Specify MIME Type of Minor Linked Resources
 
 For example, when linking a CSS file, specify stylesheet as the MIME type.
 
@@ -74,15 +71,15 @@ For example, when linking a CSS file, specify stylesheet as the MIME type.
 <link href="/css/screen.css" rel="stylesheet">
 ```
 
-## Avoid Inline Styles
+### Avoid Inline Styles
 
 Only use inline styles as a last resort.
 
-## Avoid Inline Scripts
+### Avoid Inline Scripts
 
 Only use inline scripts as a last resort.
 
-## Use Classes for CSS
+### Use Classes for CSS
 
 It is a good habit to associate CSS with classes rather than ID. This allows styles to be easily reused without changing the CSS file.
 
@@ -105,21 +102,21 @@ It is a good habit to associate CSS with classes rather than ID. This allows sty
     width: 80%;
 }
 ```
-# Tags
+## Tags
 
-## Tags in Lower Case
+### Tags in Lower Case
 Tag names are to be kept in lower case.
 
-## Do Not Use `<center>` Tag
+### Do Not Use `<center>` Tag
 Do NOT use the `<center>` tag, it has been deprecated and browser support might be dropped at any time. Instead, give a width to your element and then `margin:auto`.
 
-## Avoid Using `<br>` Tags for Indentation
+### Avoid Using `<br>` Tags for Indentation
 Do NOT use `<br>` tags to add margin or padding. Instead, use CSS. If you find yourself using the `<br>` tag more than twice in succession, you should probably use CSS instead.
 
-## Do Not Omit Closing Tags
+### Do Not Omit Closing Tags
 Although HTML5 allows you to omit closing tags, always close your tags.
 
-## Write One List Item per Line
+### Write One List Item per Line
 **Bad**
 ```html
 <ul>
@@ -137,7 +134,7 @@ Although HTML5 allows you to omit closing tags, always close your tags.
 </ul>
 ```
 
-## Avoid Ending `/` for Empty Elements
+### Avoid Ending `/` for Empty Elements
 For empty elements, avoid ending the tag with a `/`.
 **Bad**
 ```html
@@ -150,7 +147,7 @@ For empty elements, avoid ending the tag with a `/`.
 <br>
 ```
 
-## Proper Progression of Heading Tags
+### Proper Progression of Heading Tags
 A page should always have an `h1` tag that describes what that page is about. Ideally, a page should have only a single `h1` tag. The page should then progressively go from `h1` to `h2` and then to `h3` and so on.
 **Bad**
 ```html
@@ -165,9 +162,9 @@ A page should always have an `h1` tag that describes what that page is about. Id
 <h3>Jon Doe</h3>
 ```
 
-# Attributes
+## Attributes
 
-## Attribute Order
+### Attribute Order
 HTML attributes should come in this particular order for easier reading of code.
 - class
 - id, name
@@ -178,13 +175,13 @@ HTML attributes should come in this particular order for easier reading of code.
 
 Classes make for great reusable components, so they come first. Ids are more specific and should be used sparingly (e.g., for in-page bookmarks), so they come second.
 
-## Use `download` Attribute for Downloading Resources
+### Use `download` Attribute for Downloading Resources
 This will ensure that the resource is downloaded rather than opened. This works on IE 10+, and for lower browsers, it doesn't make any difference.
 ```html
 <a download href="/downloads/offline.zip">offline version</a>
 ```
 
-## Omit Boolean Attribute Value
+### Omit Boolean Attribute Value
 **Bad**
 ```html
 <audio autoplay="autoplay" src="/audio/theme.mp3">
@@ -197,10 +194,10 @@ This will ensure that the resource is downloaded rather than opened. This works 
 <input type="text" disabled name="txtFirstName">
 ```
 
-## Do Not Use `id` Attribute Unnecessarily
+### Do Not Use `id` Attribute Unnecessarily
 Unless needed avoid giving ID attributes to every element that you create.
 
-## Boolean Attributes
+### Boolean Attributes
 A boolean attribute is one that needs no declared value. XHTML required you to declare a value, but HTML5 has no such requirement. In short, don't add a value.
 **Bad**
 ```html
@@ -220,7 +217,7 @@ A boolean attribute is one that needs no declared value. XHTML required you to d
 </select>
 ```
 
-## Forms
+### Forms
 
 ## Wrap Labels or Use `for` Attribute
 While writing forms with controls inside them, the labels should either:
@@ -237,21 +234,21 @@ This is useful if you do not wish to specify the `ID` attribute for the control.
 <label for="txtSearch">Query: </label><input id="txtSearch" name="txtSearch" type="text">
 ```
 
-## Wrap Your Controls Inside a 'form' Tag
+### Wrap Your Controls Inside a 'form' Tag
 This is a good practice and should be followed, even if the control(s) data is submitted via AJAX. This allows end users to press enter to submit the data to the server.
 
-## Form Should Have Input Type 'submit'
+### Form Should Have Input Type 'submit'
 Every form should have an input with type submit, even if the control(s) data is submitted via AJAX. One of the benefits of this is that it will automatically be clicked when the user presses the enter button.
 
-## Specify `maxlength` for Every Textbox
+### Specify `maxlength` for Every Textbox
 Ensure that you specify a `maxlength` for every textbox control that you use.
 
-## Use Proper Input Type
+### Use Proper Input Type
 If the field takes a number, please use `type="number"`, if it takes email use `type="email"`. This is especially useful in mobile devices as the type of keyboard that appears due to this will change.
   
-# Naming Conventions
+## Naming Conventions
 
-## General
+### General
 
 - Always specify a <span style="color: #ff9900;">`DOCTYPE`</span>, in our case it will almost always be <span style="color: #ff9900;">``</span>, if you think anything else is more appropriate please contact your mentor.
 - The document character set is to be specified as UTF-8. Example : <span style="color: #ff9900;">`<meta charset="utf-8">`</span>
@@ -259,12 +256,12 @@ If the field takes a number, please use `type="number"`, if it takes email use `
     - Do not use <span style="color: #ff9900;">`<center>`</span> and <span style="color: #ff9900;">`<marquee>`</span> tags or other tags or attributes that are associated with presentation.
     - Do not use <span style="color: #ff9900;">`align`, `width`, `height`</span> attributes in HTML. Use CSS attributes instead.
 
-## Tags
+### Tags
 
 - HTML tags should always be in lower case.
 - For self closing tags, do **NOT** use a closing tags or a slash at the end. Eg: <span style="color: #ff9900;">`img`, `br`</span> and <span style="color: #ff9900;">`hr`</span>
 
-### Example :
+#### Example :
 
 **Correct**
 
@@ -280,7 +277,7 @@ If the field takes a number, please use `type="number"`, if it takes email use `
 <img src="hello.png" alt="Hello World"/>
 ```
 
-## Attributes
+### Attributes
 
 - Attribute names should always be in lower case.
 - Attribute values should always be enclosed in double quotes.
