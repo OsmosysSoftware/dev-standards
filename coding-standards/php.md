@@ -133,6 +133,8 @@ composer require slevomat/coding-standard --dev
 ```
 #### Usage
 
+Create a file with name `phpcs.xml` in the project root directory. Copy the configuration details from above section and place in the created file. Make the necessary changes about the inlusion/exclusion folders. 
+
 Add couple of script commands to run `phpcs` and `phpcbf` in `composer.json` file.
 
 ```json
@@ -288,6 +290,8 @@ return [
 
 ```
 ### Usage
+Create a directory `.phan`and a file inside it `config.php` in the project root directory. Copy the configuration details from above section and place in the created file. Make the necessary changes regarding the inlusion/exclusion of folders. 
+
 Add script command to run `phan` in `composer.json` file.
 
 ```json
