@@ -4,6 +4,7 @@ We will be using the guidelines provided in the link below as base
 
 # Additional coding standards
 Following are additional guidelines to be followed.
+**Note**: The following rules will override the ones provided in google style guide.
 
 ## General
 **HTML is a Markup Language**: 
