@@ -1,7 +1,4 @@
-
-# HTML Development Standards
-
-## HTML Coding standards
+# HTML coding standards
 We will be using the guidelines provided in the link below as base
 [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
 
@@ -240,7 +237,7 @@ Ensure that you specify a `maxlength` for every textbox control that you use.
 ### Use Proper Input Type
 If the field takes a number, please use `type="number"`, if it takes email use `type="email"`. This is especially useful in mobile devices as the type of keyboard that appears due to this will change.
   
-## Naming Conventions
+## Naming guideline
 
 ### General
 
