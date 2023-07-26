@@ -1,11 +1,11 @@
 # PHP coding standards
-We adopted the standards for programming in PHP from from [slevomat standards](https://github.com/slevomat/coding-standard#alphabetical-list-of-sniffs) and popular [php phan](https://github.com/phan/phan/tree/v5/.phan/plugins#readme) recommendations. 
+We adopted the standards for programming in PHP from [PSR-12](https://www.php-fig.org/psr/psr-12/). We enforce these standards by using tools like [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer) and [PHP Phan](https://github.com/phan/phan)
 
 ## PHP best practides
-We follow the best practices compiled under [PSR12](https://www.php-fig.org/psr/psr-12/)
+We follow the best practices compiled under [PSR12](https://www.php-fig.org/psr/psr-12/) and [PHP - the right way](https://phptherightway.com/)
 
 ## Security Standards
-We adopted the security practices provided by [OSWAP Cheat Series](https://cheatsheetseries.owasp.org/cheatsheets/PHP_Configuration_Cheat_Sheet.html) while building the applications using PHP.
+We follow security practices outlined by [OSWAP Cheat Series](https://cheatsheetseries.owasp.org/cheatsheets/PHP_Configuration_Cheat_Sheet.html) while building the applications using PHP.
 ## Enforcing tools and config
 ### PHPCS
 #### Installation 
@@ -18,10 +18,9 @@ PHPCS by default comes with a set of rules which can snif your code against popu
 | Rule                              | Description                                     | URL                                                                                                       |
 |-----------------------------------|-------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | PSR12                             | Checks for PSR standards                        | [Link](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/PSR12/ruleset.xml)         |
-| PSR12.Files.FileHeader.SpacingAfterBlock | To exclude checking the format of the file header. | [Link](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/PSR12/Sniffs/Files/FileHeaderSniff.php) |
-| Generic.WhiteSpace.DisallowTabIndent | To allow tab (mostly to avoid conflicts with the external sniff that we are going to use) | [Link](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Generic/Docs/WhiteSpace/DisallowTabIndentStandard.xml) |
-| Generic.PHP.RequireStrictTypes     | Checks for strict type on each file            | [Link](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/PHP/RequireStrictTypesSniff.php) |
-| Generic.WhiteSpace.ScopeIndent     | Defines number of spaces that each indent takes | [Link](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/PEAR/Docs/WhiteSpace/ScopeIndentStandard.xml) |
+| `PSR12.Files.FileHeader.SpacingAfterBlock` | To exclude checking the format of the file header. | [Link](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/PSR12/Sniffs/Files/FileHeaderSniff.php) |
+| `Generic.PHP.RequireStrictTypes`     | Checks for strict type on each file            | [Link](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Generic/Sniffs/PHP/RequireStrictTypesSniff.php) |
+| `Zend.NamingConventions.ValidVariableName`     | Checks the naming of variables and member variables. | [Link](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/Zend/Docs/NamingConventions/ValidVariableNameStandard.xml) |
 
 
 To install and include external snifs which are created by reliable resources such as [slemovat](https://github.com/slevomat/coding-standard#sniffs-included-in-this-standard), add the following to the config -
@@ -54,37 +53,31 @@ composer require slevomat/coding-standard --dev
 | `SlevomatCodingStandard.Commenting.RequireOneLineDocComment`                                                                    | Enforces the use of one-line doc comments for properties, constants, and methods in PHP classes.                                                 | [Link](https://github.com/slevomat/coding-standard/blob/master/doc/commenting.md#slevomatcodingstandardcommentingrequireonelinedoccomment-)                                                                                         |
 | `SlevomatCodingStandard.ControlStructures.UselessIfConditionWithReturn`                                                        | Detects and removes unnecessary if conditions in PHP code where a return statement follows immediately.                                           | [Link](https://github.com/slevomat/coding-standard/blob/master/doc/control-structures.md#slevomatcodingstandardcontrolstructuresuselessifconditionwithreturn-)                                                                   |
 | `SlevomatCodingStandard.ControlStructures.UselessTernaryOperator`                                                              | Detects and suggests removing unnecessary ternary operators in PHP code where the condition is redundant.                                         | [Link](https://github.com/slevomat/coding-standard/blob/master/doc/control-structures.md#slevomatcodingstandardcontrolstructuresuselessternaryoperator-)                                                                         |
+| `SlevomatCodingStandard.TypeHints.ReturnTypeHint`                                                                              | Checks for missing return typehints in case they can be declared natively.                                         | [Link](https://github.com/slevomat/coding-standard/blob/master/doc/type-hints.md#slevomatcodingstandardtypehintsreturntypehint-)                                                                                        |
+| `SlevomatCodingStandard.TypeHints.ParameterTypeHint`                                                                          | Checks for missing parameter typehints in case they can be declared natively.                                     | [Link](https://github.com/slevomat/coding-standard/blob/master/doc/type-hints.md#slevomatcodingstandardtypehintsparametertypehint-)                                                                                      |
+| `SlevomatCodingStandard.TypeHints.PropertyTypeHint`                                                                           | Checks for missing property typehints in case they can be declared natively.                                      | [Link](https://github.com/slevomat/coding-standard/blob/master/doc/type-hints.md#slevomatcodingstandardtypehintspropertytypehint-)                                                                                     |
 
 #### Configuration
 
 ```xml
 <?xml version="1.0"?>
 <ruleset name="PHP_CodeSniffer">
-    <!-- Include the following directories for violation check-->
-    <file>app</file>
-    <file>config</file>
-    <file>database</file>
-    <file>resources</file>
-    <file>routes</file>
-    <file>tests</file>
+    <!-- Include the following directories for violation check -->
+    <file>folder1</file>
+    <file>folder2</file>
 
     <!-- Exclude our migrations directory from the violation check-->
-    <exclude-pattern>*/migrations/*</exclude-pattern>
-
+    <exclude-pattern>*/vendor/*</exclude-pattern>
 	<arg name="tab-width" value="4"/>
+    
+    <!-- Include PSR12 standards -->
 	<rule ref="PSR12">
-		<exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
         <exclude name="PSR12.Files.FileHeader.SpacingAfterBlock"/>
-	</rule>
-	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
+	</rule>	
     <rule ref="Generic.PHP.RequireStrictTypes" />
-	<rule ref="Generic.WhiteSpace.ScopeIndent">
-		<properties>
-			<property name="indent" value="4"/>
-			<property name="tabIndent" value="true"/>
-		</properties>
-	</rule>
-
+    <!-- Variable naming standards -->
+    <rule ref="Zend.NamingConventions.ValidVariableName" />
+	
 	<!-- See https://github.com/slevomat/coding-standard#sniffs-included-in-this-standard -->
 	<config name="installed_paths" value="../../slevomat/coding-standard"/>
 	<rule ref="SlevomatCodingStandard.TypeHints.UselessConstantTypeHint" />
@@ -132,6 +125,10 @@ composer require slevomat/coding-standard --dev
 
     <!-- disable useless function comment -->
     <rule ref="SlevomatCodingStandard.Commenting.UselessFunctionDocComment" />
+    <!-- For PHP Type checks -->
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint" />
+    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint" />
+    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint" />    
 </ruleset>
 ```
 #### Usage
@@ -148,7 +145,7 @@ Add couple of script commands to run `phpcs` and `phpcbf` in `composer.json` fil
 
 **`composer run lint`**
 
-This command will tokenize PHP, JavaScript and CSS files to detect violations of a defined coding standard.
+This command will tokenize PHP files to detect violations of a defined coding standard.
 
 **`composer run lint:fix`**
 
@@ -160,7 +157,7 @@ This command will automatically correct coding standard violations.
 ```json
 composer require phan/phan --dev
 ```
-Inorder to let your project use php phan, you have to create a folder `.phan` and a file in it `config.php`. All the settings for phan are placed there. 
+Inorder to let your project use PHP Phan, you have to create a folder `.phan` and a file in it `config.php`. All the settings for phan are placed there. 
 Here are some key settings to be added -
 
 | Setting                          | Description                                                        | URL                                                                                                       |
@@ -175,8 +172,6 @@ Here are some key settings to be added -
 
 
 All the phan settings can be found [here](https://github.com/phan/phan/wiki/Phan-Config-Settings)
-
-
 PHP Phan works with plugins which comes along while installing it. Here are some plugins that we use
 
 | Plugin                           | Description                                                                   | URL                                                                                                      |
@@ -194,7 +189,7 @@ PHP Phan works with plugins which comes along while installing it. Here are some
 | `LoopVariableReusePlugin`          | This plugin detects reuse of loop variables                                  | [Link](https://github.com/phan/phan/tree/v5/.phan/plugins#loopvariablereusepluginphp)            |
 
 
-All the php phan plugins are documented [here](https://github.com/phan/phan/tree/v5/.phan/plugins#readme)
+All the PHP Phan plugins are documented [here](https://github.com/phan/phan/tree/v5/.phan/plugins#readme)
 
 #### Configuration
 
@@ -227,23 +222,7 @@ return [
     // based on the errors you encounter when you run phan. 
     
     'directory_list' => [
-        'app',
-        'config',
-        'database',
-        'public',
-        'resources',
-        'routes',
-        'storage',
-        'tests',
-        'bootstrap',
-        'vendor/laravel',
-        'vendor/fakerphp'
-        'vendor/fruitcake',
-        'vendor/monolog',
-        'vendor/nesbot',
-        'vendor/ramsey',
-        'vendor/psr'
-        'vendor/symfony',        
+        'folder'
     ],
 
     // A directory list that defines files that will be excluded
