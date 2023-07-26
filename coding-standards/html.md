@@ -9,10 +9,10 @@ We will be using the guidelines provided in the link below as base
 Following are additional guidelines to be followed.
 
 ## General
-**HTML is a Markup Language** 
+**HTML is a Markup Language**: 
 HTML is used to markup your document and not style it. We have CSS for styling. This means it is not advisable to use h1, h2 to size your content.
 
-**Always Specify a DOCTYPE**
+**Always Specify a DOCTYPE**: 
 Always specify the doctype at the top of the page. Ideally, this should be:
 
 ```html
@@ -71,13 +71,9 @@ For example, when linking a CSS file, specify stylesheet as the MIME type.
 <link href="/css/screen.css" rel="stylesheet">
 ```
 
-### Avoid Inline Styles
+**Avoid Inline Styles**: Only use inline styles as a last resort.
 
-Only use inline styles as a last resort.
-
-### Avoid Inline Scripts
-
-Only use inline scripts as a last resort.
+**Avoid Inline Scripts**: Only use inline scripts as a last resort.
 
 ### Use Classes for CSS
 
@@ -104,8 +100,7 @@ It is a good habit to associate CSS with classes rather than ID. This allows sty
 ```
 ## Tags
 
-### Tags in Lower Case
-Tag names are to be kept in lower case.
+**Tags in Lower Case**: Tag names are to be kept in lower case.
 
 ### Do Not Use `<center>` Tag
 Do NOT use the `<center>` tag, it has been deprecated and browser support might be dropped at any time. Instead, give a width to your element and then `margin:auto`.
@@ -113,8 +108,7 @@ Do NOT use the `<center>` tag, it has been deprecated and browser support might 
 ### Avoid Using `<br>` Tags for Indentation
 Do NOT use `<br>` tags to add margin or padding. Instead, use CSS. If you find yourself using the `<br>` tag more than twice in succession, you should probably use CSS instead.
 
-### Do Not Omit Closing Tags
-Although HTML5 allows you to omit closing tags, always close your tags.
+**Do Not Omit Closing Tags**: Although HTML5 allows you to omit closing tags, always close your tags.
 
 ### Write One List Item per Line
 **Bad**
