@@ -38,13 +38,13 @@ Internet Explorer supports the use of a document compatibility tag to specify wh
 **Bad**
 
 ```html
-<input type="text" id='txtName'>
+<input type="text" id='txt-name'>
 ```
 
 **Good**
 
 ```html
-<input type="text" id="txtName">
+<input type="text" id="txt-name">
 ```
 
 ### Document Metadata and Character Encoding
@@ -78,7 +78,7 @@ For example, when linking a CSS file, specify stylesheet as the MIME type.
 It is a good habit to associate CSS with classes rather than ID. This allows styles to be easily reused without changing the CSS file.
 
 ```html
-<input type="text" id="txtFirstName" class="form-textbox">
+<input type="text" id="txt-firstName" class="form-textbox">
 ```
 
 **Bad**
@@ -223,7 +223,7 @@ This is useful if you do not wish to specify the `ID` attribute for the control.
 
 #### Use the `for` Attribute and Attach the Label with a Control
 ```html
-<label for="txtSearch">Query: </label><input id="txtSearch" name="txtSearch" type="text">
+<label for="txtSearch">Query: </label><input id="txt-search" name="txtSearch" type="text">
 ```
 
 ### Wrap Your Controls Inside a 'form' Tag
@@ -334,7 +334,7 @@ If the field takes a number, please use `type="number"`, if it takes email use `
 **Example**
 
 ```html
-<input type="text" class="form-control" id="txtFirstName">
+<input type="text" class="form-control" id="txt-firstName">
 <div class="row">
     <div></div>
     <div class="selected-row"></div>
