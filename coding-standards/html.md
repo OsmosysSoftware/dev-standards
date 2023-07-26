@@ -273,10 +273,9 @@ If the field takes a number, please use `type="number"`, if it takes email use `
 
 - Attribute names should always be in lower case.
 - Attribute values should always be enclosed in double quotes.
-- **Class** attributes should be in all **LOWER** case, with each word seperated by a hyphen.
+- **Class** attributes should be in all **LOWER** case, with each word separated by a hyphen.
 - Image tags should always be accompanied by an <span style="color: #ff9900;">`alt`</span> attribute.
 - For input controls **ID** should be prefixed with the type of control.
-- **ID's** should be written in camel case.
 - Following prefix should be used when using element of given type -   
       
    <table>
