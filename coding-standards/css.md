@@ -346,3 +346,28 @@ Reference: [http://codeguide.co/#css](http://codeguide.co/#css)
 # Enforcing Tool and Config
 
 - Use Stylelint for linting. [https://stylelint.io/user-guide/get-started](https://stylelint.io/user-guide/get-started)
+
+- `.stylelintrc` config
+```json
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "indentation": 2,
+    "selector-list-comma-newline-after": "always",
+    "block-opening-brace-space-before": "always",
+    "block-closing-brace-newline-after": "always",
+    "declaration-colon-space-after": "always",
+    "declaration-block-semicolon-newline-after": "always",
+    "value-list-comma-space-after": "always",
+    "number-leading-zero": "never",
+    "color-hex-case": "lower",
+    "color-hex-length": "short",
+    "selector-attribute-quotes": "always",
+    "length-zero-no-unit": true,
+    "order/properties-alphabetical-order": true,
+    "selector-max-specificity": "0,3,1",
+    "max-nesting-depth": 3,
+    "selector-nested-pattern": "^&"
+  }
+}
+```
