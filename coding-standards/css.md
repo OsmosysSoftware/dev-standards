@@ -364,7 +364,6 @@ Reference: [http://codeguide.co/#css](http://codeguide.co/#css)
     "color-hex-length": "short",
     "selector-attribute-quotes": "always",
     "length-zero-no-unit": true,
-    "order/properties-alphabetical-order": true,
     "selector-max-specificity": "0,3,1",
     "max-nesting-depth": 3,
     "selector-nested-pattern": "^&"
