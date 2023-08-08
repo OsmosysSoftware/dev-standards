@@ -76,6 +76,8 @@ Navigate to the root directory of your project and execute the following npm com
     - Style guide: Airbnb
     - Format: JSON
 
+    Refer to this [screenshot](https://imgur.com/a/pIbb1Wb) for the options to choose and expected outcome
+
 2. **Install dependencies to support typescript**
 
     ```sh
@@ -524,8 +526,8 @@ To ensure proper setup, add the following configuration files to your project's 
     }
     ```
 
-4. **`.package.json`**  
-  Update `.package.json`. Add the following line under "scripts" to enable Prettier formatting:
+4. **`package.json`**  
+  Update `package.json`. Add the following line under "scripts" to enable Prettier formatting:
 
     ```json
     // package.json
@@ -540,7 +542,7 @@ To ensure proper setup, add the following configuration files to your project's 
     }
     ```
 1. **`settings.json`**   
-  In your project root directory, look for `.vscode` folder and create or edit `settings.json` file inside it with the following:
+  In your project's root directory, locate the .vscode folder. Create one if it doesn't exist. Once inside the folder, you can either create or modify the settings.json file. Populate this file with the following content:
 
     ```json
       {
