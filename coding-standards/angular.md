@@ -54,21 +54,14 @@ Install the following extensions in Visual Studio Code:
 1. [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 2. [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
+**Note**: Make sure these pluggins are installed in your code editor and enabled for your current workspace.
+
 [Back to top](#angular-coding-standards)
 ### NPM Commands
 
 Navigate to the root directory of your project and execute the following npm commands:
 
-1. **Install ESLint and Airbnb rules**
-
-    ```sh
-    npx install-peerdeps --dev eslint-config-airbnb-base
-    ```
-    ```sh
-    npm install eslint-config-airbnb-typescript @typescript-eslint/eslint-plugin@^5.13.0 @typescript-eslint/parser@^5.0.0 --save-dev
-    ```
-
-2. **Initialize ESLint configuration**
+1. **Initialize ESLint configuration**
 
     ```sh
     npm init @eslint/config
@@ -83,19 +76,19 @@ Navigate to the root directory of your project and execute the following npm com
     - Style guide: Airbnb
     - Format: JSON
 
-3. **Install ESLint plugin for import statements**
+2. **Install dependencies to support typescript**
 
     ```sh
-    npm install eslint-plugin-import --save-dev
+    npm install eslint-config-airbnb-typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser --save-dev
     ```
 
-4. **Install Prettier and related ESLint configurations**
+3. **Install Prettier and related ESLint configurations**
 
     ```sh
     npm install prettier eslint-config-prettier eslint-plugin-prettier --save-dev
     ```
 
-5. **Integrate Angular ESLint schematics**
+4. **Integrate Angular ESLint schematics**
 
     ```sh
     ng add @angular-eslint/schematics
@@ -143,7 +136,7 @@ To ensure proper setup, add the following configuration files to your project's 
             "airbnb-base",
             "airbnb-typescript/base",
             // Added modern prettier
-            "prettier",
+            "prettier"
           ],
           "parser": "@typescript-eslint/parser",
           "parserOptions": {
@@ -387,10 +380,7 @@ To ensure proper setup, add the following configuration files to your project's 
             ],
             "default-param-last": "error",
 
-            "func-call-spacing": [
-              "error",
-              "never"
-            ],
+            "func-call-spacing": ["error", "never"],
 
             "keyword-spacing": [
               "error",
@@ -465,10 +455,7 @@ To ensure proper setup, add the following configuration files to your project's 
               }
             ],
             "no-useless-constructor": "error",
-            "semi": [
-              "error",
-              "always"
-            ],
+            "semi": ["error", "always"],
             "space-before-function-paren": [
               "error",
               {
@@ -480,10 +467,7 @@ To ensure proper setup, add the following configuration files to your project's 
             "require-await": "off",
             "no-return-await": "error",
             "space-infix-ops": "error",
-            "object-curly-spacing": [
-              "error",
-              "always"
-            ]
+            "object-curly-spacing": ["error", "always"]
           }
         },
         // Configuration for unit and e2e spec files
@@ -509,7 +493,6 @@ To ensure proper setup, add the following configuration files to your project's 
         }
       ]
     }
-
     ```
 
 2. **`tsconfig.eslint.json`**  
@@ -527,19 +510,18 @@ To ensure proper setup, add the following configuration files to your project's 
     ```
 
 
-3. **`.prettierrc.js`**  
-  Create a `.prettierrc.js` file with the following content:
+3. **`.prettierrc.json`**  
+  Create a `.prettierrc.json` file with the following content:
 
     ```js
-    module.exports = {
-      trailingComma: "all",
-      tabWidth: 2,
-      semi: true,
-      singleQuote: true,
-      bracketSpacing: true,
-      printWidth: 100
-    };
-
+    {
+      "trailingComma": "all",
+      "tabWidth": 2,
+      "semi": true,
+      "singleQuote": true,
+      "bracketSpacing": true,
+      "printWidth": 100
+    }
     ```
 
 4. **`.package.json`**  
@@ -557,18 +539,59 @@ To ensure proper setup, add the following configuration files to your project's 
       // ...
     }
     ```
+1. **`settings.json`**   
+  In your project root directory, look for `.vscode` folder and create or edit `settings.json` file inside it with the following:
+
+    ```json
+      {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "[javascript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[css]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[html]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        }
+      }
+    ```
 
 [Back to top](#angular-coding-standards)
 ### Testing and Commands
 
-1. For linting
+1. **Linting: Check for Code Issues**  
+   Use the following command to analyze your code for potential issues:
 
     ```sh
     ng lint
     ```
 
-2. To automatically fix formatting issues as per Prettier rules
+    This command generates a comprehensive report highlighting any problems present in your current codebase.
+
+2. **Auto-fix Linting Issues**  
+   If the ng lint command detects fixable issues, you can automatically resolve some of them using:
+
+    ```sh
+    ng lint --fix
+    ```
+
+    By running this command, you allow the linter to automatically address certain issues reported by eslint
+
+3. **Formatting: Prettier Rules Enforcement**  
+   To ensure consistent code formatting according to Prettier rules, utilize the command:
+
     ```sh
     npm run prettier-format
     ```
+
+    Executing this command will format your entire codebase in alignment with the specified Prettier configuration (this is based on the files mentioned in your package.json). This is only recommended for the first time your are enforcing prettier rules and want to format all your code according to specified rules. 
+
+4. **Formatting on Save**  
+   Upon completing the mentioned steps, your files will be automatically formatted to adhere to the guidelines outlined in `.prettierrc.json` whenever you save them. This integration streamlines the process of maintaining a uniform code style.  
+
 [Back to top](#angular-coding-standards)
