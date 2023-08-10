@@ -121,7 +121,7 @@ There two methods that can be followed for creating a workflow:
 1. Create or clone the repository on your system.
 2. In the root of your project, create a folder structure `.github/workflows/` if it does not already exist.
 3. Inside this folder, add a new file `php-lint.yml`. File can be named as required, but it should be a `yml` file.
-4. Add the same content as mentioned in step 4 [Method 1: Using Github UI](#method-1-using-github-ui) 1 above in above to this file. Make changes as required.
+4. Add the same content as mentioned in step 4 of [Method 1: Using Github UI](#method-1-using-github-ui) above to this file. Make changes as required.
 4. Commit and push this file to the main branch of your repository. The workflow file should now be created in your project.
 
 ### Verifying the workflow
@@ -134,10 +134,10 @@ After following the steps for creating a new workflow, you can verify if the wor
 
     Depending on the configuration done for triggering the workflow, it should trigger for a push or pull request made for the specified branches. These workflows will be listed like above.
 
-2. Click on any of the listed runs to check details about it, such as the step and details about failure for a failed run. Failed runs are denoted by a red cross icon along side the workflow run icon
+2. Click on any of the listed runs to check details about it, such as the step and details of failure for a failed run. Failed runs are denoted by a red cross icon along side the workflow run.
     ![Github Failed workflow run](assets/php-github-failed-workflow-run.png)
 
-    This information can be used for finding the cause of failure, and can be used to performing the necessary fixes to adhere to our PHP coding standards.
+    This information can be used for finding the cause of failure, and can be used to perform the necessary fixes to adhere to our PHP coding standards.
 
 3. Upon making all the required fixes, the workflow should successfully, denoted by the green check mark alongside the workflow run.
 
