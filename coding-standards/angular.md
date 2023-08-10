@@ -46,6 +46,8 @@ Before you begin, make sure you have the following software installed:
 3. [Angular CLI](https://angular.io/cli)
 4. [Visual Studio Code](https://code.visualstudio.com/)
 
+It is highly advisable to ensure that you are working with the latest version of Angular. If your project is currently on a lower version, its recommended upgrading it to Angular 13 or a more recent stable release. (In case you decide not to upgrade, please make sure to resolve the dependency tree meticulously after installing the following packages. This will help maintain compatibility and ensure a smooth development process).
+
 [Back to top](#angular-coding-standards)
 ### Visual Studio Code Extensions
 
@@ -69,12 +71,15 @@ Navigate to the root directory of your project and execute the following npm com
     Choose the following options:
     - Usage: To check syntax, find problems, and enforce code style
     - Modules: JavaScript (import/export)
-    - Frameworks: Other
+    - Frameworks: None of these
     - Typescript: No (Airbnb does not have support for TS, it is defined for JS and we will add additional TS support for it later)
     - Environment: Browser
-    - Style: Popular Guide
+    - Style: Use a popular style guide
     - Style guide: Airbnb
     - Format: JSON
+
+    Now select the option to install required dependencies. Click on Yes.
+    Select the appropiate package manager that is used by you.
 
     Refer to this [screenshot](https://imgur.com/a/pIbb1Wb) for the options to choose and expected outcome
 
@@ -123,7 +128,7 @@ To ensure proper setup, add the following configuration files to your project's 
           },
           "extends": [
             "plugin:@angular-eslint/template/recommended",
-            "plugin:@angular-eslint/template/accessibility"
+            // "plugin:@angular-eslint/template/accessibility" //TODO: Look for a possible solution to add this option.
           ],
           "rules": {
             // Custom rules for HTML by Osmosys
