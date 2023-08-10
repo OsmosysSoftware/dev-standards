@@ -19,7 +19,7 @@ This page will walk you through the steps of setting up a Github Action workflow
 
 A workflow is a configurable automated process that will run one or more jobs. Workflows are defined by a YAML file checked in to your repository and will run when triggered by an event in your repository. These files are defined in `.github/workflows`.
 
-There two methods that can be followed for creating a workflow:
+There are two methods that can be followed for creating a workflow:
 
 #### Method 1: Using Github UI
 
