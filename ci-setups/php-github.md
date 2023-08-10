@@ -27,7 +27,7 @@ There are two methods that can be followed for creating a workflow:
 
     ![Github Actions Tab](assets/php-github-actions-tab.png)
 
-2. A new page **Choose a workflow** will open, click on the **setup a workflow yourself** link
+2. A new page **Choose a workflow** will open, click on the **set up a workflow yourself** link
 
     ![Github Choose a workflow](assets/php-github-choose-workflow.png)
 
@@ -139,6 +139,6 @@ After following the steps for creating a new workflow, you can verify if the wor
 
     This information can be used for finding the cause of failure, and can be used to perform the necessary fixes to adhere to our PHP coding standards.
 
-3. Upon making all the required fixes, the workflow should successfully, denoted by the green check mark alongside the workflow run.
+3. Upon making all the required fixes, the workflow should now run successfully, denoted by the green check mark alongside the workflow run.
 
     ![Github Successful workflow run](assets/php-github-success-workflow-run.png)
