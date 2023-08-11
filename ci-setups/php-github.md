@@ -43,9 +43,9 @@ There are two methods that can be followed for creating a workflow:
     name: PHP Coding Standards
     on:
       push:
-        branches: [ main ]
+        branches: [ main, dev ]
       pull_request:
-        branches: [ main ]
+        branches: [ main, release ]
 
     permissions:
       contents: read
@@ -85,20 +85,20 @@ There are two methods that can be followed for creating a workflow:
 
     ```yaml
     push:
-      branches: [ main ]
+      branches: [ main, dev ]
     pull_request:
-      branches: [ main ]
+      branches: [ main, release ]
     ```
 
-    Branches can be added and removed as required. Current values will trigger this workflow on any push to the main branch, or any pull request created for the main branch.
+    Branches can be added and removed as required. Current values will trigger this workflow on any push to the main or dev branch, or any pull request created for the main or release branch.
 
     New branches can be added like follows, separated by commas:
 
     ```yaml
     push:
-      branches: [ main, dev ]
+      branches: [ main, dev, feature ]
     pull_request:
-      branches: [ main, dev, release ]
+      branches: [ main, release, dev ]
     ```
 
 5. Finally, click on the **Commit changes...** button on the right and add the required commit message and description. The file should now be created in the project with the path `.github/workflows/php-lint.yml`
