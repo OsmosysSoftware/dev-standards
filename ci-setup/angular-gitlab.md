@@ -40,7 +40,7 @@ The purpose of this document is to provide a step-by-step guide for setting up a
 ### Scope
 This document covers the basic setup of a CI pipeline for an Angular application in GitLab, focusing on linting and building stages. More advanced topics, such as deployment and additional stages, are outside the scope of this guide.
 
-
+[Back to top](#table-of-contents)
 ## 2. Prerequisites
 
 Before setting up the CI pipeline, ensure you have the following prerequisites:
@@ -49,7 +49,7 @@ Before setting up the CI pipeline, ensure you have the following prerequisites:
 - An Angular application repository hosted on GitLab.
 - Node.js and npm installed on your local machine.
 
-
+[Back to top](#table-of-contents)
 ## 3. Setting Up Continuous Integration (CI) for Angular App
 
 ### Creating a `.gitlab-ci.yml` File
@@ -139,7 +139,7 @@ building:
     - linting
   <<: *rules_template
 ```
-
+[Back to top](#table-of-contents)
 ## 4. Testing the CI Pipeline
 
 ### Creating Merge Requests
@@ -154,6 +154,7 @@ building:
 3. Check the CI/CD job logs for any errors or warnings.
 4. Ensure that the pipeline status reflects the success or failure of the linting and building stages.
 
+[Back to top](#table-of-contents)
 ## 5. Visualizing the CI Process in GitLab
 In this section, we will visually explain the Continuous Integration (CI) process in GitLab and how it works for your Angular application.
 
@@ -190,6 +191,7 @@ All the pipeline and job actions can be seen and reviewd under the build menu of
 
 The maintainer can now review the linting and building results in the Merge Request itself. If the pipeline indicates success, it signifies that the code adheres to coding standards and that the build process was successful. This reduces the risk of merging code that may cause errors or disrupt the application.
 
+[Back to top](#table-of-contents)
 ## 6. Pre-Merge Checks and Bypassing CI Checks
 Before merging any changes into the main codebase, it's essential to ensure that the Continuous Integration (CI) checks have been successfully completed. These checks verify that code changes adhere to coding standards, pass tests, and build successfully. To enforce this, follow these steps:
 
@@ -198,6 +200,8 @@ Before merging any changes into the main codebase, it's essential to ensure that
 3. **Bypass Pipeline Check:** In certain scenarios, there may be valid reasons for bypassing the CI checks temporarily. It's recommended that leads add a comment in the MR describing the reason for bypassing the CI checks. This helps maintain a record of the decision and the context behind it.
 
 Please note that bypassing CI checks should be used sparingly and only in exceptional cases. The goal is to maintain code quality and ensure that the CI process is an integral part of our development workflow.
+
+[Back to top](#table-of-contents)
 ## 7. Troubleshooting and Advanced Configuration
 
 ### Handling Merge Conflicts
@@ -206,7 +210,7 @@ If your merge request encounters merge conflicts during the auto-merge stage, ma
 ### Customizing Scripts
 Modify the scripts in the .gitlab-ci.yml file to match your specific linting and building commands and any additional requirements of your Angular application.
 
-
+[Back to top](#table-of-contents)
 ## 8. Conclusion
 
 ### Benefits of CI Setup
