@@ -6,7 +6,7 @@ Continuous Integration (CI) in GitHub is a software development practice that in
 
 Github provides [Github Actions](https://github.com/features/actions) that can be used to create [workflows](https://docs.github.com/en/actions/using-workflows/about-workflows) that can be used for performing coding standards checks for various programming languages, including PHP.
 
-This page will walk you through the steps of setting up a Github Action workflow for performing PHP codings standards checks with PHPCS and Phan for linting and analysis of code.
+This page will walk you through the steps of setting up a Github Action workflow for performing PHP coding standards checks with PHPCS and Phan for linting and analysis of code.
 
 ## Setting up Github Actions for project
 
@@ -66,12 +66,6 @@ There are two methods that can be followed for creating a workflow:
             restore-keys: |
               ${{ runner.os }}-php-
 
-        - name: Create .env file
-          run: echo "${{ secrets.ENV_FILE }}" > .env
-
-        - name: Update dependencies
-          run: composer update
-
         - name: Install dependencies
           run: composer install --prefer-dist --no-progress
 
@@ -87,30 +81,25 @@ There are two methods that can be followed for creating a workflow:
 
     This workflow will run the `composer lint` and `composer phan` commands for performing linting and code analysis checks.
 
-    Please note that depending on the needs of the projects, the following things can be reconfigured in the above content:
+    Please note that depending on the needs of the projects, the following can be reconfigured in the above content:
 
-    - ```yaml
-      push:
-        branches: [ main ]
-      pull_request:
-        branches: [ main ]
-      ```
+    ```yaml
+    push:
+      branches: [ main ]
+    pull_request:
+      branches: [ main ]
+    ```
 
-        Branches can be added and removed as required. Current values will trigger this workflow on any push to the main branch, or any pull request created for the main branch.
+    Branches can be added and removed as required. Current values will trigger this workflow on any push to the main branch, or any pull request created for the main branch.
 
-    - ```yaml
-      - name: Create .env file
-        run: echo "${{ secrets.ENV_FILE }}" > .env
-      ```
+    New branches can be added like follows, separated by commas:
 
-        This can be removed if the project does not have or require any `.env` file for composer operations.
-
-    - ```yaml
-      - name: Update dependencies
-        run: composer update
-      ```
-
-        This can be removed in case it is not desired to update the composer dependencies before executing commands.
+    ```yaml
+    push:
+      branches: [ main, dev ]
+    pull_request:
+      branches: [ main, dev, release ]
+    ```
 
 5. Finally, click on the **Commit changes...** button on the right and add the required commit message and description. The file should now be created in the project with the path `.github/workflows/php-lint.yml`
 
