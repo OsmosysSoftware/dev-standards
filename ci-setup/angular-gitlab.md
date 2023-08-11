@@ -48,6 +48,7 @@ Before setting up the CI pipeline, ensure you have the following prerequisites:
 - A GitLab account with access to your target repository.
 - An Angular application repository hosted on GitLab.
 - Node.js and npm installed on your local machine.
+- All required configurations done as per [Angular coding standards](https://github.com/OsmosysSoftware/dev-standards/blob/main/coding-standards/angular.md)
 
 [Back to top](#table-of-contents)
 ## 3. Setting Up Continuous Integration (CI) for Angular App
