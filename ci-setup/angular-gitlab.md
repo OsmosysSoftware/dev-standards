@@ -11,6 +11,7 @@
   - [3. Setting Up Continuous Integration (CI) for Angular App](#3-setting-up-continuous-integration-ci-for-angular-app)
     - [Creating a `.gitlab-ci.yml` File](#creating-a-gitlab-ciyml-file)
     - [Defining Stages](#defining-stages)
+    - [Defining Variables](#defining-variables)
     - [Adding Rule Templates](#adding-rule-templates)
     - [Writing Jobs for Linting and Building](#writing-jobs-for-linting-and-building)
     - [Complete `.gitlab-ci.yml` Configuration](#complete-gitlab-ciyml-configuration)
@@ -65,22 +66,28 @@ stages:
   - build
 ```
 
-### Adding Rule Templates
-The rules template specifies when a job should run. In this example, jobs will run for merge requests targeting the main, development".
+### Defining Variables
+Define variables that specify the branches on which you want to execute your CI processes
 
 ```yaml
-.rules_template: &rules_template
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "development")'
+variables:
+  merge_request_branches: "/^main|development$"
 ```
 
-You can modify the rules as per your needs. For example if you want to run the jobs for merge requests targeting any release branch you can modify the condition as following:
+You can modify the varibale as per your needs. For example if you want to run the jobs for merge requests targeting any release branch you can modify the condition as following:
+
+```yaml
+variables:
+  merge_request_branches: "/^main|development|release.*/"
+```
+
+### Adding Rule Templates
+The rules template specifies when a job should run. In this example, jobs will run for merge requests targeting the specified branches in your variable".
 
 ```yaml
 .rules_template: &rules_template
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "development" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^release.*/ )'
-
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ $merge_request_branches)'
 ```
 
 ### Writing Jobs for Linting and Building
@@ -116,9 +123,12 @@ stages:
   - lint
   - build
 
+variables:
+  merge_request_branches: "/^main|development$"
+
 .rules_template: &rules_template
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "development")'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ $merge_request_branches)'
 
 linting:
   stage: lint
