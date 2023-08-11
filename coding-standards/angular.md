@@ -127,7 +127,7 @@ To ensure proper setup, add the following configuration files to your project's 
             "project": ["tsconfig.(app|spec).json"]
           },
           "extends": [
-            "plugin:@angular-eslint/template/recommended",
+            "plugin:@angular-eslint/template/recommended"
             // "plugin:@angular-eslint/template/accessibility" //TODO: Look for a possible solution to add this option.
           ],
           "rules": {
