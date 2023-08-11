@@ -17,7 +17,7 @@
     - [Complete `.gitlab-ci.yml` Configuration](#complete-gitlab-ciyml-configuration)
   - [4. Testing the CI Pipeline](#4-testing-the-ci-pipeline)
     - [Creating Merge Requests](#creating-merge-requests)
-    - [Observing CI/CD Pipeline Execution](#observing-cicd-pipeline-execution)
+    - [Observing Pipeline Execution](#observing-pipeline-execution)
   - [5. Visualizing the CI Process in GitLab](#5-visualizing-the-ci-process-in-gitlab)
     - [1. Developer Creates Merge Request](#1-developer-creates-merge-request)
     - [2. CI Pipeline Initiation](#2-ci-pipeline-initiation)
@@ -147,11 +147,11 @@ building:
 2. Make changes to your code and push the branch to GitLab.
 3. Create a merge request (MR) targeting the main or development branch.
 
-### Observing CI/CD Pipeline Execution
+### Observing Pipeline Execution
 
 1. Navigate to your merge request on GitLab.
-2. Observe the CI/CD pipeline execution as it runs the linting and building stages.
-3. Check the CI/CD job logs for any errors or warnings.
+2. Observe the pipeline execution as it runs the linting and building stages.
+3. Check the job logs for any errors or warnings.
 4. Ensure that the pipeline status reflects the success or failure of the linting and building stages.
 
 [Back to top](#table-of-contents)
@@ -163,7 +163,7 @@ When a developer completes a feature or bug fix, they create a new branch in the
 ![Developer Creates Merge Request](assets/angular-developer-creates-mr.png)
 
 ### 2. CI Pipeline Initiation
-Upon MR creation, GitLab's CI/CD pipeline is automatically triggered. The .gitlab-ci.yml configuration file you've set up defines the stages and jobs to be executed in the pipeline. In our case, the stages are lint and build.
+Upon MR creation, GitLab's CI pipeline is automatically triggered. The .gitlab-ci.yml configuration file you've set up defines the stages and jobs to be executed in the pipeline. In our case, the stages are lint and build.
 ![CI Pipeline Initiation](assets/angular-pipeline-initiation.png)
 
 ### 3. Job Stages
@@ -195,8 +195,8 @@ The maintainer can now review the linting and building results in the Merge Requ
 ## 6. Pre-Merge Checks and Bypassing CI Checks
 Before merging any changes into the main codebase, it's essential to ensure that the Continuous Integration (CI) checks have been successfully completed. These checks verify that code changes adhere to coding standards, pass tests, and build successfully. To enforce this, follow these steps:
 
-1. **Review CI/CD Pipeline Status:** When a Merge Request (MR) is created, monitor the CI/CD pipeline's progress and results. Ensure that all stages, such as linting and building, complete successfully.
-2. **Merge Only After Success:** As a maintainer, it's crucial to enforce the policy of merging changes only when the CI/CD pipeline passes without errors. If the pipeline fails, work with the contributor to address the issues before proceeding with the merge.
+1. **Review Pipeline Status:** When a Merge Request (MR) is created, monitor the pipeline's progress and results. Ensure that all stages, such as linting and building, complete successfully.
+2. **Merge Only After Success:** As a maintainer, it's crucial to enforce the policy of merging changes only when the pipeline passes without errors. If the pipeline fails, work with the contributor to address the issues before proceeding with the merge.
 3. **Bypass Pipeline Check:** In certain scenarios, there may be valid reasons for bypassing the CI checks temporarily. It's recommended that leads add a comment in the MR describing the reason for bypassing the CI checks. This helps maintain a record of the decision and the context behind it.
 
 Please note that bypassing CI checks should be used sparingly and only in exceptional cases. The goal is to maintain code quality and ensure that the CI process is an integral part of our development workflow.
