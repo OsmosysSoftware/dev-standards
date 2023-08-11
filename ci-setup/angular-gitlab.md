@@ -10,7 +10,6 @@
   - [2. Prerequisites](#2-prerequisites)
   - [3. Setting Up Continuous Integration (CI) for Angular App](#3-setting-up-continuous-integration-ci-for-angular-app)
     - [Creating a `.gitlab-ci.yml` File](#creating-a-gitlab-ciyml-file)
-    - [Using Docker Image](#using-docker-image)
     - [Defining Stages](#defining-stages)
     - [Adding Rule Templates](#adding-rule-templates)
     - [Writing Jobs for Linting and Building](#writing-jobs-for-linting-and-building)
@@ -57,9 +56,6 @@ Before setting up the CI pipeline, ensure you have the following prerequisites:
 1. Navigate to your Angular application repository on GitLab.
 2. Create a file named `.gitlab-ci.yml` in the root directory.
 
-### Using Docker Image
-The image keyword in the CI configuration specifies the Docker image to be used as the execution environment for the CI jobs. In this example, we're using the node:16.20-alpine Docker image to provide the necessary tools and dependencies for running the linting and building tasks.
-
 ### Defining Stages
 Define the stages for your CI pipeline. In this guide, we will use two stages: `lint` and `build`.
 
@@ -96,6 +92,8 @@ linting:
   script:
     - npm install
     - npm run lint
+  tags:
+    - Node-18-LTS
   <<: *rules_template
 
 building:
@@ -105,17 +103,15 @@ building:
     - npm run build
   dependencies:
     - linting
+  tags:
+    - Node-18-LTS
   <<: *rules_template
-
-
 ```
 
 ### Complete `.gitlab-ci.yml` Configuration
 Here is the completed configuration for your .gitlab-ci.yml file:
 
 ```yaml
-image: node:16.20-alpine
-
 stages:
   - lint
   - build
@@ -129,6 +125,8 @@ linting:
   script:
     - npm install
     - npm run lint
+  tags:
+    - Node-18-LTS
   <<: *rules_template
 
 building:
@@ -138,6 +136,8 @@ building:
     - npm run build
   dependencies:
     - linting
+  tags:
+    - Node-18-LTS
   <<: *rules_template
 ```
 [Back to top](#table-of-contents)
