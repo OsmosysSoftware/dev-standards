@@ -33,20 +33,20 @@ There are two methods that can be followed for creating and configuring a pipeli
     stages:
       - lint
 
+    variables:
+      push_branches: "/^main|dev$/"
+      merge_request_branches: "/^main|release$/"
+
     lint:
       stage: lint
       tags:
         - PHP-8.1
       rules:
         # Run pipeline if a commit is made to these branches
-        - if: $CI_COMMIT_BRANCH == "main"
+        - if: $CI_COMMIT_BRANCH =~ $push_branches
         # Run pipeline if a merge request is created for these branches
-        - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"
+        - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ $merge_request_branches
       script:
-        - echo "Copy .env file"
-        - cp ${ENV_FILE} .env
-        - echo "Updating dependencies"
-        - composer update
         - echo "Installing dependencies"
         - composer install --prefer-dist --no-progress
         - echo "Linting code"
@@ -65,44 +65,26 @@ There are two methods that can be followed for creating and configuring a pipeli
       This value specifies which runner to use for running this pipeline job. It is possible that the value of this may need to be updated in case of multiple runners.
 
     - ```yaml
-      rules:
-        # Run pipeline if a commit is made to these branches
-        - if: $CI_COMMIT_BRANCH == "main"
-        # Run pipeline if a merge request is created for these branches
-        - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"
+      variables:
+        push_branches: "/^main|dev$/"
+        merge_request_branches: "/^main|release$/"
       ```
 
-      This section adds the rules for when the job should run. In its current state, this job will run only when the commit branch is main (i.e., a commit is made to the main branch), or a merge request is created for the main branch.
+      This section defines regex patterns for the names of the branches for push or merge requests for which the job should run. In its current state, this job will run only when the commit branch is 'main' or 'dev' (i.e., a commit is made to the 'main' or 'dev' branch), or a merge request is created for the 'main' or 'release' branch.
 
       In order to add more branches, it can done as follows:
 
       ```yaml
-      rules:
-        # Run pipeline if a commit is made to these branches
-        - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "some-branch" || $CI_COMMIT_BRANCH == "some-other-branch"
-        # Run pipeline if a merge request is created for these branches
-        - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "another-branch"
+      variables:
+        push_branches: "/^main|dev|feature$/"
+        merge_request_branches: "/^main|release|dev$/"
       ```
 
-      This is evaluated as follows:
-      - If the commit branch is 'main' OR 'some-branch' OR 'some-other-branch', run the job.
-      - If a merge request is created and target branch is 'main' OR 'another-branch', run the job.
+      This regex is evaluated as follows:
+      - If the commit branch matches 'main' or 'dev' or 'feature', run the job.
+      - If a merge request is created and target branch is 'main' or 'release' or 'dev', run the job.
 
-    - ```yaml
-      - echo "Copy .env file"
-      - cp ${ENV_FILE} .env
-      ```
-
-      This can be removed if the project does not have or require any `.env` file for composer operations.
-
-      > Note: Here, the CI/CD Variable `ENV_FILE` is of type `FILE`. Depending on the type of Variable being used, this section can be edited as required.
-
-    - ```yaml
-      - echo "Updating dependencies"
-      - composer update
-      ```
-
-      This can be removed in case it is not desired to update the composer dependencies before executing commands.
+      While adding new branch names, it should be kept in mind that the names will be evaluated in a regex pattern, and as such, escaping of any required characters should be done.
 
 3. Add or edit the commit message, choose the main branch of your project and click on **Commit changes**. You should get a banner message like follows to signify that the file has been created successfully.
 
