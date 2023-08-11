@@ -12,8 +12,8 @@
     - [Creating a `.gitlab-ci.yml` File](#creating-a-gitlab-ciyml-file)
     - [Using Docker Image](#using-docker-image)
     - [Defining Stages](#defining-stages)
+    - [Adding Rule Templates](#adding-rule-templates)
     - [Writing Jobs for Linting and Building](#writing-jobs-for-linting-and-building)
-    - [Specifying Conditions with Rules](#specifying-conditions-with-rules)
     - [Complete `.gitlab-ci.yml` Configuration](#complete-gitlab-ciyml-configuration)
   - [4. Testing the CI Pipeline](#4-testing-the-ci-pipeline)
     - [Creating Merge Requests](#creating-merge-requests)
@@ -23,10 +23,11 @@
     - [2. CI Pipeline Initiation](#2-ci-pipeline-initiation)
     - [3. Job Stages](#3-job-stages)
     - [4. Merge Request Integration](#4-merge-request-integration)
-  - [6. Troubleshooting and Advanced Configuration](#6-troubleshooting-and-advanced-configuration)
+  - [6. Pre-Merge Checks and Bypassing CI Checks](#6-pre-merge-checks-and-bypassing-ci-checks)
+  - [7. Troubleshooting and Advanced Configuration](#7-troubleshooting-and-advanced-configuration)
     - [Handling Merge Conflicts](#handling-merge-conflicts)
     - [Customizing Scripts](#customizing-scripts)
-  - [7. Conclusion](#7-conclusion)
+  - [8. Conclusion](#8-conclusion)
     - [Benefits of CI Setup](#benefits-of-ci-setup)
     - [Future Enhancements](#future-enhancements)
 
@@ -67,6 +68,24 @@ stages:
   - build
 ```
 
+### Adding Rule Templates
+The rules template specifies when a job should run. In this example, jobs will run for merge requests targeting the main, development".
+
+```yaml
+.rules_template: &rules_template
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "development")'
+```
+
+You can modify the rules as per your needs. For example if you want to run the jobs for merge requests targeting any release branch you can modify the condition as following:
+
+```yaml
+.rules_template: &rules_template
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "development" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^release.*/ )'
+
+```
+
 ### Writing Jobs for Linting and Building
 Create jobs within each stage to perform linting and building tasks.
 
@@ -76,28 +95,18 @@ linting:
   script:
     - npm install
     - npm run lint
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "development")'
+  <<: *rules_template
 
 building:
   stage: build
   script:
     - npm install
     - npm run build
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "development")'
   dependencies:
     - linting
+  <<: *rules_template
 
-```
 
-### Specifying Conditions with Rules
-The rules section specifies when a job should run. In this example, jobs will run for merge requests targeting the main, development".
-
-You can modify the rules as per your needs. For example if you want to run the jobs for merge requests targeting any release branch you can modify the condition as following:
-
-```yaml
-- if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "development" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^release.*/ )'
 ```
 
 ### Complete `.gitlab-ci.yml` Configuration
@@ -110,24 +119,25 @@ stages:
   - lint
   - build
 
+.rules_template: &rules_template
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "development")'
+
 linting:
   stage: lint
   script:
     - npm install
     - npm run lint
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "development")'
+  <<: *rules_template
 
 building:
   stage: build
   script:
     - npm install
     - npm run build
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "development")'
   dependencies:
     - linting
-
+  <<: *rules_template
 ```
 
 ## 4. Testing the CI Pipeline
@@ -180,7 +190,15 @@ All the pipeline and job actions can be seen and reviewd under the build menu of
 
 The maintainer can now review the linting and building results in the Merge Request itself. If the pipeline indicates success, it signifies that the code adheres to coding standards and that the build process was successful. This reduces the risk of merging code that may cause errors or disrupt the application.
 
-## 6. Troubleshooting and Advanced Configuration
+## 6. Pre-Merge Checks and Bypassing CI Checks
+Before merging any changes into the main codebase, it's essential to ensure that the Continuous Integration (CI) checks have been successfully completed. These checks verify that code changes adhere to coding standards, pass tests, and build successfully. To enforce this, follow these steps:
+
+1. **Review CI/CD Pipeline Status:** When a Merge Request (MR) is created, monitor the CI/CD pipeline's progress and results. Ensure that all stages, such as linting and building, complete successfully.
+2. **Merge Only After Success:** As a maintainer, it's crucial to enforce the policy of merging changes only when the CI/CD pipeline passes without errors. If the pipeline fails, work with the contributor to address the issues before proceeding with the merge.
+3. **Bypass Pipeline Check:** In certain scenarios, there may be valid reasons for bypassing the CI checks temporarily. It's recommended that leads add a comment in the MR describing the reason for bypassing the CI checks. This helps maintain a record of the decision and the context behind it.
+
+Please note that bypassing CI checks should be used sparingly and only in exceptional cases. The goal is to maintain code quality and ensure that the CI process is an integral part of our development workflow.
+## 7. Troubleshooting and Advanced Configuration
 
 ### Handling Merge Conflicts
 If your merge request encounters merge conflicts during the auto-merge stage, manual intervention may be required to resolve the conflicts before the pipeline can proceed.
@@ -189,7 +207,7 @@ If your merge request encounters merge conflicts during the auto-merge stage, ma
 Modify the scripts in the .gitlab-ci.yml file to match your specific linting and building commands and any additional requirements of your Angular application.
 
 
-## 7. Conclusion
+## 8. Conclusion
 
 ### Benefits of CI Setup
 Setting up a CI pipeline for your Angular application offers several benefits:
