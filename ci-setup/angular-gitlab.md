@@ -74,7 +74,7 @@ variables:
   merge_request_branches: "/^main|development$"
 ```
 
-You can modify the varibale as per your needs. For example if you want to run the jobs for merge requests targeting any release branch you can modify the condition as following:
+You can modify the variable as per your needs. For example if you want to run the jobs for merge requests targeting any release branch you can modify the condition as following:
 
 ```yaml
 variables:
@@ -171,32 +171,32 @@ In this section, we will visually explain the Continuous Integration (CI) proces
 
 ### 1. Developer Creates Merge Request
 When a developer completes a feature or bug fix, they create a new branch in the GitLab repository. They then make changes to the code and create a Merge Request (MR) for code review.
-![Developer Creates Merge Request](assets/angular-developer-creates-mr.png)
+![Developer Creates Merge Request](assets/angular-gitlab_developer-creates-mr.png)
 
 ### 2. CI Pipeline Initiation
 Upon MR creation, GitLab's CI pipeline is automatically triggered. The .gitlab-ci.yml configuration file you've set up defines the stages and jobs to be executed in the pipeline. In our case, the stages are lint and build.
-![CI Pipeline Initiation](assets/angular-pipeline-initiation.png)
+![CI Pipeline Initiation](assets/angular-gitlab_pipeline-initiation.png)
 
 ### 3. Job Stages
 In the `lint` and `build` stage, the CI pipeline installs the necessary dependencies using Node.js and npm. It then runs the linting process on the codebase to check for any coding standards violations or errors.
 
-![Linting Job Preview](assets/angular-linting-job-preview.png)
-![Linting Job Preview](assets/angular-linting-job-start.png)
+![Linting Job Preview](assets/angular-gitlab_linting-job-preview.png)
+![Linting Job Preview](assets/angular-gitlab_linting-job-start.png)
 
 - If Linting or Build Fails:
   - The CI pipeline reports issues in the job logs.
   - The Merge Request status is updated to indicate that the pipeline failed.
   - Developers review the errors in the job logs and make necessary code changes.
-  ![Linting Fails](assets/angular-linting-job-failed.png)
-  ![MR when Linting Fails](assets/angular-pr-when-pipeline-fails.png)
+  ![Linting Fails](assets/angular-gitlab_linting-job-failed.png)
+  ![MR when Linting Fails](assets/angular-gitlab_pr-when-pipeline-fails.png)
 
 - If Linting and Build Passes:
   - The Merge Request status is updated to indicate that the linting stage passed.
-    ![All job Passes](assets/angular-job-succeed.png)
-    ![MR when All job Passes](assets/angular-mr-when-pipeline-succeed.png)
+    ![All job passes](assets/angular-gitlab_job-succeed.png)
+    ![MR when all job Passes](assets/angular-gitlab_mr-when-pipeline-succeed.png)
 
-All the pipeline and job actions can be seen and reviewd under the build menu of gitlab
-![All pipelines and jobs](assets/angular-all-pipelines.png)
+All the pipeline and job actions can be seen and reviewed under the build menu of gitlab
+![All pipelines and jobs](assets/angular-gitlab_all-pipelines.png)
 
 ### 4. Merge Request Integration
 
@@ -234,3 +234,5 @@ Setting up a CI pipeline for your Angular application offers several benefits:
 
 ### Future Enhancements
 Consider enhancing your CI pipeline by adding additional stages such as unit testing, integration testing, and deployment to further improve the quality and reliability of your Angular application.
+
+[Back to top](#table-of-contents)
