@@ -19,7 +19,7 @@
     - [Creating Merge Requests](#creating-merge-requests)
     - [Observing Pipeline Execution](#observing-pipeline-execution)
 5. [Visualizing the CI Process in Gitlab](#5-visualizing-the-ci-process-in-gitlab)
-    1. [Developer Creates Merge Request](#1-developer-creates-merge-requestcommit)
+    1. [Developer Creates Merge Request/Commit](#1-developer-creates-merge-requestcommit)
     2. [CI Pipeline Initiation](#2-ci-pipeline-initiation)
     3. [Job Stages](#3-job-stages)
     4. [Merge Request Integration](#4-merge-request-integration)
