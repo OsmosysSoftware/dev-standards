@@ -11,7 +11,7 @@
   - [3. Setting Up Workflow for Angular App](#3-setting-up-workflow-for-angular-app)
     - [Creating a `.yml` File](#creating-a-yml-file)
     - [Assign Name](#assign-name)
-    - [Defining Occurrence](#defining-occurrence)
+    - [Defining Workflow Triggers](#defining-workflow-triggers)
     - [Writing Jobs for Linting and Building](#writing-jobs-for-linting-and-building)
     - [Complete `main.yml` Configuration](#complete-mainyml-configuration)
   - [4. Testing the Workflow](#4-testing-the-workflow)
@@ -34,7 +34,7 @@
 ## 1. Introduction
 
 ### Purpose
-The purpose of this document is to provide a step-by-step guide for setting up a Workflow via GitHub actions for an Angular application in GitHub. The workflow will automate linting and building processes to ensure code quality and reliability.
+The purpose of this document is to provide a step-by-step guide for setting up a Workflow via GitHub actions for an Angular application. The workflow will automate linting and building processes to ensure code quality and reliability.
 
 ### Scope
 This document covers the basic setup of a Workflow via GitHub actions for an Angular application, focusing on linting and building stages. More advanced topics, such as deployment and additional stages, are outside the scope of this guide.
@@ -65,8 +65,8 @@ Assign a name to your workflow.
 name: Standard Angular App Flow
 ```
 
-### Defining Occurrence
-Define occurrences when you want to execute your workflow. In the below case workflow gets triggered on each pull request to `main` or `development` branch.
+### Defining Workflow Triggers
+To control when your workflow is executed, you can define its trigger conditions using the on keyword. In the example below, the workflow is set to trigger on each pull request made to the main or development branch:
 
 ```yaml
 on:
@@ -174,10 +174,12 @@ In this section, we will visually explain the workflow process in GitHub and how
 
 ### 1. Developer Creates Pull Request
 When a developer completes a feature or bug fix, they create a new branch in the GitHub repository. They then make changes to the code and create a Pull Request (PR) for code review.
+
 ![Developer Creates Pull Request](assets/angular-github_developer-creates-pr.png)
 
 ### 2. Workflow Initiation
 Upon PR creation, GitHub Action's workflow is automatically triggered. The main.yml configuration file you've set up defines the stages and jobs to be executed in the workflow. In our case, the stages are lint and build.
+
 ![Workflow Initiation](assets/angular-github_workflow-initiation.png)
 
 ### 3. Job Stages
@@ -190,15 +192,18 @@ In the `lint` and `build` stage, the workflow installs the necessary dependencie
   - The workflow reports issues in the job logs.
   - The Pull Request status is updated to indicate that the workflow failed.
   - Developers review the errors in the job logs and make necessary code changes.
+  - 
   ![Linting Fails](assets/angular-github_linting-job-failed.png)
   ![PR when Linting Fails](assets/angular-github_pr-when-workflow-fails.png)
 
 - If Linting and Build Passes:
   - The Pull Request status is updated to indicate that the linting stage passed.
+  
     ![All job passes](assets/angular-github_job-succeed.png)
     ![PR when all job Passes](assets/angular-github_mr-when-workflow-succeed.png)
 
 All the workflows can be seen and reviewed under the Actions tab of GitHub
+
 ![All Workflows](assets/angular-github_all-workflows.png)
 
 ### 4. Pull Request Integration
