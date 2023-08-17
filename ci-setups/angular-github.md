@@ -83,7 +83,7 @@ on:
 ```
 
 ### Writing Jobs for Linting and Building
-Create jobs within each stage to perform linting and building tasks. We will have to jobs in this workflow. One is linting and another is building. 
+Create jobs within each stage to perform linting and building tasks. We will have to jobs in this workflow. One is linting and another is building.
 
 ```yaml
 jobs:
@@ -99,7 +99,7 @@ jobs:
 
       - name: Run linting
         run: npm run lint
-          
+
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -138,7 +138,7 @@ jobs:
 
       - name: Run linting
         run: npm run lint
-          
+
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -192,13 +192,13 @@ In the `lint` and `build` stage, the workflow installs the necessary dependencie
   - The workflow reports issues in the job logs.
   - The Pull Request status is updated to indicate that the workflow failed.
   - Developers review the errors in the job logs and make necessary code changes.
-  - 
+
   ![Linting Fails](assets/angular-github_linting-job-failed.png)
   ![PR when Linting Fails](assets/angular-github_pr-when-workflow-fails.png)
 
 - If Linting and Build Passes:
   - The Pull Request status is updated to indicate that the linting stage passed.
-  
+
     ![All job passes](assets/angular-github_job-succeed.png)
     ![PR when all job Passes](assets/angular-github_mr-when-workflow-succeed.png)
 
