@@ -1,4 +1,4 @@
-# Continuous Integration (CI) Setup for PHP projects in Gitlab
+# Continuous Integration (CI) Setup for PHP projects in GitLab
 
 ## Table of Contents
 
@@ -8,7 +8,7 @@
 2. [Prerequisites](#2-prerequisites)
 3. [Setting up Continuous Integration (CI) for PHP Project](#3-setting-up-continuous-integration-ci-for-php-project)
     - [Creating a `.gitlab-ci.yml` File](#creating-a-gitlab-ciyml-file)
-        - [Method 1: Using Gitlab UI](#method-1-using-gitlab-ui)
+        - [Method 1: Using GitLab UI](#method-1-using-gitlab-ui)
         - [Method 2: Manually Creating Pipeline File](#method-2-manually-creating-pipeline-file)
     - [Defining Stages](#defining-stages)
     - [Defining Variables](#defining-variables)
@@ -18,7 +18,7 @@
     - [Making Commits](#making-commits)
     - [Creating Merge Requests](#creating-merge-requests)
     - [Observing Pipeline Execution](#observing-pipeline-execution)
-5. [Visualizing the CI Process in Gitlab](#5-visualizing-the-ci-process-in-gitlab)
+5. [Visualizing the CI Process in GitLab](#5-visualizing-the-ci-process-in-gitlab)
     1. [Developer Creates Merge Request/Commit](#1-developer-creates-merge-requestcommit)
     2. [CI Pipeline Initiation](#2-ci-pipeline-initiation)
     3. [Job Stages](#3-job-stages)
@@ -48,7 +48,7 @@ This document covers the basic setup of a CI pipeline for a PHP project in GitLa
 Before setting up the CI pipeline, ensure you have the following prerequisites:
 
 - A GitLab account with access to your target repository
-- An existing or new repository with the PHP project hosted on Gitlab
+- An existing or new repository with the PHP project hosted on GitLab
 - All required configurations done as per PHP coding standards' [Enforcing tools and config](https://github.com/OsmosysSoftware/dev-standards/blob/main/coding-standards/php.md#enforcing-tools-and-config)
 
 [Back to top](#table-of-contents)
@@ -57,11 +57,11 @@ Before setting up the CI pipeline, ensure you have the following prerequisites:
 
 ### Creating a `.gitlab-ci.yml` File
 
-#### Method 1: Using Gitlab UI
+#### Method 1: Using GitLab UI
 
 1. Open your project repository and click on **Build->Pipeline editor**. Then click on on the **Configure pipeline** button.
 
-    ![Gitlab Pipeline editor](assets/php-gitlab_pipeline-editor.png)
+    ![GitLab Pipeline editor](assets/php-gitlab_pipeline-editor.png)
 
 2. A new page will open for editing and creating the `.gitlab-ci.yml` file. Remove all the content that exists in the file.
 
@@ -69,13 +69,13 @@ Before setting up the CI pipeline, ensure you have the following prerequisites:
 
 4. Add or edit the commit message, choose the main branch of your project and click on **Commit changes**. You should get a banner message like follows to signify that the file has been created successfully.
 
-    ![Gitlab Pipeline created successfully](assets/php-gitlab_pipeline-created.png)
+    ![GitLab Pipeline created successfully](assets/php-gitlab_pipeline-created.png)
 
     The creation of this `.gitlab-ci.yml` file can also be verified by checking in the root of the project.
 
 #### Method 2: Manually Creating Pipeline File
 
-1. Create or clone the repository on your system. Alternatively, open the repository on Gitlab.
+1. Create or clone the repository on your system. Alternatively, open the repository on GitLab.
 2. In the root of your project, create a file `.gitlab-ci.yml` and open it.
 3. Follow the steps from [Defining Stages](#defining-stages) and onwards to understand the creation and configuration of this file. Alternatively, paste the configuration in [Complete `.gitlab-ci.yml` Configuration](#complete-gitlab-ciyml-configuration) and make changes as required.
 4. Commit and push this file to the main branch of your repository. The workflow file should now be created in your project.
@@ -193,7 +193,7 @@ lint:
 
 ### Making Commits
 1. While on the 'main' or 'dev' branch, make changes to your code.
-2. Commit and push the made changes to Gitlab.
+2. Commit and push the made changes to GitLab.
 
 ### Creating Merge Requests
 
@@ -210,7 +210,7 @@ lint:
 
 [Back to top](#table-of-contents)
 
-## 5. Visualizing the CI Process in Gitlab
+## 5. Visualizing the CI Process in GitLab
 
 In this section, we will visually explain the Continuous Integration (CI) process in GitLab and how it works for your PHP project.
 
@@ -224,13 +224,13 @@ Developers may also make commits to branches that are covered by the `rules` as 
 
 Upon MR creation/commit, GitLab's CI pipeline is automatically triggered. The `.gitlab-ci.yml` configuration file you've set up defines the stages and jobs to be executed in the pipeline. In our case, there is only one stage, `lint`.
 
-![Gitlab MR Pipeline](assets/php-gitlab_mr-pipeline.png)
+![GitLab MR Pipeline](assets/php-gitlab_mr-pipeline.png)
 
 ### 3. Job Stages
 
 The `lint` stage will install the required dependencies using `composer`. It then runs the linting process, followed by code analysis on the codebase to check for any coding standards violations or errors.
 
-![Gitlab MR Pipeline stage](assets/php-gitlab_mr-pipeline-stage.png)
+![GitLab MR Pipeline stage](assets/php-gitlab_mr-pipeline-stage.png)
 
 **If `lint` fails**
 
@@ -238,17 +238,17 @@ The `lint` stage will install the required dependencies using `composer`. It the
 - The Merge Request/commit status is updated to indicate that the pipeline failed.
 - Developers review the errors in the job logs and make necessary code changes and fixes.
 
-![Gitlab MR Pipeline failed](assets/php-gitlab_mr-pipeline-failed.png)
+![GitLab MR Pipeline failed](assets/php-gitlab_mr-pipeline-failed.png)
 
 **If `lint` passes**
 
 - The Merge Request/commit status is updated to indicate that the pipeline passed.
 
-![Gitlab MR Pipeline passed](assets/php-gitlab_mr-pipeline-passed.png)
+![GitLab MR Pipeline passed](assets/php-gitlab_mr-pipeline-passed.png)
 
-All the Pipelines and Jobs can be seen and reviewed under the **Build** menu of gitlab:
+All the Pipelines and Jobs can be seen and reviewed under the **Build** menu of GitLab:
 
-![Gitlab MR Pipelines](assets/php-gitlab_pipelines.png)
+![GitLab MR Pipelines](assets/php-gitlab_pipelines.png)
 
 ### 4. Merge Request Integration
 
