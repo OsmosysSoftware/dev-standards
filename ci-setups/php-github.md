@@ -1,4 +1,4 @@
-# Continuous Integration (CI) Setup for PHP projects in Github
+# Continuous Integration (CI) Setup for PHP projects in GitHub
 
 ## Table of Contents
 
@@ -8,7 +8,7 @@
 2. [Prerequisites](#2-prerequisites)
 3. [Setting up Continuous Integration (CI) for PHP Project](#3-setting-up-continuous-integration-ci-for-php-project)
     - [Creating a Workflow File](#creating-a-workflow-file)
-        - [Method 1: Using Github UI](#method-1-using-github-ui)
+        - [Method 1: Using GitHub UI](#method-1-using-github-ui)
         - [Method 2: Manually Creating Workflow File](#method-2-manually-creating-workflow-file)
     - [Assign Name](#assign-name)
     - [Defining `on` Events](#defining-on-events)
@@ -19,7 +19,7 @@
     - [Pushing Changes](#pushing-changes)
     - [Creating Pull Requests](#creating-pull-requests)
     - [Observing Workflow Run](#observing-workflow-run)
-5. [Visualizing the CI Process in Github](#5-visualizing-the-ci-process-in-github)
+5. [Visualizing the CI Process in GitHub](#5-visualizing-the-ci-process-in-github)
     1. [Developer Creates Pull Request/Pushes](#1-developer-creates-pull-requestpushes)
     2. [CI Workflow Initiation](#2-ci-workflow-initiation)
     3. [Job Steps](#3-job-steps)
@@ -36,18 +36,18 @@
 
 ### Purpose
 
-The purpose of this document is to provide a step-by-step guide for setting up a Continuous Integration (CI) workflow for a PHP project in Github. The CI workflow will automate the linting and code analysis processes to ensure code quality and reliability.
+The purpose of this document is to provide a step-by-step guide for setting up a Continuous Integration (CI) workflow for a PHP project in GitHub. The CI workflow will automate the linting and code analysis processes to ensure code quality and reliability.
 
 ### Scope
 
-This document covers the basic setup of a CI workflow for a PHP project in Github, focusing on linting and code analysis steps. More advanced topics, such as deployment and additional steps, are outside the scope of this guide.
+This document covers the basic setup of a CI workflow for a PHP project in GitHub, focusing on linting and code analysis steps. More advanced topics, such as deployment and additional steps, are outside the scope of this guide.
 
 [Back to top](#table-of-contents)
 
 ## 2. Prerequisites
 
-- A Github account with access to your target repository
-- An existing or new repository with the PHP project hosted on Github
+- A GitHub account with access to your target repository
+- An existing or new repository with the PHP project hosted on GitHub
 - All required configurations done as per PHP coding standards' [Enforcing tools and config](https://github.com/OsmosysSoftware/dev-standards/blob/main/coding-standards/php.md#enforcing-tools-and-config)
 
 [Back to top](#table-of-contents)
@@ -56,31 +56,31 @@ This document covers the basic setup of a CI workflow for a PHP project in Githu
 
 ### Creating a Workflow File
 
-#### Method 1: Using Github UI
+#### Method 1: Using GitHub UI
 
 1. Open your project repository and click on the **Actions** tab
 
-    ![Github Actions Tab](assets/php-github_actions-tab.png)
+    ![GitHub Actions Tab](assets/php-github_actions-tab.png)
 
 2. A new page **Choose a workflow** will open, click on the **set up a workflow yourself** link
 
-    ![Github Choose a workflow](assets/php-github_choose-workflow.png)
+    ![GitHub Choose a workflow](assets/php-github_choose-workflow.png)
 
     > Note: In case the project already has some other workflows set up, click on the **New workflow** button on the left side. This will take you to the above page.
 
 3. A new page will open which will by default create a new file `.github/workflows/main.yml` and allow editing it. For the purposes of this guide, we will rename the file to `php-lint.yml`, though it can be named as seemed fit.
 
-    ![Github New workflow](assets/php-github_new-workflow.png)
+    ![GitHub New workflow](assets/php-github_new-workflow.png)
 
 4. Follow the steps from [Defining `on` Events](#defining-on-events) and onwards to understand the creation and configuration of this file. Alternatively, paste the configuration in [Complete Workflow Configuration](#complete-workflow-configuration) and make changes as required.
 
 5. Finally, click on the **Commit changes...** button on the right and add the required commit message and description. The file should now be created in the project with the path `.github/workflows/php-lint.yml`.
 
-    ![Github Created workflow](assets/php-github_created-workflow.png)
+    ![GitHub Created workflow](assets/php-github_created-workflow.png)
 
 #### Method 2: Manually Creating Workflow File
 
-1. Create or clone the repository on your system. Alternatively, open the repository on Github.
+1. Create or clone the repository on your system. Alternatively, open the repository on GitHub.
 2. In the root of your project, create a folder structure `.github/workflows/` if it does not already exist.
 3. Inside this folder, add a new file `php-lint.yml`. File can be named as required, but it should be a `.yml` file.
 4. Follow the steps from [Defining `on` Events](#defining-on-events) and onwards to understand the creation and configuration of this file. Alternatively, paste the configuration in [Complete Workflow Configuration](#complete-workflow-configuration) and make changes as required.
@@ -212,38 +212,38 @@ jobs:
 
 ### Pushing Changes
 1. While on the 'main' or 'dev' branch, make changes to your code.
-2. Commit and push the made changes to Github.
+2. Commit and push the made changes to GitHub.
 
 ### Creating Pull Requests
 
 1. Create a new branch in your PHP project repository.
-2. Make changes to your code and push the branch to Github.
+2. Make changes to your code and push the branch to GitHub.
 3. Create a Pull Request (PR) targeting the 'main' or 'release' branch.
 
 ### Observing Workflow Run
 
-1. Navigate to your Pull Request/commit on Github.
+1. Navigate to your Pull Request/commit on GitHub.
 2. Check and observe the workflow run details for linting and code analysis.
 3. Check the job logs for any errors or warnings.
 4. Ensure that the workflow status reflects the success or failure of the workflow job.
 
 [Back to top](#table-of-contents)
 
-## 5. Visualizing the CI Process in Github
+## 5. Visualizing the CI Process in GitHub
 
-In this section, we will visually explain the Continuous Integration (CI) process in Github and how it works for your PHP project.
+In this section, we will visually explain the Continuous Integration (CI) process in GitHub and how it works for your PHP project.
 
 ### 1. Developer Creates Pull Request/Pushes
 
-When a developer works on a feature or bug fix, they create a new branch in the Github repository. They then make changes to the code and create a Pull Request (PR) for code review.
+When a developer works on a feature or bug fix, they create a new branch in the GitHub repository. They then make changes to the code and create a Pull Request (PR) for code review.
 
 Developers may also make pushes to branches that are covered by the `on` event `push` as described in the CI workflow.
 
 ### 2. CI Workflow Initiation
 
-Upon PR creation/push, Github's CI workflow is automatically triggered. The `php-lint.yml` configuration file you've set up defines the triggers for and jobs to be executed in the workflow.
+Upon PR creation/push, GitHub's CI workflow is automatically triggered. The `php-lint.yml` configuration file you've set up defines the triggers for and jobs to be executed in the workflow.
 
-![Github PR workflow](assets/php-github_pr-workflow.png)
+![GitHub PR workflow](assets/php-github_pr-workflow.png)
 
 ### 3. Job Steps
 
@@ -255,17 +255,17 @@ The defined steps will install the required dependencies using `composer` and PH
 - The Pull Request/commit status is updated to indicate that the workflow failed.
 - Developers review the errors in the job logs and make necessary code changes and fixes.
 
-![Github PR workflow failed](assets/php-github_pr-workflow-failed.png)
+![GitHub PR workflow failed](assets/php-github_pr-workflow-failed.png)
 
 **If job succeeds**
 
 - The Pull Request/commit status is updated to indicate that the workflow succeeded.
 
-![Github PR workflow success](assets/php-github_pr-workflow-success.png)
+![GitHub PR workflow success](assets/php-github_pr-workflow-success.png)
 
-All the Workflow runs can be seen and reviewed under the **Actions** tab of Github:
+All the Workflow runs can be seen and reviewed under the **Actions** tab of GitHub:
 
-![Github Actions](assets/php-github_actions-page.png)
+![GitHub Actions](assets/php-github_actions-page.png)
 
 ### 4. Pull Request Integration
 
