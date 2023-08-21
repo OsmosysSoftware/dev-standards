@@ -1,10 +1,10 @@
-# Dev Standards Repository
+# Osmosys Dev Standards
 
-Welcome to the Dev Standards Repository! This open-source project serves as a central resource for documenting linting standards, CI setup guides, and coding practices across a wide range of programming languages. By collaborating here, you're contributing to the development community's efforts to streamline workflows, improve code quality, and promote best practices.
+Welcome to the Osmosys's Dev Standards Repository! This open-source project is a cornerstone of our commitment to excellence in software development. We've curated an extensive collection of coding standards, CI setup guides, and best practices spanning a multitude of programming languages. By collaborating here, you're contributing to the development community's efforts to streamline workflows, improve code quality, and promote best practices.
 
 ## Table of Contents
 
-- [Dev Standards Repository](#dev-standards-repository)
+- [Osmosys Dev Standards](#osmosys-dev-standards)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Languages Covered](#languages-covered)
@@ -50,7 +50,7 @@ We provide guides for a diverse array of languages and technologies, including b
 
 ## Getting Started
 
-If you're new to contributing to open source, fear not! We've got you covered. Our [Contribution Guidelines](CONTRIBUTING.md) will walk you through the process step-by-step. Whether you're an experienced developer or just starting out, your contributions are highly valuable.
+To access the guides, simply navigate through the folders corresponding to your area of interest. Once inside the chosen folder, you'll find a list of dedicated guides in Markdown format that outlines the recommended coding conventions and practices related to different language. You can choose the one you are interested in. By following these guides, you can ensure consistent and high-quality coding practices in your projects.
 
 ## Contributing
 
@@ -58,6 +58,9 @@ We believe in the power of collaborative learning. The heart of this repository 
 
 ## Join Us!
 
-The Dev Standards Repository is an ever-growing project fueled by the passion of developers like you. Together, we're making coding standards more accessible and improving software development practices across the globe. We welcome you to contribute, learn, and make a positive impact.
+The Osmosys Dev Standards Repository is a testament to the power of collaborative learning and growth. By being part of this repository, you're not only advancing your skills but also contributing to the elevation of industry standards. Together, we're shaping the future of software development.
 
-Thank you for being a part of the Dev Standards community!
+Thank you for being a part of the Osmosys's Dev Standards community!
+
+
+**Visit [www.osmosys.co](https://osmosys.co/) to learn more about Osmosys and our commitment to excellence.**
