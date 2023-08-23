@@ -36,17 +36,17 @@
 
 Here are some examples - 
 ``` json
-1. {"timestamp": "2023-05-26T10:15:30.123Z", "level": "INFO", "severity": "LOW", "requestId": "12345", "httpMethod": "GET", "requestUrl": "/api/example", "message": "This is an informational log."}
-2. {"timestamp": "2023-05-26T10:16:30.456Z", "level": "WARNING", "severity": "MED", "requestId": "67890", "httpMethod": "POST", "requestUrl": "/api/example", "message": "This is a warning log."}
-3. {"timestamp": "2023-05-26T10:17:30.789Z", "level": "ERROR", "severity": "HIGH", "requestId": "23456", "httpMethod": "GET", "requestUrl": "/api/example", "message": "This is an error log.", "stackTrace": "Exception occurred at line 42\n\tat com.example.app.MyClass.method1(MyClass.java:42)\n\tat com.example.app.MyClass.method2(MyClass.java:64)"}
-4. {"timestamp": "2023-05-26T10:18:30.012Z", "level": "INFO", "severity": "LOW", "requestId": "54321", "httpMethod": "GET", "requestUrl": "/api/example", "message": "Another informational log."}
-5. {"timestamp": "2023-05-26T10:19:30.345Z", "level": "ERROR", "severity": "HIGH", "requestId": "98765", "httpMethod": "POST", "requestUrl": "/api/example", "message": "This is an error log with a multiline stack trace.", "stackTrace": "Exception occurred at line 42\n\tat com.example.app.MyClass.method1(MyClass.java:42)\n\tat com.example.app.MyClass.method2(MyClass.java:64)\nCaused by: NullPointerException\n\tat com.example.app.MyClass.method3(MyClass.java:85)\n\t..."}
-6. {"timestamp": "2023-05-26T10:20:30.678Z", "level": "INFO", "severity": "LOW", "requestId": "24680", "httpMethod": "GET", "requestUrl": "/api/example", "message": "Yet another informational log."}
-7. {"timestamp": "2023-05-26T10:21:30.901Z", "level": "ERROR", "severity": "HIGH", "requestId": "13579", "httpMethod": "POST", "requestUrl": "/api/example", "message": "This is an error log with a multiline stack trace.", "stackTrace": "Exception occurred at line 42\n\tat com.example.app.MyClass.method1(MyClass.java:42)\n\tat com.example.app.MyClass.method2(MyClass.java:64)\nCaused by: RuntimeException\n\tat com.example.app.MyClass.method4(MyClass.java:102)\n\t..."}
-8. {"timestamp": "2023-05-26T10:22:31.234Z", "level": "INFO", "severity": "LOW", "requestId": "31415", "httpMethod": "GET", "requestUrl": "/api/example", "message": "Another informational log."}
+{"timestamp": "2023-05-26T10:15:30.123Z", "level": "INFO", "severity": "LOW", "requestId": "12345", "httpMethod": "GET", "requestUrl": "/api/example", "message": "This is an informational log."}
+{"timestamp": "2023-05-26T10:16:30.456Z", "level": "WARNING", "severity": "MED", "requestId": "67890", "httpMethod": "POST", "requestUrl": "/api/example", "message": "This is a warning log."}
+{"timestamp": "2023-05-26T10:17:30.789Z", "level": "ERROR", "severity": "HIGH", "requestId": "23456", "httpMethod": "GET", "requestUrl": "/api/example", "message": "This is an error log.", "stackTrace": "Exception occurred at line 42\n\tat com.example.app.MyClass.method1(MyClass.java:42)\n\tat com.example.app.MyClass.method2(MyClass.java:64)"}
+{"timestamp": "2023-05-26T10:18:30.012Z", "level": "INFO", "severity": "LOW", "requestId": "54321", "httpMethod": "GET", "requestUrl": "/api/example", "message": "Another informational log."}
+{"timestamp": "2023-05-26T10:19:30.345Z", "level": "ERROR", "severity": "HIGH", "requestId": "98765", "httpMethod": "POST", "requestUrl": "/api/example", "message": "This is an error log with a multiline stack trace.", "stackTrace": "Exception occurred at line 42\n\tat com.example.app.MyClass.method1(MyClass.java:42)\n\tat com.example.app.MyClass.method2(MyClass.java:64)\nCaused by: NullPointerException\n\tat com.example.app.MyClass.method3(MyClass.java:85)\n\t..."}
+{"timestamp": "2023-05-26T10:20:30.678Z", "level": "INFO", "severity": "LOW", "requestId": "24680", "httpMethod": "GET", "requestUrl": "/api/example", "message": "Yet another informational log."}
+{"timestamp": "2023-05-26T10:21:30.901Z", "level": "ERROR", "severity": "HIGH", "requestId": "13579", "httpMethod": "POST", "requestUrl": "/api/example", "message": "This is an error log with a multiline stack trace.", "stackTrace": "Exception occurred at line 42\n\tat com.example.app.MyClass.method1(MyClass.java:42)\n\tat com.example.app.MyClass.method2(MyClass.java:64)\nCaused by: RuntimeException\n\tat com.example.app.MyClass.method4(MyClass.java:102)\n\t..."}
+{"timestamp": "2023-05-26T10:22:31.234Z", "level": "INFO", "severity": "LOW", "requestId": "31415", "httpMethod": "GET", "requestUrl": "/api/example", "message": "Another informational log."}
 ```
 
-## Why ndjson?	
+## Why `ndjson`?
 - Easy to read and parse, with each line representing a standalone JSON object.
 - Suitable for streaming and processing large amounts of data.
 - Suitable for a lot of data structures in the log, especially if we are logging stack trace. 
