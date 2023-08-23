@@ -46,7 +46,7 @@ Here are some examples -
 8. {"timestamp": "2023-05-26T10:22:31.234Z", "level": "INFO", "severity": "LOW", "requestId": "31415", "httpMethod": "GET", "requestUrl": "/api/example", "message": "Another informational log."}
 ```
 
-## Why ndjson?	
+## Why `ndjson`?
 - Easy to read and parse, with each line representing a standalone JSON object.
 - Suitable for streaming and processing large amounts of data.
 - Suitable for a lot of data structures in the log, especially if we are logging stack trace. 
