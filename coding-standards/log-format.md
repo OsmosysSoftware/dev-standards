@@ -23,16 +23,19 @@
 ```
 
 ### Explanation of each component: 
-- [timestamp] : Represents the timestamp when the log entry was created. Use ISO 8601 format, which is widely recognized and provides a standardized representation of date and time (Mandatory)
-- [level] : Represents the log level, such as INFO, WARN, ERROR, or FATAL (Mandatory)
-- [severity] : Represents the severity level associated with the log entry (e.g., LOW, MEDIUM, HIGH)  (Mandatory)
-- [tracebackId] : A unique identifier associated with the request  (Mandatory)
-- [url] : Represents the API end point or Page URL (Optional)
-- [httpMethod] : Type of request  (Optional)
-- [source] : Function name, Module & Sub module names etc.,  (Mandatory)
-- [data] : Any relevant data like user information, activity, performance metrics, data changes etc., (Optional)
-- [message] - Contains the log message or description of the event (Mandatory)
-- [stackTrace] - The stack trace of the exception, providing details about the method calls leading to the exception. It includes file names, line numbers, and method names (Optional)
+
+| Component     | Description                                     |
+| ------------- | ----------------------------------------------- |
+| [timestamp]   | Represents the timestamp when the log entry was created. Use ISO 8601 format, which is widely recognized and provides a standardized representation of date and time (Mandatory) |
+| [level]       | Represents the log level, such as INFO, WARN, ERROR, or FATAL (Mandatory) |
+| [severity]    | Represents the severity level associated with the log entry (e.g., LOW, MEDIUM, HIGH) (Mandatory) |
+| [tracebackId] | A unique identifier associated with the request (Mandatory) |
+| [url]         | Represents the API end point or Page URL (Optional) |
+| [httpMethod]  | Type of request (Optional) |
+| [source]      | Function name, Module & Sub module names etc. (Mandatory) |
+| [data]        | Any relevant data like user information, activity, performance metrics, data changes etc. (Optional) |
+| [message]     | Contains the log message or description of the event (Mandatory) |
+| [stackTrace]  | The stack trace of the exception, providing details about the method calls leading to the exception. It includes file names, line numbers, and method names (Optional) |
 
 Here are some examples - 
 ``` json
