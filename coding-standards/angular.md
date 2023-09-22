@@ -257,7 +257,7 @@ To ensure proper setup, add the following configuration files to your project's 
             "no-empty-function": [
               "error",
               {
-                "allow": ["arrowFunctions", "functions", "methods"]
+                "allow": ["arrowFunctions", "functions", "methods", "constructors"]
               }
             ],
             "no-bitwise": "error",
@@ -461,7 +461,8 @@ To ensure proper setup, add the following configuration files to your project's 
                 "variables": true
               }
             ],
-            "no-useless-constructor": "error",
+            "no-useless-constructor": "off",
+            "@typescript-eslint/no-useless-constructor": "error",
             "semi": ["error", "always"],
             "space-before-function-paren": [
               "error",
