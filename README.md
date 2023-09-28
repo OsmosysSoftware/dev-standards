@@ -46,6 +46,7 @@ We provide guides for a diverse array of languages and technologies, including b
 - [HTML](./coding-standards/html.md)
 - [Log Format](./coding-standards/log-format.md)
 - [PHP](./coding-standards/php.md)
+- [GIT](./coding-standards/git.md)
 
 ...and many more!
 
