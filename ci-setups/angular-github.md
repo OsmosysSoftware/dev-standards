@@ -94,6 +94,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Adjust this to the Node.js version your project needs
+
       - name: Install dependencies
         run: npm install
 
@@ -107,6 +112,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Adjust this to the Node.js version your project needs
 
       - name: Install dependencies
         run: npm install
@@ -133,6 +143,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Adjust this to the Node.js version your project needs
+
       - name: Install dependencies
         run: npm install
 
@@ -146,6 +161,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Adjust this to the Node.js version your project needs
 
       - name: Install dependencies
         run: npm install
