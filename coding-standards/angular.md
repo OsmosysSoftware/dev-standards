@@ -116,8 +116,8 @@ To ensure proper setup, add the following configuration files to your project's 
         "browser": true,
         "node": true
       },
-      "extends": ["plugin:@angular-eslint/recommended"],
-      "rules": {},
+      "extends": ["plugin:@angular-eslint/recommended", "plugin:prettier/recommended"],
+      "rules": { "prettier/prettier": "error" },
       // Eslint for HTML files
       "overrides": [
         {
@@ -132,7 +132,7 @@ To ensure proper setup, add the following configuration files to your project's 
           ],
           "rules": {
             // Custom rules for HTML by Osmosys
-            "max-len": "warn"
+            "max-len": ["warn", { "code": 100 }]
           }
         },
         // Custom rules for TypeScript
@@ -154,6 +154,17 @@ To ensure proper setup, add the following configuration files to your project's 
           "rules": {
             // Custom rules for typescript by Osmosys
             "@typescript-eslint/no-explicit-any": "error",
+            "padding-line-between-statements": [
+              "error",
+              { "blankLine": "always", "prev": "*", "next": "function" },
+              { "blankLine": "always", "prev": "function", "next": "*" },
+              { "blankLine": "always", "prev": "*", "next": "if" },
+              { "blankLine": "always", "prev": "if", "next": "*" },
+              { "blankLine": "always", "prev": "*", "next": "for" },
+              { "blankLine": "always", "prev": "for", "next": "*" },
+              { "blankLine": "always", "prev": "*", "next": "while" },
+              { "blankLine": "always", "prev": "while", "next": "*" }
+            ],
             "arrow-body-style": [
               "error",
               "as-needed",
@@ -261,7 +272,6 @@ To ensure proper setup, add the following configuration files to your project's 
               }
             ],
             "no-bitwise": "error",
-            "no-console": "warn",
             "no-new-wrappers": "error",
             "no-debugger": "error",
             "constructor-super": "error",
@@ -271,7 +281,8 @@ To ensure proper setup, add the following configuration files to your project's 
             "@typescript-eslint/no-inferrable-types": "error",
             "@typescript-eslint/no-misused-new": "error",
             "@typescript-eslint/no-non-null-assertion": "error",
-            "no-shadow": "error",
+            "no-shadow": "off",
+            "@typescript-eslint/no-shadow": ["error"],
             "dot-notation": [
               "error",
               {
@@ -475,7 +486,8 @@ To ensure proper setup, add the following configuration files to your project's 
             "require-await": "off",
             "no-return-await": "error",
             "space-infix-ops": "error",
-            "object-curly-spacing": ["error", "always"]
+            "object-curly-spacing": ["error", "always"],
+            "import/prefer-default-export": "off"
           }
         },
         // Configuration for unit and e2e spec files
@@ -496,7 +508,7 @@ To ensure proper setup, add the following configuration files to your project's 
             "ecmaVersion": 2020,
             "sourceType": "module"
           },
-          "plugins": ["@angular-eslint/template"],
+          "plugins": ["@angular-eslint/template", "prettier"],
           "processor": "@angular-eslint/template/extract-inline-html"
         }
       ]
