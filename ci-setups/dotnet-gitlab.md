@@ -84,13 +84,13 @@ format:
 
 Once the YAML file is setup and the Gitlab CI runner functioning properly, the builds should happen on every commit to the repository. As shown in the image.
 
-![Untitled](CI%20for%20NET%20projects%20on%20Gitlab%201eced3dbb98a43b3914e02631df567c1/Untitled.png)
+![Gitlab build pipelines](./assets/dotnet-gitlab_build-pipeline.png)
 
 # Pre-merge checks and bypassing CI checks
 
 In the repository, go to Settings > Merge Requests > Merge Checks and check the box as in the image. This will enable pre-check on the pull requests. Everytime a PR is ready to be merged, a build pipeline is invoked to run the CI tasks.
 
-![Untitled](CI%20for%20NET%20projects%20on%20Gitlab%201eced3dbb98a43b3914e02631df567c1/Untitled%201.png)
+![Gitlab settings merge check](./assets/dotnet-gitlab_settings-merge-check.png)
 
 # Conclusion
 
