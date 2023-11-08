@@ -944,3 +944,30 @@ dotnet_diagnostic.CA2259.severity = warning
 dotnet_diagnostic.CA2260.severity = warning
 ```
 </details>
+
+### Configuring Maintainability Code Analysis rules
+
+The .NET code-quality analyzers include several code metrics analyzer rules:
+- [CA1501](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1501)
+- [CA1502](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1502)
+- [CA1505](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1505)
+- [CA1506](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1505)
+
+These rules use a threshold value for managing codebase, which can be configured in the project as per the requirements, in a `txt` file to be included as an additional file in the project.
+
+Basic configuration:
+- Create a text file named ```CodeMetricsConfig.txt```.
+- Add the desired threshold to the text file in the following format:
+
+```
+CA1502: 10
+```
+
+- In the project file (`.csproj`), mark the build action of the configuration file as AdditionalFiles. For example:
+```xml
+<ItemGroup>
+  <AdditionalFiles Include="CodeMetricsConfig.txt" />
+</ItemGroup>
+```
+
+Note: For more details on configuring the thresholds for a specific analysis rule, please check the official rule document included above.
