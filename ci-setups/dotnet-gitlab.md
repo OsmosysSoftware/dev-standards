@@ -96,7 +96,7 @@ In the repository, go to Settings > Merge Requests > Merge Checks and check the 
 
 ## Benefits of CI Setup
 
-Setting up a CI pipeline for your Angular application offers several benefits:
+Setting up a CI pipeline for your .NET application offers several benefits:
 
 - Improved code quality through automated linting.
 - Consistent and reliable builds.
