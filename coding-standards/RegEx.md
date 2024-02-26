@@ -13,6 +13,20 @@
      ```html
      <input type="tel" name="phone" pattern="^\+91[1-9]\d{9}$" required>
      ```
+   - Regex (handling multiple formats): `^(\+91|\(\+91\))(\s?)([0-9]+)?(\s?)([0-9]+)?(\s)?([0-9]+)?$`
+   - Example formats:
+     ```
+     +911234567890
+     +91 1234567890
+     +91 123 456 7890
+     +91 12345 67890
+     +9112345 67890
+     (+91)1234567890
+     (+91) 1234567890
+     (+91) 123 456 7890
+     (+91) 12345 67890
+     (+91)12345 67890
+     ```
 
 3. **Phone number with any country code + any international mobile number**:
    - Regex: `^\+[1-9]\d{6,14}$`
