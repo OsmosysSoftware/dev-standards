@@ -1,5 +1,5 @@
 Sno,Element,Sub Element,Behaviour
-1,Allignment,Design,"While creating components in an app, make sure they allign well from a UI perspective."
+1,Alignment,Design,"While creating components in an app, make sure they align well from a UI perspective."
 2,Bulk import,Import process,Bulk import (users or anything) should be done asynchronously in the background.. we cannot hold the UI / portal / user waiting for a long time while import is happening.
 3,Button,Field positioning,By default - the save / cancel / ok buttons must be on the right side bottom (unless explicitly mentioned)
 4,"Button, Link, Icon",Design,"Often, client systems are slow - and some clients are still used to double clicking buttons. Therefore, always put the logic inside the buttons in such a way that, once it is clicked, it does NOT take the second click unless the process is completed. You can incorporate the Loading symbol as soon as the first click is made."
@@ -19,14 +19,14 @@ Sno,Element,Sub Element,Behaviour
 12,Date & Time display,display,Time should be taken from DB and show according to the local time of the system browser is using (That way - UK person sees in UK time while India person sees in India time)
 13,Delete Button,Confirmation,"For Every Delete option - ensure you are throwing a POPUP and getting confirmation from the client.. The message should be ""You are deleting<< data>>, are you sure?"""
 14,Dialogs,Limit the usage,"Use modal dialogs sparingly, reserving them for important or critical interactions. Overuse of modals can disrupt the user's workflow and make the interface feel cumbersome."
-15,Dropdown Field,Decision,If for a raido button there are more than 3 options then it is always better to use a dropdown instead of radio button.
+15,Dropdown Field,Decision,If for a radio button there are more than 3 options then it is always better to use a dropdown instead of radio button.
 16,Dropdown Field,Sorting,Always sort alphabetical unless specified otherwise.
 17,Dropdown Field,Multiselect,All multiselect dropdowns should have options to select all or unselect all.
 18,Error / warning messages,Configuration,"All Error / warning / information messages MUST come from a configuration file that can be easily changed without having to make any program changes.
  
  Provide clear and meaningful error messages to help users understand and resolve issues."
 19,Export Data,Exporting CSV,"When an export is done with a Grid, only export the data that is shown in the grid for that selected filter options. Export all pages data for that filter option irrespective of the pagination."
-20,Field alignments,,"Following field aligments are important
+20,Field alignments,,"Following field alignments are important
  Label alignments - all labels must be left aligned and appear properly under each other
  All input fields must be aligned properly - same size fields must have left alignment"
 21,Field Size,Visibility,"If we are giving an email - making the field size only show 10 characters is bad, Similarly - Description / comments / details field must always have multiple lines.
@@ -36,14 +36,14 @@ Sno,Element,Sub Element,Behaviour
 24,Fields in Grid,Alignment,All fields (Except Money & Numbers) Preferably aligned Left or centre based on the UI
 25,File upload,,Never allow .exe or .bin kind of files to be uploaded. Unless the client has given clear instructions - stick to PDF and images
 26,Follow platform design guidelines,Component styling,"If designing for specific platforms (such as iOS or Android), adhere to the platform's design guidelines to ensure consistency and familiarity for users. This includes using platform-specific icons, navigation patterns, and UI components."
-27,Fonts,Uniformity,Ensure that all fields in one form and across the applicaiton are using uniform fonts.
+27,Fonts,Uniformity,Ensure that all fields in one form and across the application are using uniform fonts.
 28,Fonts,Design,Have a standardized set of of fonts for different elements of a page/application. The fonts must be taken from the Project Initiation document.
 29,Footer,Version and copyright,Always have version number and copy right text in the footer. Make sure copy right year is NOT hardcoded.
 30,Form grouping,Layout,"Arrange form fields logically, grouping related fields together. Consider using multi-column layouts for longer forms to reduce vertical scrolling."
 31,Forms,Validations,Ensure all form fields have proper validation and provide helpful error messages for invalid inputs.
 32,Forms,Design,Every form MUST have an option to exit. The X button on the right top is NOT sufficient
 33,Forms,Mandatory fields,"All mandatory should have an indication that they are mandatory to submit a form.
- If submitted without filling some of the mandatory fields - all missing feilds should be highligted in a color so its clearly visible to the user"
+ If submitted without filling some of the mandatory fields - all missing felids should be highlighted in a color so its clearly visible to the user"
 34,Forms,Reset,Always keep an option for the user to reset all filled fields on the form.
 35,Forms,Submit,"After a successful form submit, please clear all the fields."
 36,Forms,Labels,Align label text to the left
@@ -62,22 +62,22 @@ Sno,Element,Sub Element,Behaviour
 43,Forms,Validations,"Provide instant input validation
  
  Instant input validation allows the users to correct their errors instantly. The users do not have to wait to submit the form to see any errors that need their attention."
-44,Forms,Nagivation,"Allow switching between login and sign-up.
+44,Forms,Navigation,"Allow switching between login and sign-up.
  
  It’s quite common to switch to the login page when the user is currently on the sign-up page."
 45,Forms,Password,Indicate clearly why the password is invalid. The error message should clearly indicate why the entered password is invalid.
 46,Forms,Forgot password,"Allow easy password recovery.
  
  Presenting the Forgot Password option just along with the Login button helps users find it easily."
-47,Forms,Remeber me,"Make login easier by providing remember me option. An explicit Remember me option confirms the users’ opinion about saving their information for the next login.
+47,Forms,Remember me,"Make login easier by providing remember me option. An explicit Remember me option confirms the users’ opinion about saving their information for the next login.
  
  This is very common across all web applications."
 48,Forms,Submit,"Show a clear indication using a toast message or some element to represent that the form is submitted.
  
- ex: Showing a toast message that ""Employee data updated succesfully"""
+ ex: Showing a toast message that ""Employee data updated successfully"""
 49,Graphs,Display,"Any graphs used should be responsive and appear in 100% resolution, should NOT look compressed."
 50,Grid / Table,Sorting,"Make sure you disable sorting on some columns where it's not applicable, for ex - Actions column where you will have edit/delete buttons"
-51,Grid / Table,Searching,"Searchbox placeholder should contain the column names considered for searching.
+51,Grid / Table,Searching,"Search box placeholder should contain the column names considered for searching.
  And / Or, we can put a small ? next to it - that opens a popup on how the search is working"
 52,Grid / Table,Pagination,"Always decide whether you want to have client side pagination/server side pagination before you start implementing.
  
@@ -97,7 +97,7 @@ Sno,Element,Sub Element,Behaviour
 60,Grid / Table,Column Order,"Ensure all grids of same type show the same orders (Name, email, phone number etc)
  This has to be ensured across all pages of the application.
  Its awkward to have one table starting with serial number and another table starting with date"
-61,Grid / Table,Loading,Lazy loading? or normal loading - do we get all pages data once and show. - or get data everytime a page is clicked?
+61,Grid / Table,Loading,Lazy loading? or normal loading - do we get all pages data once and show. - or get data every time a page is clicked?
 62,Grid / Table,Pagination,Default size of the grid in terms of records - how does pagination work etc
 63,Info,Info,"Not always but in most cases it is recommended to show the application version. 
  Can be placed in footer."
@@ -112,7 +112,7 @@ Sno,Element,Sub Element,Behaviour
 69,Money & Numbers,format,"If decimals are used... 100.00, 199.99 then all fields MUST have two decimal points.. It cannot be 199.99 and 100. (Even 100 must be shown as 100.00)"
 70,No of APIs per page,speed,"Though there is no fixed number, keep an eye on this to ensure that the overall speed of the page rendering is not more than 2 seconds."
 71,Phone number,Validation,"Never allow text in phone numbers field. if the field is taking multiple phone numbers, ensure there is a tool tip or help text that is making it clear if comma has to be used.. and do proper validations"
-72,Toopltips,Clarity,"Include tooltips or help text near complex or unfamiliar UI elements to provide additional context or guidance. Clear explanations can help users understand functionality or actions better. Putting a tool tip on Name field and saying ""Enter name"" is ridiculous"
+72,Tooltips,Clarity,"Include tooltips or help text near complex or unfamiliar UI elements to provide additional context or guidance. Clear explanations can help users understand functionality or actions better. Putting a tool tip on Name field and saying ""Enter name"" is ridiculous"
 73,Responsive,UI Responsiveness,"Every UI developed must be tested in multiple resolutions. And today, most web pages are also visible in mobile - so the UI developed must elegantly fit into a mobile."
 74,Scroll bars,Design,Never use both horizontal & Vertical scroll bars.
 75,Scroll bars,Design,"Ensure that when the scroll bar comes up, it is NOT covering any data."
