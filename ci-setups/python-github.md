@@ -65,17 +65,21 @@ jobs:
         python-version: [3.7, 3.8, 3.9]
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
+
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
+
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-    - name: Run tests
+
+    - name: Run linting
       run: |
-        pytest
+        flake8 .
 ```
 
 ## 9. Advanced Features
