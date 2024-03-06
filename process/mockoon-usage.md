@@ -48,14 +48,14 @@ This pipeline requires the backend developer to always be one step ahead of the 
 
 There are two possible ways to avoid delays due to the above pipeline:
 
-- Provide API details to the frontend before development. We can try to use AI tools to do this, but it was found that these are not reliable. This will also require human intervention for testing the APIs, for example, using different responses.
+- Provide API details to the frontend before development. We can try to use AI tools to do this, but it has been found that these are not reliable. This will also require human intervention for testing the APIs, for example, using different responses.
 - Use a mock API server. This will mock the API responses using static or random responses as configured.
 
 [Back to top](#mockoon-usage)
 
 ## 2. Why Mockoon?
 
-[Mockoon](https://mockoon.com) is a free and open source application that is cross platform and provides an easy and quick way to run mock APIs locally. There is no mandatory login or account requirement for using this.
+[Mockoon](https://mockoon.com) is a free and open-source application that is cross-platform and provides an easy and quick way to run mock APIs locally. There is no mandatory login or account requirement for using this.
 
 ### Steps
 
@@ -92,7 +92,6 @@ Mockoon allows you to create isolated environments for your mock APIs. Each envi
 
 1. Launch the Mockoon application.
 2. Create a new environment:
-
    1. Click on the **New environment** button. This can be found near the top of the Environments list.
    2. Provide a descriptive name for your environment file and create it.
 
@@ -114,13 +113,13 @@ These may include details such as:
 
 You can view and copy environment configuration as follows:
 
-1. Right click on the target environment
+1. Right-click on the target environment
 2. Click on **Show data file in explorer/finder**
 3. At this point, you can copy the JSON file or open it and copy the contents.
 
 ![Mockoon view/copy environment config](assets/mockoon-viewcopy-environment-config.png)
 
-Alternatively, you can directly copy the configuration by right clicking the environment and selecting **Copy configuration to clipboard (JSON)**.
+Alternatively, you can directly copy the configuration by right-clicking the environment and selecting **Copy configuration to clipboard (JSON)**.
 
 This content can then be pasted in a new file if needed and shared with the frontend developer(s).
 
@@ -143,7 +142,7 @@ Add new HTTP routes using the following steps:
 
 Configure the added route with various parameters such as:
 
-- **Method:** Select corresponding method from the dropdown such as GET, POST, etc
+- **Method:** Select the corresponding method from the dropdown such as GET, POST, etc.
 - **Path:** Define the route path (e.g., "/users")
 - **Status & Body:** Set the HTTP status code (e.g., "200 - OK"). Configure the response body (e.g., JSON data). You can also introduce response latency for the selected response
 - **Headers:** Add custom headers as and if needed, defining the name and value
@@ -183,7 +182,7 @@ You can copy a route configuration following these steps:
 
 ![Mockoon copy route configuration](assets/mockoon-copy-route-configuration.png)
 
-You can then paste this content in a file for saving it.
+You can then paste this content into a file for saving it.
 
 Further, you can also add a route using the copied configuration:
 
@@ -195,7 +194,7 @@ Further, you can also add a route using the copied configuration:
 ### Toggling and Deleting Routes
 
 - In case specific routes are temporarily required to be disabled, it can be done so by right-clicking on the route and selecting **Toggle**
-- In order to delete a route, right-click on the route and click on **Delete** and then **Confirm deletion**
+- To delete a route, right-click on the route and click on **Delete** and then **Confirm deletion**
 
 ![Mockoon toggle/delete routes](assets/mockoon-toggledelete-routes.png)
 
@@ -244,7 +243,7 @@ Refer to the official Mockoon documentation to learn more about the operations a
 
 ### Using Proxy Mode
 
-Mockoon supports partial mocking of an API endpoints by forwarding the requests that does not match a declared route to the URL of your choice. This can, for example, be used for using already developed and deployed APIs.
+Mockoon supports partial mocking of API endpoints by forwarding the requests that do not match a declared route to the URL of your choice. This can, for example, be used for using already developed and deployed APIs.
 
 1. Select the target environment and click on the **Proxy** tab
 2. Enable the proxy mode by checking the box
