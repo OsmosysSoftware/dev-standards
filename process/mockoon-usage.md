@@ -202,7 +202,7 @@ Further, you can also add a route using the copied configuration:
 
 ## 5. Advanced Usage
 
-This section outlines some of the advanced features that Mockoon offers which might not be used regularly, but can come in handy from time-to-time.
+This section outlines some of the advanced features that Mockoon offers, which might not be used regularly, but can be useful from time to time.
 
 ### Using Mockoon Templating
 
