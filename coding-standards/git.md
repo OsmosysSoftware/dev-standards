@@ -37,11 +37,11 @@ Commit Messages:
 -   Use the imperative mood ("add" instead of "added").
 -   Start with a capital letter.
 -   Do not end the commit message with a period. 
--   Example: `Add user authentication`
+    -   Example: `Add user authentication`
 -   Always put your commit message in the below context & frame a proper message like this, 
--   If applied this commit will, \<your commit message\>
--   Example 1: `Add validation to the email field`
--   Example 2: `Update get users API response with lastname`
+    -   If applied this commit will, \<your commit message\>
+    -   Example 1: `Add validation to the email field`
+    -   Example 2: `Update get users API response with lastname`
 
 Commit Granularity:
 -----------------------
@@ -55,19 +55,23 @@ Pull Requests (PRs):
 -   Create PRs for merging changes into the `main` or `development` branches.
 -   Ensure PRs are reviewed and approved by peers before merging.
 -   Provide a detailed description in the PR. Use the body to explain what is it, why is it needed and how is it done,
-> \<What is it \><br>
-> \<Why is it needed\><br>
-> \<How did we achieve this\>
+    -   ```
+        <What is it>
+        <Why is it needed>
+        <How did we achieve this>
+        ```
 -   It is always a best practise to maintain checklist in every PR to make sure everything is submitted properly along with your PR. Example checklist can be,
-> [ ] No build errors<br>
-> [ ] No linting issues<br>
-> [ ] No formatting issues<br>
-> [ ] Changes Tested Locally<br>
-> [ ] Added PR title as per standards<br> 
-> [ ] Added PR description as per standards<br> 
-> [ ] Attached document link<br> 
-> [ ] Attached test cases file<br> 
-> [ ] Updated deployment checklist 
+    - ```
+        [ ] No build errors
+        [ ] No linting issues
+        [ ] No formatting issues
+        [ ] Changes Tested Locally
+        [ ] Added PR title as per standards
+        [ ] Added PR description as per standards
+        [ ] Attached document link
+        [ ] Attached test cases file
+        [ ] Updated deployment checklist 
+      ```   
 -   To maintain a clean and organized commit history, use the "squash and merge" option when creating a Pull Request (PR) against the development branch.
 
 Code Reviews:
