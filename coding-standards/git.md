@@ -25,7 +25,7 @@ Repository Structure:
     -   All commits on `main` should be made through pull requests.
 -   Development Branch:
     -   Use a `development` or `dev` branch for integration and testing.
--   Set branch protection rules for `main` and `development` branches to restrict developers to push unverified changes and allow only maintainers to push/merge.
+-   Set branch protection rules for `main` and `development` branches to restrict developers to push unverified changes and allow only maintainers to push/merge. Here is the quick read on how to set branch protection rules - https://docs.gitlab.com/ee/user/project/protected_branches.html
 -   Feature Branches:
     -   Create separate branches for individual features or bug fixes.
     -   Name them descriptively, e.g., `feature/user-authentication`, `bugfix/password-reset`.
@@ -39,7 +39,9 @@ Commit Messages:
 -   Do not end the commit message with a period. 
 -   Example: `Add user authentication`
 -   Always put your commit message in the below context & frame a proper message like this, 
-> \*\*If applied this commit will, \<your commit message\>\*\* 
+-   If applied this commit will, \<your commit message\>
+-   Example 1: `Add validation to the email field`
+-   Example 2: `Update get users API response with lastname`
 
 Commit Granularity:
 -----------------------
