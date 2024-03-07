@@ -55,18 +55,18 @@ Pull Requests (PRs):
 -   Create PRs for merging changes into the `main` or `development` branches.
 -   Ensure PRs are reviewed and approved by peers before merging.
 -   Provide a detailed description in the PR. Use the body to explain what is it, why is it needed and how is it done,
-> \<What is it \>
-> \<Why is it needed\>
+> \<What is it \><br>
+> \<Why is it needed\><br>
 > \<How did we achieve this\>
 -   It is always a best practise to maintain checklist in every PR to make sure everything is submitted properly along with your PR. Example checklist can be,
-> [ ] No build errors
-> [ ] No linting issues 
-> [ ] No formatting issues 
-> [ ] Changes Tested Locally
-> [ ] Added PR title as per standards 
-> [ ] Added PR description as per standards 
-> [ ] Attached document link 
-> [ ] Attached test cases file 
+> [ ] No build errors<br>
+> [ ] No linting issues<br>
+> [ ] No formatting issues<br>
+> [ ] Changes Tested Locally<br>
+> [ ] Added PR title as per standards<br> 
+> [ ] Added PR description as per standards<br> 
+> [ ] Attached document link<br> 
+> [ ] Attached test cases file<br> 
 > [ ] Updated deployment checklist 
 -   To maintain a clean and organized commit history, use the "squash and merge" option when creating a Pull Request (PR) against the development branch.
 
