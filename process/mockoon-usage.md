@@ -11,6 +11,9 @@
    - [Mockoon Pipeline](#mockoon-pipeline)
 3. [Setup](#3-setup)
 4. [Usage](#4-usage)
+   - [Backend Developers](#backend-developers)
+   - [Frontend Developers](#frontend-developers)
+5. [Features](#5-features)
    - [Understanding the UI](#understanding-the-ui)
    - [Creating New Environments](#creating-new-environments)
    - [Environment Settings](#environment-settings)
@@ -21,7 +24,7 @@
    - [Using Postman to Call API](#using-postman-to-call-api)
    - [Copying and Adding Route Configuration](#copying-and-adding-route-configuration)
    - [Toggling and Deleting Routes](#toggling-and-deleting-routes)
-5. [Advanced Usage](#5-advanced-usage)
+6. [Advanced Features](#6-advanced-features)
    - [Using Mockoon Templating](#using-mockoon-templating)
    - [Using Data Buckets](#using-data-buckets)
    - [Adding and Configuring CRUD Routes](#adding-and-configuring-crud-routes)
@@ -30,7 +33,7 @@
    - [Import/Export Swagger Documentation](#importexport-swagger-documentation)
    - [Adding Global Routes with Rules](#adding-global-routes-with-rules)
    - [Creating and Using Callbacks](#creating-and-using-callbacks)
-6. [Further References](#6-further-references)
+7. [Further References](#7-further-references)
 
 ## 1. Introduction
 
@@ -80,7 +83,37 @@ Take the tour to gain an understanding of the various UI elements and features.
 
 ## 4. Usage
 
-This section outlines the basic usage process of Mockoon, covering various aspects from environment setup to advanced features.
+### Backend Developers
+
+The backend developers are expected to use Mockoon for the following purposes:
+
+- Creating and configuring environments (see [Creating New Environments](#creating-new-environments) and [Environment Settings](#environment-settings))
+- Adding and configuring routes that the API will support (see [Adding and Configuring HTTP Routes](#adding-and-configuring-http-routes))
+  - This includes defining proper response(s) for each route, covering different expected cases. This is crucial for mocking the API properly and use by the frontend developers for integrating
+  - This may also include configuring proxy mode as required
+- Providing the environment configuration and/or route configurations to the frontend developer(s) (see [Viewing and Copying Environment Configuration](#viewing-and-copying-environment-configuration) and [Copying and Adding Route Configuration](#copying-and-adding-route-configuration))
+
+In addition to above, the developers can also leverage [advanced features](#6-advanced-features) such as templating, data buckets, callbacks, proxy mode, etc. Some advanced features such as CRUD routes might not be used frequently and can be skipped.
+
+### Frontend Developers
+
+The frontend developers are expected to use Mockoon for the following purposes:
+
+- Opening environments or routes from files provided by backend developers (see [Opening Environments](#opening-environments) and [Copying and Adding Route Configuration](#copying-and-adding-route-configuration))
+- Modifying environment settings such as introducing global latency. This latency is added to all the routes in that specific environment (see [Environment Settings](#environment-settings))
+- Modifying routes for testing purposes such as changing responses, introducing route specific latency (which is added on top of the global environment latency), changing response modes (random, sequential, disabled rules, fallback), toggling routes, etc. (see [Adding and Configuring HTTP Routes](#adding-and-configuring-http-routes) and [Toggling and Deleting Routes](#toggling-and-deleting-routes))
+  - Changing responses can be useful for viewing how the frontend is handling different data, string lengths, etc.
+  - Introducing latency can be useful for testing the frontend such as viewing loading animations
+  - Setting a specific response mode can be useful for testing how the frontend handles the different responses from the API. Depending on the selected mode, responses will be either randomized, sequential (as per the order of responses), disable all rules or use the fallback route.
+- Using Postman or the frontend component to call the API for observing responses for the request sent (see [Using Postman to Call API](#using-postman-to-call-api))
+
+In addition to above, the developers can also leverage [advanced features](#6-advanced-features) such as templating, data buckets, callbacks, proxy mode, viewing logs, etc.
+
+[Back to top](#mockoon-usage)
+
+## 5. Features
+
+This section outlines the basic features and process of Mockoon, covering various aspects from environment setup to routes setup.
 
 ### Understanding the UI
 
@@ -92,6 +125,7 @@ Mockoon allows you to create isolated environments for your mock APIs. Each envi
 
 1. Launch the Mockoon application.
 2. Create a new environment:
+
    1. Click on the **New environment** button. This can be found near the top of the Environments list.
    2. Provide a descriptive name for your environment file and create it.
 
@@ -200,14 +234,28 @@ Further, you can also add a route using the copied configuration:
 
 [Back to top](#mockoon-usage)
 
-## 5. Advanced Usage
+## 6. Advanced Features
 
 This section outlines some of the advanced features that Mockoon offers, which might not be used regularly, but can be useful from time to time.
 
 ### Using Mockoon Templating
 
 - In the route configuration, utilize [Handlebars.js](https://handlebarsjs.com/) and [Faker.js](https://fakerjs.dev/) templating syntax to generate dynamic response data
-- Examples include using repeating loops and accessing query or URL parameters to dynamically generate response data
+- Examples include using repeating loops and accessing query or URL parameters to dynamically generate response data. For example, for a route `/users` returning an array of user data, a template like follows may be used to generate 10 random users:
+  ```json
+  {
+    "data": [
+      {{#repeat 10}}
+      {
+        "id": {{faker "number.int"}},
+        "name": "{{faker "person.fullName"}}",
+        "email": "{{faker "internet.email"}}",
+        "username": "{{faker "internet.userName"}}",
+      }
+      {{/repeat}}
+    ]
+  }
+  ```
 
 ### Using Data Buckets
 
@@ -310,7 +358,7 @@ To link a callback to a route response:
 
 [Back to top](#mockoon-usage)
 
-## 6. Further References
+## 7. Further References
 
 - [Mockoon official documentation](https://mockoon.com/docs/latest/about/)
 
