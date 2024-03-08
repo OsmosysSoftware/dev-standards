@@ -67,6 +67,9 @@ We provide guides for a variety of languages using different CI technologies and
 - PHP
   - [with GitHub](./ci-setups/php-github.md)
   - [with GitLab](./ci-setups/php-gitlab.md)
+- .NET
+  - [with GitHub](./ci-setups/dotnet-github.md)
+  - [with GitLab](./ci-setups/dotnet-gitlab.md)
 
 [Back to top](#table-of-contents)
 ## Getting Started
