@@ -45,6 +45,7 @@ We provide guides for a diverse array of languages and technologies, including b
 - [Flutter](./coding-standards/flutter.md)
 - [HTML](./coding-standards/html.md)
 - [Log Format](./coding-standards/log-format.md)
+- [Log Format - Frontend](./coding-standards/log-format-frontend.md)
 - [PHP](./coding-standards/php.md)
 - [GIT](./coding-standards/git.md)
 
