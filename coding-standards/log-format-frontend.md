@@ -17,7 +17,7 @@ To create a common log format that fits the most mobile technologies and aids in
 ## Proposed solution
 
 ``` json
- {"timestamp": "[timestamp]","level": "[level]","severity": "[severity]","tracebackId": "[unique id]","sessionId": "[token id]","screenName": "[screen or controller name]","source": "[function/module name]","data": [any relevant data of type JSON],"message": "[log message]","stackTrace": "[stackTrace]"}
+ {"timestamp": "[timestamp]","level": "[level]","severity": "[severity]","sessionId": "[token id]","screenName": "[screen or controller name]","source": "[function/module name]","deviceInfo":"[device name/browser/platform/OS]","data": "[httpMethod, endpoint and paramters]","message": "[log message]","stackTrace": "[stackTrace]"}
 ```
 
 ### Explanation of each component: 
@@ -27,20 +27,19 @@ To create a common log format that fits the most mobile technologies and aids in
 | [timestamp]   | Represents the timestamp when the log entry was created. Use ISO 8601 format, which is widely recognized and provides a standardized representation of date and time (Mandatory) |
 | [level]       | Represents the log level, such as INFO, WARN, ERROR, or FATAL (Mandatory) |
 | [severity]    | Represents the severity level associated with the log entry (e.g., LOW, MEDIUM, HIGH) (Mandatory) |
-| [tracebackId] | A unique identifier associated with the request (Optional) |
 | [sessionId]   | Can be logged in user's ID / token / Any unique identifier etc (Optional) |
 | [screenName]  | Name of the screen or controller where the log originated (Optional) |
-| [httpMethod]  | Type of request (Optional) |
 | [source]      | Function name, Module & Sub module names etc. (Mandatory) |
-| [data]        | Any relevant data like user information, activity, performance metrics, data changes, device information, browser informations etc. (Optional) |
+| [deviceInfo]  | For mobile apps, device, version, appVersion. For websites, browser, version and platform. (Mandatory) |
+| [data]        | Data related to API such as endpoint, httpMethod and parameters(Optional) |
 | [message]     | Contains the log message or description of the event (Mandatory) |
 | [stackTrace]  | The stack trace of the exception, providing details about the method calls leading to the exception. It includes file names, line numbers, and method names (Optional) |
 
 Here are some examples - 
 ``` json
-{"timestamp": "2024-05-26T10:15:30.123Z", "level": "INFO", "severity": "LOW", "sessionId": "12345","screenName": "LoginScreen", "httpMethod": "GET", "requestUrl": "/api/example","source": "Authentication","data": {"userId": "123", "deviceInfo": {"platform": "iOS", "version": "14.5"}},"message": "This is an informational log."}
-{"timestamp": "2024-05-26T10:15:30.123Z", "level": "INFO", "severity": "LOW", "tracebackId": "12345", "sessionId": "12as4f5", "screenName": "LoginScreen", "httpMethod": "GET", "requestUrl": "/api/example","source": "Authentication","data": {"userId": "123", "deviceInfo": {"browserName": "chrome", "version": "122.0.6261.111"}},"message": "This is an informational log."}
-{"timestamp": "2024-05-26T10:15:30.123Z", "level": "INFO", "severity": "LOW", "tracebackId": "12345", "sessionId": "12as4f5", "screenName": "LoginScreen", "httpMethod": "GET", "requestUrl": "/api/example","source": "Authentication","data": {"userId": "123", "deviceInfo": {"browserName": "safari", "version": "17.2.1"}},"message": "This is an informational log."}
+{"timestamp": "2024-05-26T10:15:30.123Z", "level": "INFO", "severity": "LOW", "sessionId": "12345","screenName": "LoginScreen","source": "Authentication","deviceInfo": {"device": "iphone", "version": "17.0", "appVersion":"1.0"},"data": {"httpMethod": "GET", "ednPoint": "/api/example","param":{"email":"abc@example.com"}},"message": "This is an informational log."}
+{"timestamp": "2024-05-26T10:15:30.123Z", "level": "WARN", "severity": "LOW", "sessionId": "12as4f5", "screenName": "LoginScreen","deviceInfo": {"browser": "chrome", "version": "122.0.6261", "platform":"linux"},"data": {"httpMethod": "GET", "ednPoint": "/api/example",{"param":"email":"abc@example.com"}},"message": "This is an informational log."}
+{"timestamp": "2024-05-26T10:15:30.123Z", "level": "INFO", "severity": "LOW", "sessionId": "12as4f5", "screenName": "LoginScreen","deviceInfo": {"browser": "safari", "version": "122.0.6261", "platform":"windows"},"data": {"httpMethod": "GET", "ednPoint": "/api/example","param":{"email":"abc@example.com"}},"message": "This is an informational log."}
 ```
 
 ## Why `ndjson`?
