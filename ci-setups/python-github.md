@@ -62,7 +62,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: [3.9]
 
     steps:
     - name: Checkout code
@@ -81,6 +81,8 @@ jobs:
       run: |
         flake8 .
 ```
+### Note:
+```Update the python version in yaml file based on your project need.```
 
 ## 9. Advanced Features
 Explore advanced GitHub Actions features such as:
