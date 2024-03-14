@@ -1,4 +1,6 @@
-# Standard regular expressions to be used across the technologies
+# Standard regular expressions to be used for form validations across the technologies
+
+> **Note:** The following examples demonstrate the use of regular expressions for form validation. However, it is recommended **not to use the pattern and required attributes in HTML** for defining these validations, as different browsers may show inconsistent error messages. Instead, use JavaScript to define the regular expressions and perform the validations programmatically.
 
 1. **Phone number without country code**:
    - Regex: `^\d{6,14}$`
