@@ -45,6 +45,7 @@ We provide guides for a diverse array of languages and technologies, including b
 - [Flutter](./coding-standards/flutter.md)
 - [HTML](./coding-standards/html.md)
 - [Log Format](./coding-standards/log-format.md)
+- [Log Format - Frontend](./coding-standards/log-format-frontend.md)
 - [PHP](./coding-standards/php.md)
 - [GIT](./coding-standards/git.md)
 
@@ -67,6 +68,9 @@ We provide guides for a variety of languages using different CI technologies and
 - PHP
   - [with GitHub](./ci-setups/php-github.md)
   - [with GitLab](./ci-setups/php-gitlab.md)
+- .NET
+  - [with GitHub](./ci-setups/dotnet-github.md)
+  - [with GitLab](./ci-setups/dotnet-gitlab.md)
 
 [Back to top](#table-of-contents)
 ## Getting Started
