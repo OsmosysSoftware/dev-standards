@@ -6,10 +6,10 @@
    - [Purpose](#purpose)
    - [Scope](#scope)
 2. [Prerequisites](#2-prerequisites)
-3. [Set up angular project](#3-set-up-for-angular-project)
-4. [Setting Up Docker Environment](#3-setting-up-docker-environment)
+3. [Set up for Angular project](#3-set-up-for-angular-project)
+4. [Setting up the Docker Environment](#4-setting-up-the-docker-environment)
    - [Dockerfile](#41-dockerfile)
-      - [Dockerfile angular version specific fix](#note)
+      - [Dockerfile angular version-specific fix](#note)
    - [Docker Compose](#42-docker-compose)
    - [nginx.conf](#43-nginxconf)
    - [.dockerignore](#44-dockerignore)
@@ -17,8 +17,8 @@
    - [Using docker-compose](#build-and-run-using-docker-compose-file)
    - [Step by step build](#or-alternatively-build-step-by-step)
 6. [Access Angular Application](#6-access-angular-application)
-7. [Sample Repository](#6-sample-repository)
-8. [Conclusion](#7-conclusion)
+7. [Sample Repository](#7-sample-repository)
+8. [Conclusion](#8-conclusion)
    - [Benefits of Docker Setup](#benefits-of-docker-setup)
    - [Future Enhancements](#future-enhancements)
 
@@ -51,13 +51,13 @@ Before setting up the Docker environment, ensure you have the following prerequi
 Download links:
 
 - [Docker](https://docs.docker.com/get-docker/)
-- [NodeJS](https://nodejs.org/en/download/)
+- [Node.js](https://nodejs.org/en/download/)
 - [Angular CLI](https://angular.io/guide/setup-local)
 - [Visual Studio Code (Optional)](https://code.visualstudio.com/)
 
 [Back to top](#table-of-contents)
 
-## 3. Set up for angular project
+## 3. Set up for Angular project
 
 In `package.json`, set the production environment command
 
@@ -74,15 +74,9 @@ In `package.json`, set the production environment command
 }
 ```
 
-Run following command
-
-```shell
-ng build
-```
-
 [Back to top](#table-of-contents)
 
-## 4. Setting Up Docker Environment
+## 4. Setting up the Docker Environment
 
 ### 4.1 Dockerfile
 
@@ -200,6 +194,8 @@ Create a `.dockerignore` file to exclude unnecessary files and directories from 
 *.zip
 ```
 
+[Back to top](#table-of-contents)
+
 ## 5. Testing the Docker Environment
 
 ### Build and run using docker-compose file
@@ -213,7 +209,7 @@ docker-compose -f docker-compose.yml up
 
 #### Build Docker Image
 
-Run the following command in the root directory of your project to build the Docker images. Replace `your_app_name` with suitable value as an argument:
+Run the following command in the root directory of your project to build the Docker images. Replace `your_app_name` with a suitable value as an argument:
 
 ```shell
 docker build --build-arg APP_NAME=your_app_name -t ng-docker-app:v1.0.0 -f ./Dockerfile .
@@ -237,13 +233,13 @@ docker container ls
 
 ## 6. Access Angular Application
 
-You can access your Angular application at http://localhost:5000.
+You can access your Angular application at http://localhost:5000
 
 [Back to top](#table-of-contents)
 
 ## 7. Sample Repository
 
-Explore the following practical demonstration for dockerizarion of angular app: [Repository Link]()
+Explore the following practical demonstration for dockerizarion of angular app: [Repository Link](https://github.com/OsmosysSoftware/angular-docker-sample)
 
 [Back to top](#table-of-contents)
 
@@ -251,7 +247,7 @@ Explore the following practical demonstration for dockerizarion of angular app: 
 
 ### Benefits of Docker Setup
 
-Setting up a Docker environment for your NestJS application with MariaDB database offers several benefits:
+Setting up a Docker environment for your Angular application with Nginx offers several benefits:
 
 - Easy deployment and scalability.
 - Consistent development environment across different machines.
