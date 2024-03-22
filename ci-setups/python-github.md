@@ -12,7 +12,8 @@
 - [8. Example YAML Configuration](#8-example-yaml-configuration)
 - [9. Advanced Features](#9-advanced-features)
 - [10. Troubleshooting](#10-troubleshooting)
-- [11. Conclusion](#11-conclusion)
+- [11. Sample Repository](#11-sample-repository)
+- [12. Conclusion](#12-conclusion)
 
 ## 1. Introduction
 This document provides guidelines for setting up Continuous Integration and Continuous Deployment (CI/CD) for Python projects on GitHub using GitHub Actions. It aims to ensure consistent and reliable workflows for Python development.
@@ -93,7 +94,13 @@ Explore advanced GitHub Actions features such as:
 ## 10. Troubleshooting
 If your CI build fails, check the logs in GitHub Actions. Ensure your local development environment matches the CI environment.
 
-## 11. Conclusion
+## 11. Sample Repository
+
+[Repository Link](https://github.com/OsmosysSoftware/angular-eslint-workflow-guide) 
+
+Explore this for practical demonstration of CI setups.
+
+## 12. Conclusion
 CI/CD is a crucial part of modern software development. Proper setup ensures that your Python projects are tested and deployed consistently and reliably.
 
 ---

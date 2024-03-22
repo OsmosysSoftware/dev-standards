@@ -28,7 +28,8 @@
 7. [Troubleshooting and Advanced Configuration](#7-troubleshooting-and-advanced-configuration)
     - [Handling Merge Conflicts](#handling-merge-conflicts)
     - [Customizing Steps](#customizing-steps)
-8. [Conclusion](#8-conclusion)
+8. [Sample Repository](#8-sample-repository)
+9. [Conclusion](#9-conclusion)
     - [Benefits of CI Setup](#benefits-of-ci-setup)
     - [Future Enhancements](#future-enhancements)
 
@@ -297,7 +298,13 @@ Modify the job steps in the `php-lint.yml` file to match your specific linting a
 
 [Back to top](#table-of-contents)
 
-## 8. Conclusion
+## 8. Sample Repository
+
+[Repository Link](https://github.com/OsmosysSoftware/angular-eslint-workflow-guide) 
+
+Explore this for practical demonstration of CI setups.
+
+## 9. Conclusion
 
 ### Benefits of CI Setup
 

@@ -31,7 +31,8 @@
     - [1. Job Artifacts](#1-job-artifacts)
       - [Update your `.gitlab-ci.yml` Configuration](#update-your-gitlab-ciyml-configuration)
       - [Usage](#usage)
-  - [9. Conclusion](#9-conclusion)
+  - [9. Sample Repository](#9-sample-repository)
+  - [10. Conclusion](#10-conclusion)
     - [Benefits of CI Setup](#benefits-of-ci-setup)
     - [Future Enhancements](#future-enhancements)
 
@@ -309,7 +310,14 @@ Refer to the [official documentation](https://docs.gitlab.com/ee/ci/jobs/job_art
 - Download and unzip the file to preview the artifact contents.
 
   ![Downloaded artifact](assets/angular-gitlab_pr-artifact-preview.png)
-## 9. Conclusion
+
+## 9. Sample Repository
+
+[Repository Link](https://gitlab.osmosys.co/osmosys-research-and-development/angular-app) 
+
+Explore this for practical demonstration of CI setups.
+
+## 10. Conclusion
 
 ### Benefits of CI Setup
 Setting up a CI pipeline for your Angular application offers several benefits:

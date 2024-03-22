@@ -26,7 +26,8 @@
   - [7. Troubleshooting and Advanced Configuration](#7-troubleshooting-and-advanced-configuration)
     - [Handling Merge Conflicts](#handling-merge-conflicts)
     - [Customizing Scripts](#customizing-scripts)
-  - [8. Conclusion](#8-conclusion)
+  - [8. Sample Repository](#8-sample-repository)
+  - [9. Conclusion](#9-conclusion)
     - [Benefits of Workflow Setup](#benefits-of-workflow-setup)
     - [Future Enhancements](#future-enhancements)
 
@@ -250,7 +251,14 @@ If your pull request encounters merge conflicts during the auto-merge stage, man
 Modify the scripts in the main.yml file to match your specific linting and building commands and any additional requirements of your Angular application.
 
 [Back to top](#table-of-contents)
-## 8. Conclusion
+
+## 8. Sample Repository
+
+[Repository Link](https://github.com/OsmosysSoftware/angular-eslint-workflow-guide) 
+
+Explore this for practical demonstration of CI setups.
+
+## 9. Conclusion
 
 ### Benefits of Workflow Setup
 Setting up a workflow for your Angular application offers several benefits:
