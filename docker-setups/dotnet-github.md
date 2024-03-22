@@ -1,4 +1,4 @@
-# Dockerizing .NET project
+# Dockerizing .NET projects
 
 ## Table of Contents
 
@@ -25,14 +25,14 @@
 
 ### Purpose
 
-The purpose of this document is to provide a step-by-step guide for dockerizing an .NET Core application. Dockerizing ensures consistent dependency versions and effortless cross-environment compatibility, simplifies development and deployment processes significantly.
+The purpose of this document is to provide a step-by-step guide for dockerizing a .NET Core application. Dockerizing ensures consistent dependency versions and effortless cross-environment compatibility, simplifies development and deployment processes significantly.
 
 ### Scope
 
 The scope of this document covers the following
 
 1. Docker setup for an .NET Core application
-2. How to Deploy an Dockerized application using DockerHub
+2. How to Deploy a Dockerized application using DockerHub
 
 [Back to top](#table-of-contents)
 
@@ -41,7 +41,7 @@ The scope of this document covers the following
 Before setting up the dockerize the application, ensure you have the following prerequisites:
 
 - A GitHub account with access to your target repository.
-- An Dotnet application repository hosted on GitHub.
+- A Dotnet application repository hosted on GitHub.
 - **Docker Environment:** Ensure your development machine has Docker Desktop or the command-line equivalent installed. Refer to the official Docker documentation for installation instructions: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
 
 [Back to top](#table-of-contents)
@@ -218,7 +218,7 @@ To run your Dockerized .NET application on a server or cloud platform, follow th
 - **Application Errors:** If your application encounters errors inside the container, use `docker logs` to view container logs and pinpoint the root cause. You might need to adjust your Dockerfile commands or application configuration.
 - **Permissions Issues:** Double-check that your application has the required permissions to access files or resources within the container. Use `docker exec` to enter the container and examine file permissions.
 
-## 5.Best Practices for Enhanced Dockerization:
+## 5. Best Practices for Enhanced Dockerization:
 
 - **Multi-Stage Builds for Efficiency:** Consider adopting multi-stage builds to create smaller and more efficient images for production by separating the build and runtime environments in your Dockerfile.
 - **Persistent Data with Volumes:** Mount volumes using the `-v` flag with `docker run` to persist application data outside of the container, ensuring data survives container restarts.
@@ -230,7 +230,7 @@ To run your Dockerized .NET application on a server or cloud platform, follow th
 
 ### Benefits of Docker
 
-Setting up a workflow for your Angular application offers several benefits:
+Dockerizing your .NET application offers several benefits:
 
 - **Isolation and Consistency**: Docker ensures consistent environments and isolates dependencies.
 - **Portability**: Docker containers are portable across different platforms.
