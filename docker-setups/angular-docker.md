@@ -9,7 +9,7 @@
 3. [Set up for Angular project](#3-set-up-for-angular-project)
 4. [Setting up the Docker Environment](#4-setting-up-the-docker-environment)
    - [Dockerfile](#41-dockerfile)
-      - [Dockerfile angular version-specific fix](#note)
+      - [Angular version-specific filepath for nginx](#note-set-correct-filepath-for-nginx)
    - [Docker Compose](#42-docker-compose)
    - [nginx.conf](#43-nginxconf)
    - [.dockerignore](#44-dockerignore)
@@ -115,7 +115,7 @@ FROM nginx:latest AS ngi
 ARG APP_NAME
 
 # Create App Path for build files for Angular 17 and above projects
-# For versions older than 17, replace APP_PATH with /usr/src/app/dist/
+# For versions older than 17, replace APP_PATH with /usr/src/app/dist/*
 ENV APP_PATH=/usr/src/app/dist/${APP_NAME}/browser
 
 # Copy the built Angular app to the default Nginx public folder
@@ -131,20 +131,49 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-### Note
+### Note: Set correct filepath for nginx
+
+When you run command `ng build`, a `dist` folder is created which contains all angular build files. Depending on the cli version different folder structures are created. We need to give path of `index.html` for nginx to work.
+
 #### 1. For angular version 17
+
+```
+build file folder structure
+
+dist
+| your_app_name
+| | browser
+| | | index.html
+| | | <...other build files>
+| | license
+```
+- You can define `${APP_NAME}` in docker-compose and build using that.
+
+OR
+
 - For `APP_PATH`, you can directly replace `${APP_NAME}` with your application name like so:
 > ENV APP_PATH=/usr/src/app/dist/`your_application_name`/browser
-- OR you can define `${APP_NAME}` in docker-compose and build using that.
 
 #### 2. For angular versions 16 and below:
+
+```
+Build file folder structure
+
+dist
+| your_app_name
+| | index.html
+| | <...other build files>
+```
+
 - Remove the line `ARG APP_NAME`
-- Set `APP_PATH` as `/usr/src/app/dist/`:
-> ENV APP_PATH=/usr/src/app/dist/
+- Set `APP_PATH` as `/usr/src/app/dist/*`:
+> ENV APP_PATH=/usr/src/app/dist/*
+
+[Back to top](#table-of-contents)
 
 ### 4.2 Docker Compose
 
-Create a docker-compose.yml file in the root directory of your project. Set the arg `APP_NAME` as name of your application.
+Create a docker-compose.yml file in the root directory of your project. Set the arg `APP_NAME` as name of your application if not changed [here](#note-set-correct-filepath-for-nginx).
 
 ```yml
 version: '1'
@@ -162,6 +191,8 @@ services:
 
 ```
 
+[Back to top](#table-of-contents)
+
 ### 4.3 nginx.conf
 
 Create a `nginx.conf` file in your root directory folder (where the `package.json` is located) and copy the below code into it.
@@ -177,6 +208,8 @@ server {
     }
 }
 ```
+
+[Back to top](#table-of-contents)
 
 ### 4.4 Dockerignore
 
