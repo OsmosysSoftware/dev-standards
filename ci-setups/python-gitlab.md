@@ -10,41 +10,40 @@
     - Lint
     - Test
 7. **Workflow Rules**
-8. **Example `.gitlab-ci.yml`**
+8. **Updated `.gitlab-ci.yml` Example**
 9. **Conclusion**
 
 ## Introduction
-This guide outlines the setup of a Continuous Integration (CI) pipeline for Python projects at Osmosys on GitLab. It focuses on ensuring automated testing and linting for Python applications.
+This guide provides a detailed walkthrough for setting up a Continuous Integration (CI) pipeline for Python projects at Osmosys using GitLab. It emphasizes automating testing and linting to maintain high-quality code standards.
 
 ## Prerequisites
 - A Python project hosted on GitLab.
-- A basic understanding of Python development and GitLab CI/CD concepts.
+- Basic knowledge of Python development and GitLab CI/CD principles.
 
 ## CI Configuration Overview
-The CI pipeline is defined in a `.gitlab-ci.yml` file located at the root of your project. This file specifies the environment, stages, and jobs that make up your CI pipeline.
+The foundation of the CI pipeline is the `.gitlab-ci.yml` file placed at the project's root. This configuration file outlines the environment settings, stages, and jobs that constitute your CI pipeline.
 
 ## Defining the Pipeline
-Your pipeline should include stages for linting your code and running tests. These stages ensure code quality and functionality before merging changes.
+The pipeline comprises stages dedicated to linting code and running automated tests, essential practices for upholding code quality and verifying functionality.
 
 ## Configuring Variables
-Use variables to configure the pipeline dynamically. Notably:
-- `DEFAULT_IMAGE` for the Docker image used throughout the pipeline.
-- `merge_request_branches` for specifying which branches should trigger the pipeline when targeted by merge requests.
+Variables offer a way to dynamically adjust the pipeline's settings. Key variables include:
+- `DEFAULT_IMAGE`: Specifies the Docker image for the pipeline.
+- `merge_request_branches`: Determines which branches trigger the pipeline upon receiving merge requests.
 
 ## Pipeline Stages
 ### Lint
-The lint stage checks the code quality using tools like `flake8`.
+This stage employs tools like `flake8` to evaluate code quality.
 ### Test
-The test stage runs automated tests on your code, typically using `pytest`.
+During this stage, the pipeline runs automated tests using `pytest`, setting the `PYTHONPATH` to ensure modules are correctly found.
 
 ## Workflow Rules
-Configure the pipeline to only run on merge requests targeting specified branches, improving efficiency and relevance of the CI process.
+The pipeline's execution is fine-tuned to activate only for merge requests that target certain branches, streamlining the CI process to focus on critical updates.
 
-## Example `.gitlab-ci.yml`
+## Updated `.gitlab-ci.yml` Example
 ```yaml
 variables:
   DEFAULT_IMAGE: "python:3.12"
-  merge_request_branches: "/^main|development$/"
 
 image: $DEFAULT_IMAGE
 
@@ -59,16 +58,21 @@ lint:
   stage: lint
   script:
     - flake8 .
+  tags:
+    - python-3.12 # Ensure you are using correct runner
 
 test:
   stage: test
   script:
+    - export PYTHONPATH=$PYTHONPATH:$(pwd) # Ensure Python can locate the project modules
     - pytest tests/
+  tags:
+    - python-3.12 # Ensure you are using correct runner
 
 workflow:
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ $merge_request_branches'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^main|development$/'
 ```
 
 ## Conclusion
-Implementing a CI pipeline in GitLab for your Python projects facilitates automated testing and linting, ensuring high code quality and functionality. This setup guide helps you utilize GitLab CI/CD features effectively for Python application development.
+By integrating a CI pipeline with your GitLab-hosted Python project, you leverage automated testing and linting capabilities, fostering a culture of quality and efficiency. The guidance provided here equips you to efficiently employ GitLab CI/CD features for Python app development, ensuring your code remains robust and reliable.
