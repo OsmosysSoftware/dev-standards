@@ -9,7 +9,7 @@
 3. [Set up for Angular project](#3-set-up-for-angular-project)
 4. [Setting up the Docker Environment](#4-setting-up-the-docker-environment)
    - [Dockerfile](#41-dockerfile)
-      - [Angular version-specific file path for Nginx](#set-the-correct-filepath-for-nginx)
+      - [Angular version-specific file path for Nginx](#set-the-correct-file-path-for-nginx)
    - [Docker Compose](#42-docker-compose)
    - [nginx.conf](#43-nginxconf)
    - [.dockerignore](#44-dockerignore)
@@ -59,7 +59,7 @@ Download links:
 
 ## 3. Set up for Angular project
 
-In `package.json`, set set the command for the production environment:
+In `package.json`, set the command to build the application with production configuration:
 
 ```json
 // package.json
@@ -131,13 +131,13 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-### Set the correct filepath for Nginx
+### Set the Correct File Path for Nginx
 
 #### Why?
 
 - When you run the command `ng build`, a `dist` folder is created which contains all angular build files.
 - Depending on the CLI version, different folder structures are created.
-- We need to give the path of `index.html` for nginx to work.
+- We need to give the path of `index.html` for Nginx to work.
 
 #### How to find folder name?
 
