@@ -9,7 +9,7 @@
 3. [Set up for Angular project](#3-set-up-for-angular-project)
 4. [Setting up the Docker Environment](#4-setting-up-the-docker-environment)
    - [Dockerfile](#41-dockerfile)
-      - [Angular version-specific filepath for nginx](#note-set-correct-filepath-for-nginx)
+      - [Angular version-specific filepath for nginx](#set-correct-filepath-for-nginx)
    - [Docker Compose](#42-docker-compose)
    - [nginx.conf](#43-nginxconf)
    - [.dockerignore](#44-dockerignore)
@@ -131,9 +131,18 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-### Note: Set correct filepath for nginx
+### Set correct filepath for nginx
 
-When you run command `ng build`, a `dist` folder is created which contains all angular build files. Depending on the cli version different folder structures are created. We need to give path of `index.html` for nginx to work.
+#### Why?
+
+- When you run command `ng build`, a `dist` folder is created which contains all angular build files.
+- Depending on the CLI version, different folder structures are created.
+- We need to give path of `index.html` for nginx to work.
+
+#### How to find folder name?
+
+- Folder name is present in `package.json` as `"name": "your-app-name"`
+- Verify the folder name by running `ng build` and checking in `dist` folder.
 
 #### 1. For angular version 17
 
@@ -141,18 +150,22 @@ When you run command `ng build`, a `dist` folder is created which contains all a
 build file folder structure
 
 dist
-| your_app_name
+| your-app-name
 | | browser
 | | | index.html
 | | | <...other build files>
 | | license
 ```
-- You can define `${APP_NAME}` in docker-compose and build using that.
+**Define APP_NAME in `docker-compose.yml`:**
 
-OR
+- Define `${APP_NAME}` in [docker compose file](#42-docker-compose) and skip this section.
 
-- For `APP_PATH`, you can directly replace `${APP_NAME}` with your application name like so:
-> ENV APP_PATH=/usr/src/app/dist/`your_application_name`/browser
+**OR ALTERNATIVELY**
+
+**Update `Dockerfile`:**
+
+- Update `ENV APP_PATH` by directly replacing `${APP_NAME}` with your application name like so:
+> ENV APP_PATH=/usr/src/app/dist/`your-app-name`/browser
 
 #### 2. For angular versions 16 and below:
 
@@ -160,20 +173,22 @@ OR
 Build file folder structure
 
 dist
-| your_app_name
+| your-app-name
 | | index.html
 | | <...other build files>
 ```
 
+**Update `Dockerfile`:**
+
 - Remove the line `ARG APP_NAME`
-- Set `APP_PATH` as `/usr/src/app/dist/*`:
+- Set `ENV APP_PATH` as `/usr/src/app/dist/*`:
 > ENV APP_PATH=/usr/src/app/dist/*
 
 [Back to top](#table-of-contents)
 
 ### 4.2 Docker Compose
 
-Create a docker-compose.yml file in the root directory of your project. Set the arg `APP_NAME` as name of your application if not changed [here](#note-set-correct-filepath-for-nginx).
+Create a `docker-compose.yml` file in the root directory of your project. Set the arg `APP_NAME` as name of your application if [not updated in Dockerfile](#1-for-angular-version-17).
 
 ```yml
 version: '1'
@@ -183,7 +198,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        APP_NAME: your_app_name
+        APP_NAME: your-app-name
     image: angular-sample-image
     container_name: angular-sample-container
     ports:
@@ -242,10 +257,10 @@ docker-compose -f docker-compose.yml up
 
 #### Build Docker Image
 
-Run the following command in the root directory of your project to build the Docker images. Replace `your_app_name` with a suitable value as an argument:
+Run the following command in the root directory of your project to build the Docker images. Replace `your-app-name` with a suitable value as an argument:
 
 ```shell
-docker build --build-arg APP_NAME=your_app_name -t ng-docker-app:v1.0.0 -f ./Dockerfile .
+docker build --build-arg APP_NAME=your-app-name -t ng-docker-app:v1.0.0 -f ./Dockerfile .
 ```
 
 #### Create Docker Containers
