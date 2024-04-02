@@ -9,7 +9,7 @@
 3. [Set up for Angular project](#3-set-up-for-angular-project)
 4. [Setting up the Docker Environment](#4-setting-up-the-docker-environment)
    - [Dockerfile](#41-dockerfile)
-      - [Angular version-specific filepath for nginx](#set-correct-filepath-for-nginx)
+      - [Angular version-specific file path for Nginx](#set-the-correct-filepath-for-nginx)
    - [Docker Compose](#42-docker-compose)
    - [nginx.conf](#43-nginxconf)
    - [.dockerignore](#44-dockerignore)
@@ -36,7 +36,7 @@ The purpose of this document is to provide a guide for setting up a Docker envir
 
 - Dockerization for this example is done on app built on Angular version 17.1.0
 
-- This document also covers dockerization for apps built on version 16 and below of Angular.
+- This document also covers Dockerization for apps built on Angular version 16 and below.
 
 [Back to top](#table-of-contents)
 
@@ -59,7 +59,7 @@ Download links:
 
 ## 3. Set up for Angular project
 
-In `package.json`, set the production environment command
+In `package.json`, set set the command for the production environment:
 
 ```json
 // package.json
@@ -131,13 +131,13 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-### Set correct filepath for nginx
+### Set the correct filepath for Nginx
 
 #### Why?
 
-- When you run command `ng build`, a `dist` folder is created which contains all angular build files.
+- When you run the command `ng build`, a `dist` folder is created which contains all angular build files.
 - Depending on the CLI version, different folder structures are created.
-- We need to give path of `index.html` for nginx to work.
+- We need to give the path of `index.html` for nginx to work.
 
 #### How to find folder name?
 
@@ -188,7 +188,7 @@ dist
 
 ### 4.2 Docker Compose
 
-Create a `docker-compose.yml` file in the root directory of your project. Set the arg `APP_NAME` as name of your application if [not updated in Dockerfile](#1-for-angular-version-17).
+Create a `docker-compose.yml` file in the root directory of your project. Set the arg `APP_NAME` as the name of your application if [not updated in Dockerfile](#1-for-angular-version-17).
 
 ```yml
 version: '1'
