@@ -34,7 +34,7 @@ The purpose of this document is to provide a guide for setting up a Docker envir
 
 - This document covers the basic setup of a Docker environment for an Angular application, including Dockerfile creation, Docker Compose setup, and database configuration.
 
-- Dockerization for this example is done on app built on Angular version 17.1.0
+- Dockerization is done on an app built on Angular version 17.1.0
 
 - This document also covers Dockerization for apps built on Angular version 16 and below.
 
