@@ -106,38 +106,12 @@ Fields are aligned horizontally and vertically.  In addition to alignment, the s
 
 **Label / Field Vertical spacing** - This is the space between two fields in the same column. It is very important to maintain this same across all fields in the page & application.
 
-<table style="width: 562.5px; height: 157px;">
-   <tbody>
-      <tr style="height: 31px;">
-         <td style="width: 295px; height: 31px;"></td>
-         <td style="width: 265.5px; height: 31px;">Osmosys Default
-         </td>
-      </tr>
-      <tr style="height: 31px;">
-         <td style="width: 295px; height: 31px;">Label Vertical Alignment
-         </td>
-         <td style="width: 265.5px; height: 31px;">Top
-         </td>
-      </tr>
-      <tr style="height: 31px;">
-         <td style="width: 295px; height: 31px;">Label Horizontal Alignment
-         </td>
-         <td style="width: 265.5px; height: 31px;">Left
-         </td>
-      </tr>
-      <tr style="height: 31px;">
-         <td style="width: 295px; height: 31px;">Label Font Type
-         </td>
-         <td style="width: 265.5px; height: 31px;"></td>
-      </tr>
-      <tr style="height: 31px;">
-         <td style="width: 295px; height: 31px;">Label Font Size
-         </td>
-         <td style="width: 265.5px; height: 31px;"> </td>
-      </tr>
-   </tbody>
-</table>
-
+|                            | Osmosys Default |
+| -------------------------- | --------------- |
+| Label Vertical Alignment   | Top             |
+| Label Horizontal Alignment | Left            |
+| Label Font Type            |                 |
+| Label Font Size            |                 |
  
 ## Sizes
 
@@ -146,7 +120,7 @@ Proper field sizes are essential for comfortable data entry and good appearance 
 1. **Relevance:** Proper size for each field is important for a good user experience. An email with 50 characters shall have the field width to accommodate that size. Similarly, the field for Age can have a size that takes 3 characters. If we are  taking notes or comments, then that fields should reflect 
 2. **Uniformity:** All fields of the same type in a form / application shall have the same size. This is properly achieved when we follow a well designed CSS. The same proper sizing shall be followed even in grids.
 
-[![Picture4.jpg](https://soochna.osmosys.co/uploads/images/gallery/2016-11-Nov/scaled-840-0/Picture4.jpg)](https://soochna.osmosys.co/uploads/images/gallery/2016-11-Nov/Picture4.jpg)
+![UI Uniformity](assets/ui-uniformity.jpg)
 
 The above image shows three different column widths for the same data type (money) – such  things  shall  be  avoided,  unless explicitly asked by the client.
 
@@ -154,352 +128,30 @@ The above image shows three different column widths for the same data type (mone
 
 This document describes the various type of fields and their properties.
 
-<table border="0" cellspacing="0" id="bkmrk-use-db-datatype-db-l">
-   <colgroup width="271"></colgroup>
-   <colgroup width="129"></colgroup>
-   <colgroup width="122"></colgroup>
-   <colgroup span="2" width="141"></colgroup>
-   <colgroup width="102"></colgroup>
-   <colgroup width="354"></colgroup>
-   <colgroup width="242"></colgroup>
-   <tbody>
-      <tr style="height: 67px;">
-         <td align="left" bgcolor="#4F81BD" style="height: 67px;"><span style="color: #ffffff;">Use</span></td>
-         <td align="left" bgcolor="#4F81BD" style="height: 67px;"><span style="color: #ffffff;">DB DataType</span></td>
-         <td align="left" bgcolor="#4F81BD" style="height: 67px;"><span style="color: #ffffff;">DB Length</span></td>
-         <td align="left" bgcolor="#4F81BD" style="height: 67px;"><span style="color: #ffffff;">Max Length (UI)</span></td>
-         <td align="left" bgcolor="#4F81BD" style="height: 67px;"><span style="color: #ffffff;">Min Length (UI)</span></td>
-         <td align="left" bgcolor="#4F81BD" style="height: 67px;"><span style="color: #ffffff;">Alignment</span></td>
-         <td align="left" bgcolor="#4F81BD" style="height: 67px;"><span style="color: #ffffff;">Allowed Characters</span></td>
-         <td align="left" bgcolor="#4F81BD" style="height: 67px;"><span style="color: #ffffff;">Comments</span></td>
-      </tr>
-      <tr style="height: 139px;">
-         <td align="left" style="height: 139px;">Normal Text  
-            (FirstName, LastName etc...)
-         </td>
-         <td align="left" style="height: 139px;">Varchar</td>
-         <td align="right" style="height: 139px;">50</td>
-         <td align="right" style="height: 139px;">50</td>
-         <td align="right" style="height: 139px;">2</td>
-         <td align="left" style="height: 139px;">Left</td>
-         <td align="left" style="height: 139px;">Alphanumeric   
-            including special characters
-         </td>
-         <td align="left" style="height: 139px;">The control must be like that the user  
-            must be able to see atleast 30 characters  
-            in the textbox.
-         </td>
-      </tr>
-      <tr style="height: 139px;">
-         <td align="left" style="height: 139px;">Email/URL</td>
-         <td align="left" style="height: 139px;">Varchar</td>
-         <td align="right" style="height: 139px;">256</td>
-         <td align="right" style="height: 139px;">256</td>
-         <td align="right" style="height: 139px;">2</td>
-         <td align="left" style="height: 139px;">Left</td>
-         <td align="left" style="height: 139px;">Alphanumeric   
-            including special characters
-         </td>
-         <td align="left" style="height: 139px;">The control must be like that the user  
-            must be able to see atleast 30 characters  
-            in the textbox.
-         </td>
-      </tr>
-      <tr style="height: 31px;">
-         <td align="left" style="height: 31px;">Age</td>
-         <td align="left" style="height: 31px;">Int</td>
-         <td align="right" style="height: 31px;">3</td>
-         <td align="right" style="height: 31px;">3</td>
-         <td align="right" style="height: 31px;">1</td>
-         <td align="left" style="height: 31px;">Left</td>
-         <td align="left" style="height: 31px;">Only numbers</td>
-         <td align="left" style="height: 31px;"> </td>
-      </tr>
-      <tr style="height: 67px;">
-         <td align="left" style="height: 67px;">Postal Code / Zip code</td>
-         <td align="left" style="height: 67px;">Varchar</td>
-         <td align="right" style="height: 67px;">10</td>
-         <td align="right" style="height: 67px;">10</td>
-         <td align="right" style="height: 67px;">3</td>
-         <td align="left" style="height: 67px;">Left</td>
-         <td align="left" style="height: 67px;">Alphanumeric   
-            including space and Hyphen(-)
-         </td>
-         <td align="left" style="height: 67px;"> </td>
-      </tr>
-      <tr style="height: 103px;">
-         <td align="left" style="height: 103px;">Phone Number</td>
-         <td align="left" style="height: 103px;">Varchar</td>
-         <td align="right" style="height: 103px;">15</td>
-         <td align="right" style="height: 103px;">15</td>
-         <td align="right" style="height: 103px;">10</td>
-         <td align="left" style="height: 103px;">Left</td>
-         <td align="left" style="height: 103px;">Numbers with (, -, +   
-            and space should be allowed
-         </td>
-         <td align="left" style="height: 103px;">Can vary from project to project.</td>
-      </tr>
-      <tr style="height: 103px;">
-         <td align="left" style="height: 103px;">Fax Number</td>
-         <td align="left" style="height: 103px;">Varchar</td>
-         <td align="right" style="height: 103px;">15</td>
-         <td align="right" style="height: 103px;">15</td>
-         <td align="right" style="height: 103px;">10</td>
-         <td align="left" style="height: 103px;">Left</td>
-         <td align="left" style="height: 103px;">Numbers with (, -, +   
-            and space should be allowed
-         </td>
-         <td align="left" style="height: 103px;">Can vary from project to project.</td>
-      </tr>
-      <tr style="height: 211px;">
-         <td align="left" style="height: 211px;">Description / Address</td>
-         <td align="left" style="height: 211px;">Varchar (if size &gt; 1000 Text)</td>
-         <td align="right" style="height: 211px;">1000</td>
-         <td align="right" style="height: 211px;">1000</td>
-         <td align="left" style="height: 211px;"> </td>
-         <td align="left" style="height: 211px;">Left</td>
-         <td align="left" style="height: 211px;">Alphanumeric   
-            including special characters
-         </td>
-         <td align="left" style="height: 211px;">Can vary from project to project.   
-            The control must be like that the user  
-            must be able to see atleast 200 characters  
-            in the textbox.
-         </td>
-      </tr>
-      <tr style="height: 103px;">
-         <td align="left" style="height: 103px;">Amounts or Totals(Money)</td>
-         <td align="left" style="height: 103px;">Decimal</td>
-         <td align="left" style="height: 103px;">(18,2) Default</td>
-         <td align="right" style="height: 103px;">21</td>
-         <td align="left" style="height: 103px;"> </td>
-         <td align="left" style="height: 103px;">Right</td>
-         <td align="left" style="height: 103px;">Decimal numbers with precision 2</td>
-         <td align="left" style="height: 103px;">Can vary from project to project.   
-            Must be right aligned.
-         </td>
-      </tr>
-      <tr style="height: 85px;">
-         <td align="left" style="height: 85px;">Password</td>
-         <td align="left" style="height: 85px;">Varchar</td>
-         <td align="right" style="height: 85px;">25</td>
-         <td align="right" style="height: 85px;">25</td>
-         <td align="right" style="height: 85px;">6</td>
-         <td align="left" style="height: 85px;">Left</td>
-         <td align="left" style="height: 85px;">Alphanumeric   
-            including special characters
-         </td>
-         <td align="left" style="height: 85px;"> </td>
-      </tr>
-      <tr style="height: 175px;">
-         <td align="left" style="height: 175px;">Percentage</td>
-         <td align="left" style="height: 175px;">Decimal</td>
-         <td align="left" style="height: 175px;">(5,2)</td>
-         <td align="left" style="height: 175px;">6(with presicion 2)</td>
-         <td align="right" style="height: 175px;">4</td>
-         <td align="left" style="height: 175px;">Left</td>
-         <td align="left" style="height: 175px;">Decimal numbers with precision 2 (0 to 100)</td>
-         <td align="left" style="height: 175px;">Can vary from project to project. (ex: range can be -100 to 100). Can edit with '%' or a '%' label after the text box.</td>
-      </tr>
-      <tr style="height: 67px;">
-         <td align="left" style="height: 67px;">Duration(in Hours/Mins/Secs)</td>
-         <td align="left" style="height: 67px;">Decimal</td>
-         <td align="left" style="height: 67px;">(8,2)</td>
-         <td align="left" style="height: 67px;">9(with presicion 2)</td>
-         <td align="right" style="height: 67px;">4</td>
-         <td align="left" style="height: 67px;">Left</td>
-         <td align="left" style="height: 67px;">Decimal numbers with precision 2</td>
-         <td align="left" style="height: 67px;"> </td>
-      </tr>
-      <tr style="height: 67px;">
-         <td align="left" style="height: 67px;">Duration (in Day/Months/Years)</td>
-         <td align="left" style="height: 67px;">Decimal</td>
-         <td align="left" style="height: 67px;">(5,2)</td>
-         <td align="left" style="height: 67px;">6(with presicion 2)</td>
-         <td align="right" style="height: 67px;">4</td>
-         <td align="left" style="height: 67px;">Left</td>
-         <td align="left" style="height: 67px;">Decimal numbers with precision 2</td>
-         <td align="left" style="height: 67px;"> </td>
-      </tr>
-      <tr style="height: 157px;">
-         <td align="left" style="height: 157px;">Timezone</td>
-         <td align="left" style="height: 157px;">Varchar</td>
-         <td align="right" style="height: 157px;">50</td>
-         <td align="right" style="height: 157px;">50</td>
-         <td align="right" style="height: 157px;">2</td>
-         <td align="left" style="height: 157px;">Left</td>
-         <td align="left" style="height: 157px;">Alphabets  
-            including special characters
-         </td>
-         <td align="left" style="height: 157px;">Can vary from project to project. (ex: We may store offset time instead of the time zone name)</td>
-      </tr>
-      <tr style="height: 211px;">
-         <td align="left" style="height: 211px;">Address Line 1 / Address Line2 etc.</td>
-         <td align="left" style="height: 211px;">Varchar</td>
-         <td align="right" style="height: 211px;">100</td>
-         <td align="right" style="height: 211px;">100</td>
-         <td align="left" style="height: 211px;"> </td>
-         <td align="left" style="height: 211px;">Left</td>
-         <td align="left" style="height: 211px;">Alphanumeric   
-            including special characters
-         </td>
-         <td align="left" style="height: 211px;">Can vary from project to project.   
-            The control must be like that the user  
-            must be able to see atleast 200 characters  
-            in the textbox.
-         </td>
-      </tr>
-      <tr style="height: 49px;">
-         <td align="left" style="height: 49px;">True Or False,  
-            Yes Or No
-         </td>
-         <td align="left" style="height: 49px;">TinyInt or Bit</td>
-         <td align="right" style="height: 49px;">1</td>
-         <td align="left" style="height: 49px;"> </td>
-         <td align="left" style="height: 49px;"> </td>
-         <td align="left" style="height: 49px;"> </td>
-         <td align="left" style="height: 49px;"> </td>
-         <td align="left" style="height: 49px;"> </td>
-      </tr>
-      <tr style="height: 157px;">
-         <td align="left" style="height: 157px;">Selection</td>
-         <td align="left" style="height: 157px;">Int</td>
-         <td align="right" style="height: 157px;">10</td>
-         <td align="left" style="height: 157px;"> </td>
-         <td align="left" style="height: 157px;"> </td>
-         <td align="left" style="height: 157px;"> </td>
-         <td align="left" style="height: 157px;"> </td>
-         <td align="left" style="height: 157px;">The options in the dropdown should be taken from DB or Any other external source.</td>
-      </tr>
-      <tr style="height: 139px;">
-         <td align="left" style="height: 139px;">DateOfBirth / Date of Joining etc....</td>
-         <td align="left" style="height: 139px;">Date/Datetime</td>
-         <td align="left" style="height: 139px;"> </td>
-         <td align="right" style="height: 139px;">10</td>
-         <td align="left" style="height: 139px;"> </td>
-         <td align="left" style="height: 139px;">Left</td>
-         <td align="left" style="height: 139px;">Numbers with slash(/) or Hyphen(-)or dot(.).</td>
-         <td align="left" style="height: 139px;">Depends on the customer's requirement.  
-            Must be less than the current date.
-         </td>
-      </tr>
-      <tr style="height: 157px;">
-         <td align="left" style="height: 157px;">StartDate</td>
-         <td align="left" style="height: 157px;">Datetime</td>
-         <td align="left" style="height: 157px;"> </td>
-         <td align="right" style="height: 157px;">10</td>
-         <td align="left" style="height: 157px;"> </td>
-         <td align="left" style="height: 157px;">Left</td>
-         <td align="left" style="height: 157px;">Numbers with slash(/) or Hyphen(-)or dot(.).</td>
-         <td align="left" style="height: 157px;">Depends on the customer's requirement.  
-            Should be greater than the current date.
-         </td>
-      </tr>
-      <tr style="height: 157px;">
-         <td align="left" style="height: 157px;">EndDate</td>
-         <td align="left" style="height: 157px;">Datetime</td>
-         <td align="left" style="height: 157px;"> </td>
-         <td align="right" style="height: 157px;">10</td>
-         <td align="left" style="height: 157px;"> </td>
-         <td align="left" style="height: 157px;">Left</td>
-         <td align="left" style="height: 157px;">Numbers with slash(/) or Hyphen(-)or dot(.).</td>
-         <td align="left" style="height: 157px;">Depends on the customer's requirement.  
-            Must be greater than or equals to startdate
-         </td>
-      </tr>
-      <tr style="height: 49px;">
-         <td align="left" style="height: 49px;">Error Label</td>
-         <td align="left" style="height: 49px;"> </td>
-         <td align="left" style="height: 49px;"> </td>
-         <td align="left" style="height: 49px;"> </td>
-         <td align="left" style="height: 49px;"> </td>
-         <td align="left" style="height: 49px;"> </td>
-         <td align="left" style="height: 49px;"> </td>
-         <td align="left" style="height: 49px;">Must be in <span style="color: #ff0000;">RED</span> color.</td>
-      </tr>
-      <tr style="height: 49px;">
-         <td align="left" style="height: 49px;">Message Label</td>
-         <td align="left" style="height: 49px;"> </td>
-         <td align="left" style="height: 49px;"> </td>
-         <td align="left" style="height: 49px;"> </td>
-         <td align="left" style="height: 49px;"> </td>
-         <td align="left" style="height: 49px;"> </td>
-         <td align="left" style="height: 49px;"> </td>
-         <td align="left" style="height: 49px;">Must be in <span style="color: #008000;">GREEN</span> color.</td>
-      </tr>
-   </tbody>
-</table>
+| Use                                      | DB DataType                    | DB Length      | Max Length (UI)      | Min Length (UI) | Alignment | Allowed Characters                               | Comments                                                                                                                             |
+| ---------------------------------------- | ------------------------------ | -------------- | -------------------- | --------------- | --------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Normal Text (FirstName, LastName etc...) | Varchar                        | 50             | 50                   | 2               | Left      | Alphanumeric including special characters        | The control must be like that the user must be able to see at least 30 characters in the textbox.                                    |
+| Email / URL                              | Varchar                        | 256            | 256                  | 2               | Left      | Alphanumeric including special characters        | The control must be like that the user must be able to see at least 30 characters in the textbox.                                    |
+| Age                                      | Int                            | 3              | 3                    | 1               | Left      | Only numbers                                     |                                                                                                                                      |
+| Postal Code / Zip Code                   | Varchar                        | 10             | 10                   | 3               | Left      | Alphanumeric including space and hyphen(-)       |                                                                                                                                      |
+| Phone Number                             | Varchar                        | 15             | 15                   | 10              | Left      | Numbers with (, -, + and space should be allowed | Can vary from project to project.                                                                                                    |
+| Fax Number                               | Varchar                        | 15             | 15                   | 10              | Left      | Numbers with (, -, + and space should be allowed | Can vary from project to project.                                                                                                    |
+| Description / Address                    | Varchar (if size > 1000, Text) | 1000           | 1000                 |                 | Left      | Alphanumeric including special characters        | Can vary from project to project. The control must be like that the user must be able to see at least 200 characters in the textbox. |
+| Amounts or Totals (Money)                | Decimal                        | (18,2) Default | 21                   |                 | Right     | Decimal numbers with precision 2                 | Can vary from project to project. Must be right aligned.                                                                             |
+| Password                                 | Varchar                        | 25             | 25                   | 6               | Left      | Alphanumeric including special characters        |                                                                                                                                      |
+| Percentage                               | Decimal                        | (5,2)          | 6 (with precision 2) | 4               | Left      | Decimal numbers with precision 2 (0 to 100)      | Can vary from project to project. (ex: range can be -100 to 100). Can edit with '%' or a '%' label after the text box.               |
+| Duration (in Hours/Mins/Secs)            | Decimal                        | (8,2)          | 9 (with precision 2) | 4               | Left      | Decimal numbers with precision 2                 |                                                                                                                                      |
+| Duration (in Day/Months/Years)           | Decimal                        | (5,2)          | 6 (with precision 2) | 4               | Left      | Decimal numbers with precision 2                 |                                                                                                                                      |
+| Timezone                                 | Varchar                        | 50             | 50                   | 2               | Left      | Alphabets including special characters           | Can vary from project to project. (ex: We may store offset time instead of the time zone name)                                       |
+| Address Line 1 / Address Line 2 etc.     | Varchar                        | 100            | 100                  |                 | Left      | Alphanumeric including special characters        | Can vary from project to project. The control must be like that the user must be able to see at least 200 characters in the textbox. |
+| True or False, Yes or No                 | TinyInt or Bit                 | 1              |                      |                 |           |                                                  |                                                                                                                                      |
+| Selection                                | Int                            | 10             |                      |                 |           |                                                  | The options in the dropdown should be taken from DB or Any other external source.                                                    |
+| Date of Birth / Date of Joining etc.     | Date/Datetime                  |                | 10                   |                 | Left      | Numbers with slash(/) or Hyphen(-)or dot(.)      | Depends on the customer's requirement. Must be less than the current date.                                                           |
+| Start Date                               | Datetime                       |                | 10                   |                 | Left      | Numbers with slash(/) or Hyphen(-)or dot(.)      | Depends on the customer's requirement. Should be greater than the current date.                                                      |
+| End Date                                 | Datetime                       |                | 10                   |                 | Left      | Numbers with slash(/) or Hyphen(-)or dot(.)      | Depends on the customer's requirement. Must be greater than or equals to start date                                                  |
+| Error Label                              |                                |                |                      |                 |           |                                                  | Must be in RED color.                                                                                                                |
+| Message Label                            |                                |                |                      |                 |           |                                                  | Must be in GREEN color.                                                                                                              |
 
 # Standard regular expressions to be used for form validations across the technologies
 
-> **Note:** The following examples demonstrate the use of regular expressions for form validation. However, it is recommended **not to use the pattern and required attributes in HTML** for defining these validations, as different browsers may show inconsistent error messages. Instead, use JavaScript to define the regular expressions and perform the validations programmatically.
-
-1. **Phone number without country code**:
-   - Regex: `^\d{6,14}$`
-   - Example HTML:
-     ```html
-     <input type="tel" name="phone" pattern="^\d{6,14}$" required>
-     ```
-
-2. **Phone number with Indian country code and Indian mobile number**:
-   - Regex: `^\+91[1-9]\d{9}$`
-   - Example HTML:
-     ```html
-     <input type="tel" name="phone" pattern="^\+91[1-9]\d{9}$" required>
-     ```
-   - Regex (handling multiple formats): `^(\+91|\(\+91\))(\s?)([0-9]+)?(\s?)([0-9]+)?(\s)?([0-9]+)?$`
-   - Example formats:
-     ```
-     +911234567890
-     +91 1234567890
-     +91 123 456 7890
-     +91 12345 67890
-     +9112345 67890
-     (+91)1234567890
-     (+91) 1234567890
-     (+91) 123 456 7890
-     (+91) 12345 67890
-     (+91)12345 67890
-     ```
-
-3. **Phone number with any country code + any international mobile number**:
-   - Regex: `^\+[1-9]\d{6,14}$`
-   - Example HTML:
-     ```html
-     <input type="tel" name="phone" pattern="^\+[1-9]\d{6,14}$" required>
-     ```
-
-4. **Email**:
-   - Regex: `^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`
-   - Example HTML:
-     ```html
-     <input type="email" name="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
-     ```
-
-5. **Date**:
-   - Regex: `^\d{4}-\d{2}-\d{2}$`
-   - Example HTML:
-     ```html
-     <input type="date" name="date" pattern="^\d{4}-\d{2}-\d{2}$" required>
-     ```
-
-6. **Time**:
-   - Regex: `^([01]?[0-9]|2[0-3]):[0-5][0-9]$`
-   - Example HTML:
-     ```html
-     <input type="time" name="time" pattern="^([01]?[0-9]|2[0-3]):[0-5][0-9]$" required>
-     ```
-
-7. **URL**:
-   - Regex: `^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$`
-   - Example HTML:
-     ```html
-     <input type="url" name="url" pattern="^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$" required>
-     ```
-
-8. **Postal code**:
-   - Regex: `^\d{5}(?:[-\s]\d{4})?$`
-   - Example HTML:
-     ```html
-     <input type="text" name="postalcode" pattern="^\d{5}(?:[-\s]\d{4})?$" required>
-     ```
+Access the regular expression standards to be used in [RegEx.md](./RegEx.md).
