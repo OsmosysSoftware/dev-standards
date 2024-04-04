@@ -61,7 +61,7 @@ Download links:
 
 In `package.json`, set the command to build the application with production configuration:
 
-```json
+```jsonc
 // package.json
 {
   // ...
@@ -165,7 +165,9 @@ dist
 **Update `Dockerfile`:**
 
 - Update `ENV APP_PATH` by directly replacing `${APP_NAME}` with your application name like so:
-> ENV APP_PATH=/usr/src/app/dist/`your-app-name`/browser
+```Dockerfile
+ENV APP_PATH=/usr/src/app/dist/your-app-name/browser
+```
 
 #### 2. For angular versions 16 and below:
 
@@ -182,7 +184,9 @@ dist
 
 - Remove the line `ARG APP_NAME`
 - Set `ENV APP_PATH` as `/usr/src/app/dist/*`:
-> ENV APP_PATH=/usr/src/app/dist/*
+```Dockerfile
+ENV APP_PATH=/usr/src/app/dist/*
+```
 
 [Back to top](#table-of-contents)
 
@@ -191,7 +195,6 @@ dist
 Create a `docker-compose.yml` file in the root directory of your project. Set the arg `APP_NAME` as the name of your application if [not updated in Dockerfile](#1-for-angular-version-17).
 
 ```yml
-version: '1'
 services:
   angular-docker:
     build:
