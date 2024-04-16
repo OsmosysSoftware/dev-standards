@@ -334,7 +334,7 @@ If the field takes a number, please use `type="number"`, if it takes email use `
 **Example**
 
 ```html
-<input type="text" class="form-control" id="txt-firstName">
+<input class="form-control" id="txt-firstName" type="text">
 <div class="row">
     <div></div>
     <div class="selected-row"></div>
