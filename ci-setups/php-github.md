@@ -69,7 +69,7 @@ This document covers the basic setup of a CI workflow for a PHP project in GitHu
 
     > Note: In case the project already has some other workflows set up, click on the **New workflow** button on the left side. This will take you to the above page.
 
-3. A new page will open which will by default create a new file `.github/workflows/main.yml` and allow editing it. For the purposes of this guide, we will rename the file to `php-lint.yml`, though it can be named as seemed fit.
+3. A new page will open, which will by default create a new file `.github/workflows/main.yml` and allow editing it. For the purposes of this guide, we will rename the file to `php-lint.yml`, though it can be named as seemed fit.
 
     ![GitHub New workflow](assets/php-github_new-workflow.png)
 
@@ -218,7 +218,7 @@ jobs:
 ### Creating Pull Requests
 
 1. Create a new branch in your PHP project repository.
-2. Make changes to your code and push the branch to GitHub.
+2. Make necessary changes to your code and push the branch to GitHub.
 3. Create a Pull Request (PR) targeting the 'main' or 'release' branch.
 
 ### Observing Workflow Run
@@ -300,7 +300,7 @@ Modify the job steps in the `php-lint.yml` file to match your specific linting a
 
 ## 8. Sample Repository
 
-[Repository Link](https://github.com/OsmosysSoftware/angular-eslint-workflow-guide) 
+[Repository Link](https://github.com/OsmosysSoftware/angular-eslint-workflow-guide)
 
 Explore this for practical demonstration of CI setups.
 

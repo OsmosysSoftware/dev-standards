@@ -96,7 +96,7 @@ If your CI build fails, check the logs in GitHub Actions. Ensure your local deve
 
 ## 11. Sample Repository
 
-[Repository Link](https://github.com/OsmosysSoftware/angular-eslint-workflow-guide) 
+[Repository Link](https://github.com/OsmosysSoftware/python-lint-workflow-guide)
 
 Explore this for practical demonstration of CI setups.
 
