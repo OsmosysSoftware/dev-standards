@@ -26,7 +26,8 @@
   - [7. Troubleshooting and Advanced Configuration](#7-troubleshooting-and-advanced-configuration)
     - [Handling Merge Conflicts](#handling-merge-conflicts)
     - [Customizing Scripts](#customizing-scripts)
-  - [8. Conclusion](#8-conclusion)
+  - [8. Sample Repository](#8-sample-repository)
+  - [9. Conclusion](#9-conclusion)
     - [Benefits of Workflow Setup](#benefits-of-workflow-setup)
     - [Future Enhancements](#future-enhancements)
 
@@ -54,8 +55,8 @@ Before setting up the workflow, ensure you have the following prerequisites:
 
 ### Creating a `.yml` File
 1. Navigate to your Angular application repository on GitHub.
-2. Create a folder named `github` in the root directory.
-3. Inside `github` folder create a new folder called `workflows`.
+2. Create a folder named `.github` in the root directory.
+3. Inside `.github` folder create a new folder called `workflows`.
 4. Create a file named `main.yml` inside `workflows` folder.
 
 ### Assign Name
@@ -74,7 +75,7 @@ on:
     branches: [ "main", "development" ]
 ```
 
-You can modify the above as per your needs. For example if you want to run the jobs for merge requests targeting any release branch you can modify the condition as following:
+You can modify the above as per your needs. For example, if you want to run the jobs for merge requests targeting any release branch you can modify the condition as following:
 
 ```yaml
 on:
@@ -83,7 +84,7 @@ on:
 ```
 
 ### Writing Jobs for Linting and Building
-Create jobs within each stage to perform linting and building tasks. We will have to jobs in this workflow. One is linting and another is building.
+Create jobs within each stage to perform linting and building tasks. We will have two jobs in this workflow. One is linting and another is building.
 
 ```yaml
 jobs:
@@ -178,7 +179,7 @@ jobs:
 
 ### Creating Pull Requests
 1. Create a new branch in your Angular application repository.
-2. Make changes to your code and push the branch to GitHub.
+2. Make necessary changes to your code and push the branch to GitHub.
 3. Create a pull request (PR) targeting the main or development branch.
 
 ### Observing Workflow Execution
@@ -250,7 +251,14 @@ If your pull request encounters merge conflicts during the auto-merge stage, man
 Modify the scripts in the main.yml file to match your specific linting and building commands and any additional requirements of your Angular application.
 
 [Back to top](#table-of-contents)
-## 8. Conclusion
+
+## 8. Sample Repository
+
+[Repository Link](https://github.com/OsmosysSoftware/angular-eslint-workflow-guide)
+
+Explore this for practical demonstration of CI setups.
+
+## 9. Conclusion
 
 ### Benefits of Workflow Setup
 Setting up a workflow for your Angular application offers several benefits:

@@ -27,7 +27,8 @@
 7. [Troubleshooting and Advanced Configuration](#7-troubleshooting-and-advanced-configuration)
     - [Handling Merge Conflicts](#handling-merge-conflicts)
     - [Customizing Scripts](#customizing-scripts)
-8. [Conclusion](#8-conclusion)
+8. [Sample Repository](#8-sample-repository)
+9. [Conclusion](#9-conclusion)
     - [Benefits of CI Setup](#benefits-of-ci-setup)
     - [Future Enhancements](#future-enhancements)
 
@@ -35,7 +36,7 @@
 
 ### Purpose
 
-The purpose of this document is to provide a step-by-step guide for setting up a Continuous Integration (CI) pipeline for PHP project in GitLab. The CI pipeline will automate the linting and code analysis processes to ensure code quality and reliability.
+The purpose of this document is to provide a step-by-step guide for setting up a Continuous Integration (CI) pipeline for a PHP project in GitLab. The CI pipeline will automate the linting and code analysis processes to ensure code quality and reliability.
 
 ### Scope
 
@@ -49,7 +50,7 @@ Before setting up the CI pipeline, ensure you have the following prerequisites:
 
 - A GitLab account with access to your target repository
 - An existing or new repository with the PHP project hosted on GitLab
-- All required configurations done as per PHP coding standards' [Enforcing tools and config](https://github.com/OsmosysSoftware/dev-standards/blob/main/coding-standards/php.md#enforcing-tools-and-config)
+- All required configurations done as per PHP coding standards: [Enforcing tools and config](https://github.com/OsmosysSoftware/dev-standards/blob/main/coding-standards/php.md#enforcing-tools-and-config)
 
 [Back to top](#table-of-contents)
 
@@ -59,7 +60,7 @@ Before setting up the CI pipeline, ensure you have the following prerequisites:
 
 #### Method 1: Using GitLab UI
 
-1. Open your project repository and click on **Build->Pipeline editor**. Then click on on the **Configure pipeline** button.
+1. Open your project repository and click on **Build->Pipeline editor**. Then click on the **Configure pipeline** button.
 
     ![GitLab Pipeline editor](assets/php-gitlab_pipeline-editor.png)
 
@@ -101,7 +102,7 @@ variables:
 
 These variables define regex patterns for the names of the branches for push or merge requests for which the job should run. In its current state, this job will run only when the commit branch is 'main' or 'dev' (i.e., a commit is made to the 'main' or 'dev' branch), or a merge request is created for the 'main' or 'release' branch.
 
-In order to add more branches, it can be done as follows:
+To add more branches, it can be done as follows:
 
 ```yaml
 variables:
@@ -111,7 +112,7 @@ variables:
 
 This regex is evaluated as follows in the `rules` section of the job (see [Writing Job for Lint](#writing-job-for-lint)):
 - If the commit branch matches 'main' or 'dev' or 'feature', run the job.
-- If a merge request is created and target branch is 'main' or 'release' or 'dev', run the job.
+- If a merge request is created and the target branch is 'main' or 'release' or 'dev', run the job.
 
 While adding new branch names, it should be kept in mind that the names will be evaluated in a regex pattern, and as such, escaping of any required characters should be done.
 
@@ -192,7 +193,7 @@ lint:
 ## 4. Testing the CI Pipeline
 
 ### Making Commits
-1. While on the 'main' or 'dev' branch, make changes to your code.
+1. On the 'main' or 'dev' branch, make changes to your code.
 2. Commit and push the made changes to GitLab.
 
 ### Creating Merge Requests
@@ -216,7 +217,7 @@ In this section, we will visually explain the Continuous Integration (CI) proces
 
 ### 1. Developer Creates Merge Request/Commit
 
-When a developer works on a feature or bug fix, they create a new branch in the GitLab repository. They then make changes to the code and create a Merge Request (MR) for code review.
+When a developer works on a feature or bug fix, they create a new branch in the GitLab repository. Then, they make changes to the code and create a Merge Request (MR) for code review.
 
 Developers may also make commits to branches that are covered by the `rules` as described in the CI pipeline.
 
@@ -280,7 +281,13 @@ Modify the script in the `.gitlab-ci.yml` file to match your specific linting an
 
 [Back to top](#table-of-contents)
 
-## 8. Conclusion
+## 8. Sample Repository
+
+[Repository Link](https://gitlab.osmosys.co/osmosys-research-and-development/php-lint-app)
+
+Explore this for practical demonstration of CI setups.
+
+## 9. Conclusion
 
 ### Benefits of CI Setup
 

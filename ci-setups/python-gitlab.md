@@ -18,7 +18,8 @@
     - [Writing Jobs for Linting and Testing](#writing-jobs-for-linting-and-testing)
     - [Adding Workflow Rules](#adding-workflow-rules)
     - [Complete `.gitlab-ci.yml` Configuration](#complete-gitlab-ciyml-configuration)
-  - [4. Conclusion](#4-conclusion)
+  - [4. Sample Repository](#4-sample-repository)
+  - [5. Conclusion](#5-conclusion)
     - [Benefits of CI Setup](#benefits-of-ci-setup)
     - [Future Enhancements](#future-enhancements)
 
@@ -146,7 +147,13 @@ workflow:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^main|development$/'
 ```
 
-## 4. Conclusion
+## 4. Sample Repository
+
+[Repository Link](https://gitlab.osmosys.co/osmosys-research-and-development/python-lint-workflow-guide)
+
+Explore this for practical demonstration of CI setups.
+
+## 5. Conclusion
 
 ### Benefits of CI Setup
 
