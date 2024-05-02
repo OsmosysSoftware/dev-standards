@@ -322,9 +322,11 @@ Consider enhancing your Docker setup by adding features such as environment-spec
 
 - Maintain consistent naming conventions for services, container_name, image, and volume.
 - Add COMPOSE_PROJECT_NAME in .env.example and .env files to avoid conflicts with other projects.
+
 ```plaintext
 COMPOSE_PROJECT_NAME=project-name
 ```
+
 - Use docker-compose for setting up the containers instead of manual building processes.
 - Add 127.0.0.1 to map and expose port only locally like this "127.0.0.1:5000:5000" to avoid security risks.
 By following these updates and best practices, your Docker setup for Angular applications will be more robust and secure.

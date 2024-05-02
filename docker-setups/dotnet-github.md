@@ -246,6 +246,7 @@ Consider enhancing your DockerFile by using minimal base images, layer caching, 
 ### Remember to:
 
 - Add COMPOSE_PROJECT_NAME in .env.example and .env files to avoid conflicts with other projects.
+
 ```plaintext
 COMPOSE_PROJECT_NAME=project-name
 ```

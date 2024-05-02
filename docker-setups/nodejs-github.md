@@ -167,6 +167,7 @@ Consider enhancing your Docker setup by adding features such as environment-spec
 ### Remember to:
 
 - Add COMPOSE_PROJECT_NAME in .env.example and .env files to avoid conflicts with other projects.
+
 ```plaintext
 COMPOSE_PROJECT_NAME=project-name
 ```
