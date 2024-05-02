@@ -110,10 +110,10 @@ services:
     ports:
       - "127.0.0.1:${MARIADB_DOCKER_PORT}:3306"
     volumes:
-      - app-db:/var/lib/mysql
+      - mariadb-db-data:/var/lib/mysql
 
 volumes:
-  app-db: ~
+  mariadb-db-data: ~
 ```
 
 ## 4. Testing the Docker Environment

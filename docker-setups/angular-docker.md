@@ -201,14 +201,11 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        APP_NAME: angular-docker-your-app-name
-    image: angular-docker-sample-image
-    container_name: angular-docker-sample-container
+        APP_NAME: angular-docker
+    image: angular-docker
+    container_name: angular-docker
     ports:
       - '127.0.0.1:5000:80' # Add the 127.0.0.1 address so that ports are only exposed locally
-    volumes:
-      - ./data:/usr/src/app/angular-docker-db-data # Add volumes if necessary
-
 ```
 
 [Back to top](#table-of-contents)
