@@ -255,6 +255,7 @@ Run the following command to build and compose your docker image using docker-co
 ```shell
 docker-compose -f docker-compose.yml up
 ```
+
 ### Build and Manage Docker Containers Using Docker Compose
 
 #### Create docker-compose.yml file
@@ -272,14 +273,19 @@ docker-compose build
 ```
 
 #### Run Docker containers using Docker Compose
+
 Once the image is built, you can use Docker Compose to start the containers:
+
 ```shell
 docker-compose up -d
 ```
+
 This command will start the containers defined in the docker-compose.yml file in detached mode.
 
 #### Optional: List currently running containers:
+
 You can use Docker Compose to view the list of currently running containers:
+
 ```shell
 docker container ls
 ```
@@ -321,14 +327,19 @@ Consider enhancing your Docker setup by adding features such as environment-spec
 ### Remember to:
 
 - Maintain consistent naming conventions for services, container_name, image, and volume.
+
 - Add COMPOSE_PROJECT_NAME in .env.example and .env files to avoid conflicts with other projects.
 
 ```plaintext
+
 COMPOSE_PROJECT_NAME=project-name
+
 ```
 
 - Use docker-compose for setting up the containers instead of manual building processes.
+
 - Add 127.0.0.1 to map and expose port only locally like this "127.0.0.1:5000:5000" to avoid security risks.
+
 By following these updates and best practices, your Docker setup for Angular applications will be more robust and secure.
 
 [Back to top](#table-of-contents)
