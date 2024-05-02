@@ -153,7 +153,7 @@ This command will start the containers defined in the docker-compose.yml file in
 ### 6. Optional: List currently running containers:
 You can use Docker Compose to view the list of currently running containers:
 ```shell
-docker-compose ps
+docker container ls
 ```
 
 ### 7. Test the Container:

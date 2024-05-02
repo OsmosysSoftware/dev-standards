@@ -281,7 +281,7 @@ This command will start the containers defined in the docker-compose.yml file in
 #### Optional: List currently running containers:
 You can use Docker Compose to view the list of currently running containers:
 ```shell
-docker-compose ps
+docker container ls
 ```
 
 This setup will utilize Docker Compose to manage your containers, making the process more streamlined and manageable, especially as your project grows in complexity.
