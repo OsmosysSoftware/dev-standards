@@ -205,7 +205,9 @@ services:
     image: angular-sample-image
     container_name: angular-sample-container
     ports:
-      - '127.0.0.1:5000:80'
+      - '127.0.0.1:5000:5000' # Map the ports properly for security
+    volumes:
+      - ./data:/usr/src/app/data # Add volumes if necessary
 
 ```
 
@@ -309,5 +311,18 @@ Setting up a Docker environment for your Angular application with Nginx offers s
 ### Future Enhancements
 
 Consider enhancing your Docker setup by adding features such as environment-specific configurations, health checks, and Docker Swarm/Kubernetes integration for production deployments.
+
+[Back to top](#table-of-contents)
+
+### Remember to:
+
+- Maintain consistent naming conventions for services, container_name, image, and volume.
+- Add COMPOSE_PROJECT_NAME in .env.example and .env files to avoid conflicts with other projects.
+```plaintext
+COMPOSE_PROJECT_NAME=project-name
+```
+- Use docker-compose for setting up the containers instead of manual building processes.
+- Map the ports properly like this "127.0.0.1:5000:5000" to avoid security risks.
+By following these updates and best practices, your Docker setup for Angular applications will be more robust and secure.
 
 [Back to top](#table-of-contents)
