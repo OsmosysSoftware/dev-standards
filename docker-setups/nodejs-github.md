@@ -73,7 +73,7 @@ COPY . .
 RUN npm run build
 
 # Expose the port your application will run on
-EXPOSE 5000
+EXPOSE 3000
 
 # Command to start your NestJS application
 CMD ["node", "dist/main.js"]
@@ -161,5 +161,14 @@ Setting up a Docker environment for your NestJS application with MariaDB databas
 ### Future Enhancements
 
 Consider enhancing your Docker setup by adding features such as environment-specific configurations, health checks, and Docker Swarm/Kubernetes integration for production deployments.
+
+[Back to top](#table-of-contents)
+
+### Remember to:
+
+- Add COMPOSE_PROJECT_NAME in .env.example and .env files to avoid conflicts with other projects.
+```plaintext
+COMPOSE_PROJECT_NAME=project-name
+```
 
 [Back to top](#table-of-contents)

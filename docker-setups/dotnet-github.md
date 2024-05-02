@@ -106,7 +106,7 @@ services:
     image: mariadb:11.2.2
     container_name: foundation-db
     ports:
-      - 3307:3306
+      - '127.0.0.1:3307:3306'
     env_file:
       - .env
     environment:
@@ -127,7 +127,7 @@ services:
     image: foundation-backend:1.0
     container_name: foundation-api
     ports:
-      - 5000:5000
+      - '127.0.0.1:5000:5000'
     environment:
       - DOTNET_URLS=http://+:5000
 
@@ -239,5 +239,14 @@ Dockerizing your .NET application offers several benefits:
 ### Future Enhancements
 
 Consider enhancing your DockerFile by using minimal base images, layer caching, multi-stage builds, minimizing dependencies, and leveraging .dockerignore files and implementing robust monitoring and logging solutions for insights into container performance
+
+[Back to top](#table-of-contents)
+
+### Remember to:
+
+- Add COMPOSE_PROJECT_NAME in .env.example and .env files to avoid conflicts with other projects.
+```plaintext
+COMPOSE_PROJECT_NAME=project-name
+```
 
 [Back to top](#table-of-contents)
