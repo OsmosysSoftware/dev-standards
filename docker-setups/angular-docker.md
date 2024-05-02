@@ -255,7 +255,7 @@ Run the following command to build and compose your docker image using docker-co
 ```shell
 docker-compose -f docker-compose.yml up
 ```
-### Build using Docker Compose
+### Build and Manage Docker Containers Using Docker Compose
 
 #### Create docker-compose.yml file
 
