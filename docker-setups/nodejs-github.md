@@ -17,6 +17,7 @@
 6. [Conclusion](#6-conclusion)
    - [Benefits of Docker Setup](#benefits-of-docker-setup)
    - [Future Enhancements](#future-enhancements)
+   - [Remember to:](#remember-to)
 
 Each section is linked to its corresponding content in the document for easy navigation.
 
@@ -169,9 +170,7 @@ Consider enhancing your Docker setup by adding features such as environment-spec
 - Add COMPOSE_PROJECT_NAME in .env.example and .env files to avoid conflicts with other projects.
 
 ```plaintext
-
 COMPOSE_PROJECT_NAME=project-name
-
 ```
 
 [Back to top](#table-of-contents)

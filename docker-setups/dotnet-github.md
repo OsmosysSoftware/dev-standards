@@ -12,15 +12,19 @@
     - [1. Dockerfile](#1-dockerfile)
     - [2. Dockerignore](#2-dockerignore)
     - [3. Docker Compose (Optional for Development)](#3-docker-compose-optional-for-development)
-    - [4. Build Docker Image](#4-build-docker-image)
-    - [5. Run Docker Container](#5-run-docker-container)
-    - [6. Test the Container](#6-test-the-container)
-    - [7. Deployment](#7-deployment)
+    - [4. Build Docker images using Docker Compose](#4-build-docker-images-using-docker-compose)
+    - [5. Run Docker containers using Docker Compose](#5-run-docker-containers-using-docker-compose)
+    - [6. Optional: List currently running containers:](#6-optional-list-currently-running-containers)
+    - [7. Test the Container](#7-test-the-container)
+    - [8. Deployment](#8-deployment)
       - [Push Dockerized application to DockerHub](#push-dockerized-application-to-dockerhub)
       - [Run Dockerized application](#run-dockerized-application)
   - [4. Addressing Common Issues](#4-addressing-common-issues)
   - [5. Best Practices for Enhanced Dockerization](#5-best-practices-for-enhanced-dockerization)
   - [6. Conclusion](#6-conclusion)
+    - [Benefits of Docker](#benefits-of-docker)
+    - [Future Enhancements](#future-enhancements)
+    - [Remember to:](#remember-to)
 ## 1. Introduction
 
 ### Purpose
@@ -248,9 +252,7 @@ Consider enhancing your DockerFile by using minimal base images, layer caching, 
 - Add COMPOSE_PROJECT_NAME in .env.example and .env files to avoid conflicts with other projects.
 
 ```plaintext
-
 COMPOSE_PROJECT_NAME=project-name
-
 ```
 
 [Back to top](#table-of-contents)

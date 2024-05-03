@@ -9,18 +9,18 @@
 3. [Set up for Angular project](#3-set-up-for-angular-project)
 4. [Setting up the Docker Environment](#4-setting-up-the-docker-environment)
    - [Dockerfile](#41-dockerfile)
-      - [Angular version-specific file path for Nginx](#set-the-correct-file-path-for-nginx)
    - [Docker Compose](#42-docker-compose)
    - [nginx.conf](#43-nginxconf)
    - [.dockerignore](#44-dockerignore)
 5. [Testing the Docker Environment](#5-testing-the-docker-environment)
-   - [Using docker-compose](#build-and-run-using-docker-compose-file)
-   - [Step by step build](#or-alternatively-build-step-by-step)
+   - [Build and run using docker-compose file](#build-and-run-using-docker-compose-file)
+   - [Build and Manage Docker Containers Using Docker Compose](#build-and-manage-docker-containers-using-docker-compose)
 6. [Access Angular Application](#6-access-angular-application)
 7. [Sample Repository](#7-sample-repository)
 8. [Conclusion](#8-conclusion)
    - [Benefits of Docker Setup](#benefits-of-docker-setup)
    - [Future Enhancements](#future-enhancements)
+   - [Remember to:](#remember-to)
 
 Each section is linked to its corresponding content in the document for easy navigation.
 
@@ -331,9 +331,7 @@ Consider enhancing your Docker setup by adding features such as environment-spec
 - Add COMPOSE_PROJECT_NAME in .env.example and .env files to avoid conflicts with other projects.
 
 ```plaintext
-
 COMPOSE_PROJECT_NAME=project-name
-
 ```
 
 - Use docker-compose for setting up the containers instead of manual building processes.
