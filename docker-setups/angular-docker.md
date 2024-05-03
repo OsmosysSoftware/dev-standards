@@ -205,7 +205,7 @@ services:
     image: angular-docker
     container_name: angular-docker
     ports:
-      - '127.0.0.1:5000:80' # Add the 127.0.0.1 address so that ports are only exposed locally
+      - '127.0.0.1:5000:80' # Ensure ports are only exposed locally by binding to 127.0.0.1
 ```
 
 [Back to top](#table-of-contents)

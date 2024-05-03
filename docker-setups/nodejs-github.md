@@ -114,7 +114,8 @@ services:
       - mariadb-db-data:/var/lib/mysql
 
 volumes:
-  mariadb-db-data: ~
+  mariadb-db-data:
+    driver: local
 ```
 
 ## 4. Testing the Docker Environment
