@@ -110,7 +110,7 @@ services:
     image: mariadb:11.2.2
     container_name: foundation-mariadb
     ports:
-      - '127.0.0.1:3307:3306' # Bind port to localhost for enhanced security
+      - '127.0.0.1:3307:3306' # Bind port to localhost to enhance security
     env_file:
       - .env
     environment:
@@ -131,7 +131,7 @@ services:
     image: foundation-backend
     container_name: foundation-backend
     ports:
-      - '127.0.0.1:5000:5000' # Bind port to localhost to restrict external access
+      - '127.0.0.1:5000:5000' # Bind port to localhost to enhance security
     environment:
       - DOTNET_URLS=http://+:5000
 
