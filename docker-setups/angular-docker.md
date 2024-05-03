@@ -9,18 +9,18 @@
 3. [Set up for Angular project](#3-set-up-for-angular-project)
 4. [Setting up the Docker Environment](#4-setting-up-the-docker-environment)
    - [Dockerfile](#41-dockerfile)
-      - [Angular version-specific file path for Nginx](#set-the-correct-file-path-for-nginx)
    - [Docker Compose](#42-docker-compose)
    - [nginx.conf](#43-nginxconf)
    - [.dockerignore](#44-dockerignore)
 5. [Testing the Docker Environment](#5-testing-the-docker-environment)
-   - [Using docker-compose](#build-and-run-using-docker-compose-file)
-   - [Step by step build](#or-alternatively-build-step-by-step)
+   - [Build and run using docker-compose file](#build-and-run-using-docker-compose-file)
+   - [Build and Manage Docker Containers Using Docker Compose](#build-and-manage-docker-containers-using-docker-compose)
 6. [Access Angular Application](#6-access-angular-application)
 7. [Sample Repository](#7-sample-repository)
 8. [Conclusion](#8-conclusion)
    - [Benefits of Docker Setup](#benefits-of-docker-setup)
    - [Future Enhancements](#future-enhancements)
+   - [Remember to:](#remember-to)
 
 Each section is linked to its corresponding content in the document for easy navigation.
 
@@ -201,12 +201,11 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        APP_NAME: your-app-name
-    image: angular-sample-image
-    container_name: angular-sample-container
+        APP_NAME: angular-docker
+    image: angular-docker
+    container_name: angular-docker
     ports:
-      - '127.0.0.1:5000:80'
-
+      - '127.0.0.1:5000:80' # Ensure ports are only exposed locally by binding to 127.0.0.1
 ```
 
 [Back to top](#table-of-contents)
@@ -256,29 +255,42 @@ Run the following command to build and compose your docker image using docker-co
 ```shell
 docker-compose -f docker-compose.yml up
 ```
-### OR Alternatively build step by step
 
-#### Build Docker Image
+### Build and Manage Docker Containers Using Docker Compose
 
-Run the following command in the root directory of your project to build the Docker images. Replace `your-app-name` with a suitable value as an argument:
+#### Create docker-compose.yml file
+
+Create a file named docker-compose.yml in the root directory of your project. This file will contain the configuration for your Docker services.
+
+[4.2 Docker Compose](#42-docker-compose)
+
+#### Build Docker images using Docker Compose
+
+Instead of manually building the Docker image, you'll use Docker Compose to build it based on the configuration in docker-compose.yml. Run the following command:
 
 ```shell
-docker build --build-arg APP_NAME=your-app-name -t ng-docker-app:v1.0.0 -f ./Dockerfile .
+docker-compose build
 ```
 
-#### Create Docker Containers
+#### Run Docker containers using Docker Compose
 
-Start the Docker containers using the following command:
+Once the image is built, you can use Docker Compose to start the containers:
 
 ```shell
-docker run -p 5000:80 -d ng-docker-app:v1.0.0
+docker-compose up -d
 ```
 
-#### Optional: To get the list of currently running containers
+This command will start the containers defined in the docker-compose.yml file in detached mode.
+
+#### Optional: List currently running containers:
+
+You can use Docker Compose to view the list of currently running containers:
 
 ```shell
 docker container ls
 ```
+
+This setup will utilize Docker Compose to manage your containers, making the process more streamlined and manageable, especially as your project grows in complexity.
 
 [Back to top](#table-of-contents)
 
@@ -309,5 +321,23 @@ Setting up a Docker environment for your Angular application with Nginx offers s
 ### Future Enhancements
 
 Consider enhancing your Docker setup by adding features such as environment-specific configurations, health checks, and Docker Swarm/Kubernetes integration for production deployments.
+
+[Back to top](#table-of-contents)
+
+### Remember to:
+
+- Maintain consistent naming conventions for services, container_name, image, and volume.
+
+- Add COMPOSE_PROJECT_NAME in .env.example and .env files to avoid conflicts with other projects.
+
+```plaintext
+COMPOSE_PROJECT_NAME=project-name
+```
+
+- Use docker-compose for setting up the containers instead of manual building processes.
+
+- Add 127.0.0.1 to map and expose port only locally like this "127.0.0.1:5000:5000" to avoid security risks.
+
+By following these updates and best practices, your Docker setup for Angular applications will be more robust and secure.
 
 [Back to top](#table-of-contents)

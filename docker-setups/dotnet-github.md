@@ -12,15 +12,19 @@
     - [1. Dockerfile](#1-dockerfile)
     - [2. Dockerignore](#2-dockerignore)
     - [3. Docker Compose (Optional for Development)](#3-docker-compose-optional-for-development)
-    - [4. Build Docker Image](#4-build-docker-image)
-    - [5. Run Docker Container](#5-run-docker-container)
-    - [6. Test the Container](#6-test-the-container)
-    - [7. Deployment](#7-deployment)
+    - [4. Build Docker images using Docker Compose](#4-build-docker-images-using-docker-compose)
+    - [5. Run Docker containers using Docker Compose](#5-run-docker-containers-using-docker-compose)
+    - [6. Optional: List currently running containers:](#6-optional-list-currently-running-containers)
+    - [7. Test the Container](#7-test-the-container)
+    - [8. Deployment](#8-deployment)
       - [Push Dockerized application to DockerHub](#push-dockerized-application-to-dockerhub)
       - [Run Dockerized application](#run-dockerized-application)
   - [4. Addressing Common Issues](#4-addressing-common-issues)
   - [5. Best Practices for Enhanced Dockerization](#5-best-practices-for-enhanced-dockerization)
   - [6. Conclusion](#6-conclusion)
+    - [Benefits of Docker](#benefits-of-docker)
+    - [Future Enhancements](#future-enhancements)
+    - [Remember to:](#remember-to)
 ## 1. Introduction
 
 ### Purpose
@@ -104,9 +108,9 @@ version: "3"
 services:
   foundation-mariadb:
     image: mariadb:11.2.2
-    container_name: foundation-db
+    container_name: foundation-mariadb
     ports:
-      - 3307:3306
+      - '127.0.0.1:3307:3306' # Bind port to localhost to enhance security
     env_file:
       - .env
     environment:
@@ -115,7 +119,7 @@ services:
       - MYSQL_PASSWORD=${MARIADB_PASSWORD}
       - MYSQL_DATABASE=${MARIADB_DATABASE}
     volumes:
-      - foundation-db-data:/var/lib/mysql
+      - foundation-mariadb-db-data:/var/lib/mysql
     restart: always
 
   foundation-backend:
@@ -124,10 +128,10 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - foundation-mariadb
-    image: foundation-backend:1.0
-    container_name: foundation-api
+    image: foundation-backend
+    container_name: foundation-backend
     ports:
-      - 5000:5000
+      - '127.0.0.1:5000:5000' # Bind port to localhost to enhance security
     environment:
       - DOTNET_URLS=http://+:5000
 
@@ -135,27 +139,28 @@ volumes:
   foundation-db-data:
     driver: local
 ```
+### 4. Build Docker images using Docker Compose
 
-### 4. Build Docker Image:
+Instead of manually building the Docker image, you'll use Docker Compose to build it based on the configuration in docker-compose.yml. Run the following command:
 
-Build the Docker image using the Dockerfile you created.
-
-```bash
-docker build -t your-app-name .
+```shell
+docker-compose build
 ```
 
-### 5. Run Docker Container:
+### 5. Run Docker containers using Docker Compose
+Once the image is built, you can use Docker Compose to start the containers:
+```shell
+docker-compose up -d
+```
+This command will start the containers defined in the docker-compose.yml file in detached mode.
 
-Run the Docker container from the built image. If using Docker Compose, you can simply run `docker-compose up`.
-
-```bash
-docker run -d -p 5000:5000 --name your-container-name your-app-name
+### 6. Optional: List currently running containers:
+You can use Docker Compose to view the list of currently running containers:
+```shell
+docker container ls
 ```
 
-- The `-d` flag runs the container in detached mode (background).
-- The `-p 5000:80` flag maps port 5000 inside the container to port 5000 on your host machine, allowing you to access your application in a browser at `http://localhost:5000`.
-
-### 6. Test the Container:
+### 7. Test the Container:
 
 Access your application in a web browser or using a tool like curl to ensure it's running properly.
 
@@ -163,7 +168,7 @@ Access your application in a web browser or using a tool like curl to ensure it'
 curl http://localhost:5000
 ```
 
-### 7. Deployment:
+### 8. Deployment:
 
 For deployment to a production instance, you can push your Docker image to a container registry like Docker Hub or Azure Container Registry. Then, pull the image onto your production server and run it similarly to the development setup.
 
@@ -239,5 +244,15 @@ Dockerizing your .NET application offers several benefits:
 ### Future Enhancements
 
 Consider enhancing your DockerFile by using minimal base images, layer caching, multi-stage builds, minimizing dependencies, and leveraging .dockerignore files and implementing robust monitoring and logging solutions for insights into container performance
+
+[Back to top](#table-of-contents)
+
+### Remember to:
+
+- Add COMPOSE_PROJECT_NAME in .env.example and .env files to avoid conflicts with other projects.
+
+```plaintext
+COMPOSE_PROJECT_NAME=project-name
+```
 
 [Back to top](#table-of-contents)
