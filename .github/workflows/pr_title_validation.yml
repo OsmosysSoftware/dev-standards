@@ -1,0 +1,16 @@
+name: PR Title Validation
+
+on:
+  pull_request:
+    types: [opened, reopened, edited]
+
+jobs:
+  validate_title:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Run validation script
+      run: python validate_title.py "${{ github.event.pull_request.title }}"
