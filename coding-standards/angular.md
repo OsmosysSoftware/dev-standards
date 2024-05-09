@@ -337,6 +337,7 @@ To ensure proper setup, add the following configuration files to your project's 
                 "avoidEscape": true
               }
             ],
+            "class-methods-use-this": "off",
             "radix": "error",
             "eqeqeq": [
               "error",
