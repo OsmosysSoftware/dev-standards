@@ -37,7 +37,7 @@ The Coding Standards section of this repository houses detailed guides, each tai
 
 We provide guides for a diverse array of languages and technologies, including but not limited to:
 
-- [UI Guidelines](./coding-standards/UI.csv)
+- [UI Guidelines](./coding-standards/UI.md)
 - [Angular](./coding-standards/angular.md)
 - [CSS](./coding-standards/css.md)
 - [Database](./coding-standards/database.md)
