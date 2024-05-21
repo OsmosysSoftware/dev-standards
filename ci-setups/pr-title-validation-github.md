@@ -89,6 +89,7 @@ Here is an example of config.json file for PR Title Validation:
     }
 }
 ```
+
 ## 7. Validation Checks
 
 1. PR title must start with the following prefixes: build, chore, ci, docs, feat, fix, perf, refactor, style, test, sample.
