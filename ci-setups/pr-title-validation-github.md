@@ -2,6 +2,7 @@
 # Pull Request Validation CI/CD Setup on GitHub
 
 ## Table of Contents
+
 - [1. Introduction](#1-introduction)
 - [2. Getting Started](#2-getting-started)
 - [3. Workflow Configuration](#3-workflow-configuration)
@@ -14,27 +15,35 @@
 - [10. Conclusion](#10-conclusion)
 
 ## 1. Introduction
+
 This document provides guidelines for setting up Continuous Integration and Continuous Deployment (CI/CD) to validate PR Title for projects on GitHub using GitHub Actions. It aims to ensure consistent pull request titles across all projects.
 
 ## 2. Getting Started
+
 Before you begin, ensure you have a GitHub account, and a basic understanding of GitHub workflows.
 
 ## 3. Workflow Configuration
+
 Create a `.github/workflows` directory in your project. Inside this directory, create a YAML file (e.g., `pr_title_validation.yml`) to define your workflow.
 
 ### 3.1 Trigger
-Specify when your workflow should run. Trigger to use is `pull_request_target` and it's types are `opened`, `edited`, `synchronize`, `labeled`, `unlabeled`, `reopened`.
+
+Specify when your workflow should run. Trigger to use is `pull_request_target` and its types are `opened`, `edited`, `synchronize`, `labeled`, `unlabeled`, `reopened`.
 
 ### 3.2 Job
+
 Define job such as `check`. The job runs in a fresh virtual environment.
 
 ### 3.3 Steps
+
 Within the job, define steps such as Get PR Title, Check PR Title.
 
 ## 4. Setting up config.json file
+
 Create the config.json file `root/pr-title-checker-config.json`. Write the pr validation checks and messages in this file.
 
 ## 5. Example YAML Configuration
+
 Here is an example of a basic GitHub Actions workflow file for PR Title Validation:
 ```yaml
 name: "PR Title Checker"
@@ -66,6 +75,7 @@ jobs:
 ```
 
 ## 6. Example config.json file Configuration
+
 Here is an example of config.json file for PR Title Validation:
 ```json
 {
@@ -80,10 +90,12 @@ Here is an example of config.json file for PR Title Validation:
 }
 ```
 ## 7. Validation Checks
+
 1. PR title must start with the following prefixes: build, chore, ci, docs, feat, fix, perf, refactor, style, test, sample.
 2. PR title content must not exceed 50 characters.
 
 ## 8. Troubleshooting
+
 If your CI build fails, check the logs in GitHub Actions. Ensure your PR Title matches with the regExp to pass the validation.
 
 ## 9. Sample Repository
@@ -104,5 +116,3 @@ Setting up a CI pipeline for PR Title Validation provides several benefits:
 ### Future Enhancements
 
 Additional checks for PR title validation can be incorporated as per project requirements.
-
-
