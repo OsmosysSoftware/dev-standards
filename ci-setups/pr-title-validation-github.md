@@ -58,6 +58,7 @@ Create the config.json file `root/pr-title-checker-config.json`. Write the PR va
 ## 5. Example YAML Configuration
 
 Here is an example of a basic GitHub Actions workflow file for PR Title Validation:
+
 ```yaml
 name: "PR Title Checker"
 on:
@@ -92,6 +93,7 @@ jobs:
 ## 6. Example config.json file Configuration
 
 Here is an example of config.json file for PR Title Validation:
+
 ```json
 {
     "CHECKS": {
