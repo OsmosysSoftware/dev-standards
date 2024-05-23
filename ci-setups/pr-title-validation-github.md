@@ -1,5 +1,5 @@
 
-# Pull Request Validation CI/CD Setup on GitHub
+# Pull Request Title Validation CI/CD Setup on GitHub
 
 ## Table of Contents
 
