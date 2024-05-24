@@ -111,4 +111,4 @@ Setting up a CI pipeline for MR Title Validation provides several benefits:
 
 Additional checks for MR title validation can be incorporated as per project requirements.
 
-[Back to top](#table-of-contents)
+[Back to top](#table-of-contents) 
