@@ -1,5 +1,5 @@
 
-# Merge Request Title Validation CI/CD Setup on Gitlab
+# Merge Request Title Validation CI/CD Setup on GitLab
 
 ## Table of Contents
 
@@ -39,7 +39,7 @@ Specify in which stage your workflow should run. Stage used is `validate`.
 
 ### 3.2 Tags
 
-Define gitlab runner tag in which your workflow will run. For example - `python-3.11.9`.
+Define the gitlab runner tag in which your workflow will run. For example - `python-3.11.9`.
 
 ### 3.3 Script
 
@@ -111,4 +111,4 @@ Setting up a CI pipeline for MR Title Validation provides several benefits:
 
 Additional checks for MR title validation can be incorporated as per project requirements.
 
-[Back to top](#table-of-contents) 
+[Back to top](#table-of-contents)
