@@ -124,7 +124,7 @@ If your CI build fails, check the logs in GitHub Actions. Ensure your PR Title f
 
 ## 9. Sample Repository
 
-[Repository Link](https://github.com/sujoy-pal144/DevOps-Test-Repo)
+[Repository Link](https://github.com/OsmosysSoftware/pr-lint-workflow-guide/tree/main)
 
 Explore this for practical demonstration of PR Title Validation CI setups.
 
