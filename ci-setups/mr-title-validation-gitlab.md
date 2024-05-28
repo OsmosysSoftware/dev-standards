@@ -62,10 +62,10 @@ validate_merge_request_title:
   script:
     - 'echo "Validating merge request title: $CI_MERGE_REQUEST_TITLE"'
     - |
-      if echo "$CI_MERGE_REQUEST_TITLE" | grep -Eq "^(build|chore|ci|docs|feat|fix|perf|refactor|style|test|sample): [a-zA-Z0-9 ]{0,50}$"; then
+      if echo "$CI_MERGE_REQUEST_TITLE" | grep -Eq "^(build|chore|ci|docs|feat|fix|perf|refactor|style|test|sample): [a-z0-9 ]{0,50}$"; then
         echo "PR title is as per standards"
       else
-        echo "PR title is not as per standards. PR title must start with one of the following prefixes: build, chore, ci, docs, feat, fix, perf, refactor, style, test, sample. PR title content must not exceed 50 characters."
+        echo "PR title is not as per standards. PR title must start with one of the following prefixes: build, chore, ci, docs, feat, fix, perf, refactor, style, test, sample. PR title content must not exceed 50 characters and shouldn't have any upper case letter character."
         exit 1
       fi
   only:
@@ -79,6 +79,7 @@ validate_merge_request_title:
 
 1. MR title must start with the following prefixes: build, chore, ci, docs, feat, fix, perf, refactor, style, test, sample.
 2. MR title content must not exceed 50 characters.
+3. MR title shouldn't have any upper case letter character.
 
 [Back to top](#table-of-contents)
 
@@ -90,7 +91,7 @@ If your CI build fails, check the logs in Gitlab Actions. Ensure your MR Title f
 
 ## 7. Sample Repository
 
-[Repository Link](https://gitlab.osmosys.co/sujoy.p/devops-testing/-/tree/main?ref_type=heads)
+[Repository Link](https://gitlab.osmosys.co/osmosys-research-and-development/mr-lint-app/-/tree/main)
 
 Explore this for practical demonstration of MR Title Validation CI setups.
 
