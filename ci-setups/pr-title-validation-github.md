@@ -97,11 +97,11 @@ Here is an example of config.json file for PR Title Validation:
 ```json
 {
     "CHECKS": {
-      "regexp": "^(build|chore|ci|docs|feat|fix|perf|refactor|style|test|sample): [a-zA-Z0-9 ]{0,50}$"
+      "regexp": "^(build|chore|ci|docs|feat|fix|perf|refactor|style|test|sample): [a-z0-9 ]{0,50}$"
     },
     "MESSAGES": {
       "success": "PR title is as per standards",
-      "failure": "PR title is not as per standards. PR title must start with one of the following prefixes: build, chore, ci, docs, feat, fix, perf, refactor, style, test, sample. PR title content must not exceed 50 characters.",
+      "failure": "PR title is not as per standards. PR title must start with one of the following prefixes: build, chore, ci, docs, feat, fix, perf, refactor, style, test, sample. PR title content must not exceed 50 characters and shouldn't have any upper case letter character.",
       "notice": ""
     }
 }
@@ -113,6 +113,7 @@ Here is an example of config.json file for PR Title Validation:
 
 1. PR title must start with the following prefixes: build, chore, ci, docs, feat, fix, perf, refactor, style, test, sample.
 2. PR title content must not exceed 50 characters.
+3. PR title shouldn't have any upper case letter character.
 
 [Back to top](#table-of-contents)
 
