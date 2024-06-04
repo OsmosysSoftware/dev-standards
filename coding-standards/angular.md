@@ -543,7 +543,7 @@ To ensure proper setup, add the following configuration files to your project's 
     ```
 
 4. **`package.json`**  
-  Update `package.json`. Add the following line under "scripts" to enable Prettier formatting:
+  Update `package.json`. Add the following lines under "scripts" to detects any warnings and enable Prettier formatting:
 
     ```json
     // package.json
@@ -558,6 +558,7 @@ To ensure proper setup, add the following configuration files to your project's 
       // ...
     }
     ```
+    
 1. **`settings.json`**   
   In your project's root directory, locate the .vscode folder. Create one if it doesn't exist. Once inside the folder, you can either create or modify the settings.json file. Populate this file with the following content:
 
