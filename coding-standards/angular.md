@@ -69,19 +69,16 @@ Navigate to the root directory of your project and execute the following npm com
     npm init @eslint/config
     ```
     Choose the following options:
-    - Usage: To check syntax, find problems, and enforce code style
+    - Usage: To check syntax and find problems
     - Modules: JavaScript (import/export)
     - Frameworks: None of these
     - Typescript: No (Airbnb does not have support for TS, it is defined for JS and we will add additional TS support for it later)
     - Environment: Browser
-    - Style: Use a popular style guide
-    - Style guide: Airbnb
-    - Format: JSON
 
     Now select the option to install required dependencies. Click on Yes.
     Select the appropiate package manager that is used by you.
 
-    Refer to this [screenshot](https://imgur.com/a/pIbb1Wb) for the options to choose and expected outcome
+    Refer to this [screenshot](https://imgur.com/a/aO2ozaV) for the options to choose and expected outcome
 
 2. **Install dependencies to support typescript**
 
@@ -555,6 +552,7 @@ To ensure proper setup, add the following configuration files to your project's 
       "scripts": {
         // Other Commands
         // Add the following line under "scripts"
+        "lint": "ng lint --max-warnings 0",
         "prettier-format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
       }
       // ...
