@@ -1,0 +1,10 @@
+{
+    "CHECKS": {
+      "regexp": "^(build|chore|ci|docs|feat|fix|perf|refactor|style|test|sample): [a-z0-9 ]{0,50}$"
+    },
+    "MESSAGES": {
+      "success": "PR title is as per standards",
+      "failure": "PR title is not as per standards. PR title must start with one of the following prefixes: build, chore, ci, docs, feat, fix, perf, refactor, style, test, sample. PR title content must not exceed 50 characters and shouldn't have any upper case letter character.",
+      "notice": ""
+    }
+}
