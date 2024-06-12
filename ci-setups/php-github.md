@@ -300,7 +300,7 @@ Modify the job steps in the `php-lint.yml` file to match your specific linting a
 
 ## 8. Sample Repository
 
-[Repository Link](https://github.com/OsmosysSoftware/angular-eslint-workflow-guide)
+[Repository Link](https://github.com/OsmosysSoftware/php-lint-workflow-guide)
 
 Explore this for practical demonstration of CI setups.
 
