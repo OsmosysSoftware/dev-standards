@@ -65,7 +65,7 @@
 
 - **Dead Code**: Remove any unused code, variables, or imports.
 - **Debugging Artifacts**: Ensure no debugging code (e.g., `console.log`, `print`) is left in the codebase.
-- **Dependencies (Optional)**:
+- **Dependencies**:
   - Verify no unnecessary or outdated dependencies are introduced.
   - Lock file changes (e.g., `package-lock.json`, `requirements.txt`) should be reviewed.
 
