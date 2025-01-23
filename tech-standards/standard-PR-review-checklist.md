@@ -10,17 +10,28 @@
 - **Checklist in Description (Optional)**: Include a checklist of tasks completed (if the project uses task checklists).
 - **Reviewer Assignment**: The PR must be assigned to at least one reviewer.
 - **Labels/Tags (Optional)**: Ensure the PR has appropriate labels/tags (e.g., `Bugfix`, `Feature`, `Documentation`).
+- **Branch Naming**: Follow the project's branch naming conventions (e.g., `feature/xyz`, `bugfix/abc`).
 
 ## Code Changes
 
 - **Scope of Changes**:
   - PR should contain changes related to only one feature, bugfix, or task.
   - Avoid mixing multiple unrelated changes in one PR.
+  - PRs should not exceed a maximum of 500 lines of code (excluding tests and documentation).
 - **Clean Code**:
   - Code should follow the project's coding standards (naming conventions, indentation, spacing).
   - Ensure proper formatting (auto-format code if tools are available).
 - **No Repetition**: Avoid duplicate code; refactor into reusable functions or components where possible.
-- **No Hardcoded Values**: Replace hardcoded values with constants, environment variables, or configurations.
+  - **No Hardcoded Values**: Replace hardcoded values with constants, environment variables, or configurations.
+- **Breaking Down Large Changes**:
+  - For large features, break down changes into smaller, manageable PRs.
+
+## Commit Messages
+
+- **Format**: Ensure commit messages follow the [company's git standards](https://github.com/OsmosysSoftware/dev-standards/blob/main/coding-standards/git.md).
+  - Example: `[Component] Short description of change`
+  - Use imperative mood (e.g., "Fix bug" instead of "Fixed bug").
+  - Provide detailed explanations if the change is complex.
 
 ## Quality and Best Practices
 
@@ -45,7 +56,7 @@
 
 ## Documentation and UI
 
-- **Documentation (Optional)**: Update relevant documentation (e.g., README, API documentation, comments) for new features or changes.
+- **Documentation**: Update relevant documentation (e.g., README, API documentation, comments) for new features or changes.
 - **Screenshots/Videos (Optional)**:
   - Add screenshots or video recordings for UI changes (if applicable).
   - Ensure the UI matches the design and is responsive on different screen sizes.
@@ -63,3 +74,4 @@
 - **Self-Review**: The developer submitting the PR must perform a thorough self-review before assigning it to a reviewer.
 - **Cross-Environment Testing (Optional)**: Confirm the changes work in multiple environments (e.g., dev, staging, production).
 - **Feature Flags (Optional)**: Ensure new features are behind feature flags if they are not fully ready for release.
+
