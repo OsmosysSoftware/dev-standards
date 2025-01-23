@@ -73,6 +73,8 @@
 - **Dependencies**:
   - Verify no unnecessary or outdated dependencies are introduced.
   - Lock file changes (e.g., `package-lock.json`, `requirements.txt`) should be reviewed.
+  - Check for security vulnerabilities in new dependencies.
+  - Ensure compatibility with existing dependencies.
 
 ## Final Checks
 
