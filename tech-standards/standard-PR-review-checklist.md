@@ -38,6 +38,11 @@
 - **Tests**:
   - Ensure unit tests or integration tests are added/updated for the feature or bugfix.
   - Run all tests and confirm they pass locally.
+  - Include both positive and negative test cases.
+- **Logging**:
+  - Follow project's logging standards.
+  - Include appropriate log levels (DEBUG, INFO, ERROR).
+  - Avoid sensitive information in logs.
 - **Linting and Static Analysis**:
   - Code should pass all linting checks (e.g., ESLint, Flake8, etc.).
   - Resolve any warnings or errors flagged by static analysis tools.
