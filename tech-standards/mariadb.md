@@ -63,10 +63,10 @@
     - [Handling High CPU or Memory Usage](#handling-high-cpu-or-memory-usage)
 
 11. [Sample Configurations](#sample-configurations)
-   - [Small Server Setup (2 CPUs, 4 GB RAM)](#small-server-setup-2-cpus-4-gb-ram)
-   - [Medium Server Setup (4 CPUs, 8 GB RAM)](#medium-server-setup-4-cpus-8-gb-ram)
-   - [Large Server Setup (8 CPUs, 16 GB RAM)](#large-server-setup-8-cpus-16-gb-ram)
-   - [High-Performance Server Setup (16+ CPUs, 64 GB RAM)](#high-performance-server-setup-16-cpus-64-gb-ram)
+    - [Small Server Setup (2 CPUs, 4 GB RAM)](#small-server-setup-2-cpus-4-gb-ram)
+    - [Medium Server Setup (4 CPUs, 8 GB RAM)](#medium-server-setup-4-cpus-8-gb-ram)
+    - [Large Server Setup (8 CPUs, 16 GB RAM)](#large-server-setup-8-cpus-16-gb-ram)
+    - [High-Performance Server Setup (16+ CPUs, 64 GB RAM)](#high-performance-server-setup-16-cpus-64-gb-ram)
 
 12. [References](#references)
     - [Official MariaDB Documentation](#official-mariadb-documentation)
