@@ -65,7 +65,7 @@ This document outlines the standards and conventions for using Git within our co
 
 Each commit message consists of a **header**, a **body** and a **footer**. The header has a special format that includes a **type**, a **scope** and a **subject**:
 
-```
+```shell
 <type>: <subject>
 <BLANK LINE>
 <body>
@@ -153,15 +153,15 @@ If the commit reverts a previous commit, it should begin with `revert:`, followe
 -   Ensure PRs are reviewed and approved by peers before merging.
 -   Provide a detailed description in the PR. Use the body to explain what is it, why is it needed and how is it done etc.
 
-    ```
+    ```md
     <What is it>
     <Why is it needed>
     <How did we achieve this>
     ```
 
--   It is always a best practise to maintain checklist in every PR to make sure everything is submitted properly along with your PR. Example checklist can be,
+-   It is always a best practise to maintain checklist in every PR to make sure everything is submitted properly along with your PR. Example checklist can be as follows:
 
-    ```
+    ```md
     [ ] No build errors
     [ ] No linting issues
     [ ] No formatting issues
