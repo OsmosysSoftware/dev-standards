@@ -149,9 +149,10 @@ If the commit reverts a previous commit, it should begin with `revert:`, followe
 
 ## Pull Requests (PRs)
 
--   Create PRs for merging changes into the `main` or `development` branches.
--   Ensure PRs are reviewed and approved by peers before merging.
--   Provide a detailed description in the PR. Use the body to explain what is it, why is it needed and how is it done etc.
+- Create PRs for merging changes into the `main` or `development` branches.
+- Ensure PRs are reviewed and approved by peers before merging.
+- Adding task links to PRs improves communication, provides context, and ensures that reviewers understand the purpose and requirements of the changes.
+- Provide a detailed description in the PR. Use the body to explain what is it, why is it needed and how is it done etc.
 
     ```md
     <What is it>
