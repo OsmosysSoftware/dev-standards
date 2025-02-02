@@ -27,7 +27,7 @@ This document outlines the standards and conventions for using Git within our co
 
 ## Git Configuration
 
--   Username and Email: Ensure your Git configuration is set with your real name and work email.
+- Username and Email: Ensure your Git configuration is set with your real name and work email.
 
 ```bash
     git config --global user.name "Your Name"
@@ -36,41 +36,41 @@ This document outlines the standards and conventions for using Git within our co
 
 ## Repository Structure
 
--   Main/Master Branch:
-    -   Try to have `main` branch instead of `master`.
-    -   The `main` branch should always be deployable.
-    -   All commits on `main` should be made through pull requests.
--   Development Branch:
-    -   Use a `development` or `dev` branch for integration and testing.
--   Set branch protection rules for `main` and `development` branches to restrict developers to push unverified changes and allow only maintainers to push/merge. Here is the quick read on how to set branch protection rules
-    - github: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule
-    - gitlab: https://docs.gitlab.com/ee/user/project/protected_branches.html
--   Feature Branches:
-    -   Create separate branches for individual features or bug fixes.
-    -   Name them descriptively, e.g., `feature/user-authentication`, `bugfix/password-reset`.
+- Main/Master Branch:
+  - Try to have `main` branch instead of `master`.
+  - The `main` branch should always be deployable.
+  - All commits on `main` should be made through pull requests.
+- Development Branch:
+  - Use a `development` or `dev` branch for integration and testing.
+- Set branch protection rules for `main` and `development` branches to restrict developers to push unverified changes and allow only maintainers to push/merge. Here is the quick read on how to set branch protection rules:
+  - github: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule
+  - gitlab: https://docs.gitlab.com/ee/user/project/protected_branches.html
+- Feature Branches:
+  - Create separate branches for individual features or bug fixes.
+  - Name them descriptively, e.g., `feature/user-authentication`, `bugfix/password-reset`.
 
 ## Commit Messages
 
--   Write clear, concise, and descriptive commit messages.
--   Use the imperative mood ("add" instead of "added").
--   Start with a capital letter.
--   Do not end the commit message with a period.
-    -   Example: `Add user authentication`
--   Always put your commit message in the below context & frame a proper message like this,
-    -   If applied this commit will, \<your commit message\>
-    -   Example 1: `Add validation to the email field`
-    -   Example 2: `Update get users API response with lastname`
+- Write clear, concise, and descriptive commit messages.
+- Use the imperative mood ("add" instead of "added").
+- Start with a capital letter.
+- Do not end the commit message with a period.
+  - Example: `Add user authentication`
+- Always put your commit message in the below context & frame a proper message like this,
+  - If applied this commit will, \<your commit message\>
+  - Example 1: `Add validation to the email field`
+  - Example 2: `Update get users API response with lastname`
 
 ### Commit Message Format
 
 Each commit message consists of a **header**, a **body** and a **footer**. The header has a special format that includes a **type**, a **scope** and a **subject**:
 
 ```shell
-<type>: <subject>
-<BLANK LINE>
-<body>
-<BLANK LINE>
-<footer>
+    <type>: <subject>
+    <BLANK LINE>
+    <body>
+    <BLANK LINE>
+    <footer>
 ```
 
 The **header** is mandatory.
@@ -144,8 +144,8 @@ If the commit reverts a previous commit, it should begin with `revert:`, followe
 
 ## Commit Granularity
 
--   Make small, atomic commits that logically separate changes.
--   Avoid mixing unrelated changes in a single commit.
+- Make small, atomic commits that logically separate changes.
+- Avoid mixing unrelated changes in a single commit.
 
 ## Pull Requests (PRs)
 
@@ -154,15 +154,15 @@ If the commit reverts a previous commit, it should begin with `revert:`, followe
 - Adding task links to PRs improves communication, provides context, and ensures that reviewers understand the purpose and requirements of the changes.
 - Provide a detailed description in the PR. Use the body to explain what is it, why is it needed and how is it done etc.
 
-    ```md
-    <What is it>
-    <Why is it needed>
-    <How did we achieve this>
+    ```text
+    What is the change
+    Why is it needed
+    How did we achieve this change
     ```
 
--   It is always a best practise to maintain checklist in every PR to make sure everything is submitted properly along with your PR. Example checklist can be as follows:
+- It is always a best practise to maintain checklist in every PR to make sure everything is submitted properly along with your PR. Example checklist can be as follows:
 
-    ```md
+    ```text
     [ ] No build errors
     [ ] No linting issues
     [ ] No formatting issues
@@ -174,7 +174,7 @@ If the commit reverts a previous commit, it should begin with `revert:`, followe
     [ ] Updated deployment checklist
     ```
 
--   To maintain a clean and organized commit history, use the "squash and merge" option when creating a Pull Request (PR) against the development branch.
+- To maintain a clean and organized commit history, use the "squash and merge" option when creating a Pull Request (PR) against the development branch.
 
 ## Submitting a Pull Request (PR)
 
@@ -249,21 +249,21 @@ from the main (upstream) repository:
 
 ## Code Reviews
 
--   Conduct code reviews for every PR to ensure code quality and consistency.
--   Address all feedback and comments before merging the PR.
--   If you have CI setup, then ensure that CI passes before merging the PR.
+- Conduct code reviews for every PR to ensure code quality and consistency.
+- Address all feedback and comments before merging the PR.
+- If you have CI setup, then ensure that CI passes before merging the PR.
 
 ## Conflict Resolution
 
--   Resolve merge conflicts promptly.
--   Ensure conflicts are resolved locally before pushing changes.
--   Ensure that you test your changes locally after resolving conflicts.
+- Resolve merge conflicts promptly.
+- Ensure conflicts are resolved locally before pushing changes.
+- Ensure that you test your changes locally after resolving conflicts.
 
 ## Tagging and Releases
 
--   Use semantic versioning for your projects.
--   Create a tag for each release.
--   Always add release description.
+- Use semantic versioning for your projects.
+- Create a tag for each release.
+- Always add release description.
 
     ```bash
     git tag -a v1.0.0 -m "Version 1.0.0"
