@@ -15,7 +15,7 @@
   - [Commit Granularity](#commit-granularity)
   - [Pull Requests (PRs)](#pull-requests-prs)
   - [Submitting a Pull Request (PR)](#submitting-a-pull-request-pr)
-      - [After your pull request is merged](#after-your-pull-request-is-merged)
+    - [After your pull request is merged](#after-your-pull-request-is-merged)
   - [Code Reviews](#code-reviews)
   - [Conflict Resolution](#conflict-resolution)
   - [Tagging and Releases](#tagging-and-releases)
@@ -151,24 +151,28 @@ If the commit reverts a previous commit, it should begin with `revert:`, followe
 
 -   Create PRs for merging changes into the `main` or `development` branches.
 -   Ensure PRs are reviewed and approved by peers before merging.
--   Provide a detailed description in the PR. Use the body to explain what is it, why is it needed and how is it done,
-    -   ```
-        <What is it>
-        <Why is it needed>
-        <How did we achieve this>
-        ```
+-   Provide a detailed description in the PR. Use the body to explain what is it, why is it needed and how is it done etc.
+
+    ```
+    <What is it>
+    <Why is it needed>
+    <How did we achieve this>
+    ```
+
 -   It is always a best practise to maintain checklist in every PR to make sure everything is submitted properly along with your PR. Example checklist can be,
-    - ```
-        [ ] No build errors
-        [ ] No linting issues
-        [ ] No formatting issues
-        [ ] Changes Tested Locally
-        [ ] Added PR title as per standards
-        [ ] Added PR description as per standards
-        [ ] Attached document link
-        [ ] Attached test cases file
-        [ ] Updated deployment checklist
-      ```
+
+    ```
+    [ ] No build errors
+    [ ] No linting issues
+    [ ] No formatting issues
+    [ ] Changes Tested Locally
+    [ ] Added PR title as per standards
+    [ ] Added PR description as per standards
+    [ ] Attached document link
+    [ ] Attached test cases file
+    [ ] Updated deployment checklist
+    ```
+
 -   To maintain a clean and organized commit history, use the "squash and merge" option when creating a Pull Request (PR) against the development branch.
 
 ## Submitting a Pull Request (PR)
@@ -213,7 +217,7 @@ Before you submit your Pull Request (PR) consider the following guidelines:
     git push -f
     ```
 
-#### After your pull request is merged
+### After your pull request is merged
 
 After your pull request is merged, you can safely delete your branch and pull the changes
 from the main (upstream) repository:
