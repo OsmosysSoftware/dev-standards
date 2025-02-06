@@ -1,10 +1,17 @@
 # Git Standards Document
 
+## Introduction
+
+This document outlines the standards and conventions for using Git within our company. Adhering to these standards ensures consistency, clarity, and efficiency in managing and collaborating on projects.
+
+## Table of Contents
+
 - [Git Standards Document](#git-standards-document)
   - [Introduction](#introduction)
-  - [Git Configuration](#git-configuration)
-  - [Repository Structure](#repository-structure)
-  - [Commit Messages](#commit-messages)
+  - [Table of Contents](#table-of-contents)
+  - [1. Git Configuration](#1-git-configuration)
+  - [2. Repository Structure](#2-repository-structure)
+  - [3. Commit Messages](#3-commit-messages)
     - [Commit Message Format](#commit-message-format)
       - [Type](#type)
       - [Subject](#subject)
@@ -12,20 +19,16 @@
       - [Footer](#footer)
     - [Commit Message Samples](#commit-message-samples)
     - [Revert](#revert)
-  - [Commit Granularity](#commit-granularity)
-  - [Pull Requests (PRs)](#pull-requests-prs)
-  - [Submitting a Pull Request (PR)](#submitting-a-pull-request-pr)
+  - [4. Commit Granularity](#4-commit-granularity)
+  - [5. Pull Requests (PRs)](#5-pull-requests-prs)
+  - [6. Submitting a Pull Request (PR)](#6-submitting-a-pull-request-pr)
     - [After your pull request is merged](#after-your-pull-request-is-merged)
-  - [Code Reviews](#code-reviews)
-  - [Conflict Resolution](#conflict-resolution)
-  - [Tagging and Releases](#tagging-and-releases)
+  - [7. Code Reviews](#7-code-reviews)
+  - [8. Conflict Resolution](#8-conflict-resolution)
+  - [9. Tagging and Releases](#9-tagging-and-releases)
   - [Conclusion](#conclusion)
 
-## Introduction
-
-This document outlines the standards and conventions for using Git within our company. Adhering to these standards ensures consistency, clarity, and efficiency in managing and collaborating on projects.
-
-## Git Configuration
+## 1. Git Configuration
 
 - Username and Email: Ensure your Git configuration is set with your real name and work email.
 
@@ -34,7 +37,7 @@ This document outlines the standards and conventions for using Git within our co
     git config --global user.email "your.email@company.com"
 ```
 
-## Repository Structure
+## 2. Repository Structure
 
 - Main/Master Branch:
   - Try to have `main` branch instead of `master`.
@@ -42,14 +45,18 @@ This document outlines the standards and conventions for using Git within our co
   - All commits on `main` should be made through pull requests.
 - Development Branch:
   - Use a `development` or `dev` branch for integration and testing.
-- Set branch protection rules for `main` and `development` branches to restrict developers to push unverified changes and allow only maintainers to push/merge. Here is the quick read on how to set branch protection rules:
-  - github: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule
-  - gitlab: https://docs.gitlab.com/ee/user/project/protected_branches.html
+- Branch Protection Rules:
+  - Set branch protection rules for `main` and `development` branches to restrict developers to push unverified changes and allow only maintainers to push/merge.
+  - Here is the quick read on how to set branch protection rules:
+    - github: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule
+    - gitlab: https://docs.gitlab.com/ee/user/project/protected_branches.html
 - Feature Branches:
   - Create separate branches for individual features or bug fixes.
+  - Accepted formats are using task `type` as prefix, forward slash `/`, followed by a short `kebab-case-description`.
   - Name them descriptively, e.g., `feature/user-authentication`, `bugfix/password-reset`.
+  - Note: Some projects may use `task shortcode` as branch name instead. Consult the Project Manager for what format to follow.
 
-## Commit Messages
+## 3. Commit Messages
 
 - Write clear, concise, and descriptive commit messages.
 - Use the imperative mood ("add" instead of "added").
@@ -142,12 +149,12 @@ PINB-678: Fix textbox positioning
 
 If the commit reverts a previous commit, it should begin with `revert:`, followed by the header of the reverted commit. In the body it should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
 
-## Commit Granularity
+## 4. Commit Granularity
 
 - Make small, atomic commits that logically separate changes.
 - Avoid mixing unrelated changes in a single commit.
 
-## Pull Requests (PRs)
+## 5. Pull Requests (PRs)
 
 - Create PRs for merging changes into the `main` or `development` branches.
 - Ensure PRs are reviewed and approved by peers before merging.
@@ -176,7 +183,7 @@ If the commit reverts a previous commit, it should begin with `revert:`, followe
 
 - To maintain a clean and organized commit history, use the "squash and merge" option when creating a Pull Request (PR) against the development branch.
 
-## Submitting a Pull Request (PR)
+## 6. Submitting a Pull Request (PR)
 
 Before you submit your Pull Request (PR) consider the following guidelines:
 
@@ -247,19 +254,19 @@ from the main (upstream) repository:
   git pull --ff upstream main
   ```
 
-## Code Reviews
+## 7. Code Reviews
 
 - Conduct code reviews for every PR to ensure code quality and consistency.
 - Address all feedback and comments before merging the PR.
 - If you have CI setup, then ensure that CI passes before merging the PR.
 
-## Conflict Resolution
+## 8. Conflict Resolution
 
 - Resolve merge conflicts promptly.
 - Ensure conflicts are resolved locally before pushing changes.
 - Ensure that you test your changes locally after resolving conflicts.
 
-## Tagging and Releases
+## 9. Tagging and Releases
 
 - Use semantic versioning for your projects.
 - Create a tag for each release.
