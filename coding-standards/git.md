@@ -11,6 +11,10 @@ This document outlines the standards and conventions for using Git within our co
   - [Table of Contents](#table-of-contents)
   - [1. Git Configuration](#1-git-configuration)
   - [2. Repository Structure](#2-repository-structure)
+    - [Main/Master Branch](#mainmaster-branch)
+    - [Development Branch](#development-branch)
+    - [Branch Protection Rules](#branch-protection-rules)
+    - [Feature Branches](#feature-branches)
   - [3. Commit Messages](#3-commit-messages)
     - [Commit Message Format](#commit-message-format)
       - [Type](#type)
@@ -39,21 +43,27 @@ This document outlines the standards and conventions for using Git within our co
 
 ## 2. Repository Structure
 
-- Main/Master Branch:
+### Main/Master Branch
   - Try to have `main` branch instead of `master`.
   - The `main` branch should always be deployable.
   - All commits on `main` should be made through pull requests.
-- Development Branch:
+
+### Development Branch
   - Use a `development` or `dev` branch for integration and testing.
-- Branch Protection Rules:
+  - The `development` branch should always contain the latest implemented changes intended for the next release.
+
+### Branch Protection Rules
   - Set branch protection rules for `main` and `development` branches to restrict developers to push unverified changes and allow only maintainers to push/merge.
   - Here is the quick read on how to set branch protection rules:
     - github: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule
     - gitlab: https://docs.gitlab.com/ee/user/project/protected_branches.html
-- Feature Branches:
+
+### Feature Branches
   - Create separate branches for individual features or bug fixes.
-  - Accepted formats are using task `type` as prefix, forward slash `/`, followed by a short `kebab-case-description`.
-  - Name them descriptively, e.g., `feature/user-authentication`, `bugfix/password-reset`.
+  - Do NOT combine multiple features in a single branch. Always create SEPARATE branches for different changes.
+  - Feature branch should have short but descriptive names.
+    - Accepted naming formats are using task [type](#type) as prefix, forward slash `/`, followed by a short `kebab-case-description`.
+    - Examples: `feature/user-authentication`, `bugfix/password-reset`, `chore/update-api-version` etc.
   - Note: Some projects may use `task shortcode` as branch name instead. Consult the Project Manager for what format to follow.
 
 ## 3. Commit Messages
@@ -269,6 +279,10 @@ from the main (upstream) repository:
 ## 9. Tagging and Releases
 
 - Use semantic versioning for your projects.
+- In a version number formatted as `MAJOR.MINOR.PATCH`:
+  - Increment the `MAJOR` version when making incompatible API changes.
+  - Increment the `MINOR` version when adding new functionality in a backward-compatible manner.
+  - Increment the `PATCH` version when making backward-compatible bug fixes.
 - Create a tag for each release.
 - Always add release description.
 
@@ -276,6 +290,8 @@ from the main (upstream) repository:
     git tag -a v1.0.0 -m "Version 1.0.0"
     git push origin v1.0.0
     ```
+
+- Projects hosted on GitHub can take advantage of the [auto-generate release notes](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes) feature.
 
 ## Conclusion
 
