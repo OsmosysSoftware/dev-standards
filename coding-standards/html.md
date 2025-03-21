@@ -7,10 +7,10 @@ Following are additional guidelines to be followed.
 **Note**: The following rules will override the ones provided in google style guide.
 
 ## General
-**HTML is a Markup Language**: 
+**HTML is a Markup Language**:
 HTML is used to markup your document and not style it. We have CSS for styling. This means it is not advisable to use h1, h2 to size your content.
 
-**Always Specify a DOCTYPE**: 
+**Always Specify a DOCTYPE**:
 Always specify the doctype at the top of the page. Ideally, this should be:
 
 ```html
@@ -109,6 +109,7 @@ Do NOT use `<br>` tags to add margin or padding. Instead, use CSS. If you find y
 **Do Not Omit Closing Tags**: Although HTML5 allows you to omit closing tags, always close your tags.
 
 ### Write One List Item per Line
+
 **Bad**
 ```html
 <ul>
@@ -128,11 +129,13 @@ Do NOT use `<br>` tags to add margin or padding. Instead, use CSS. If you find y
 
 ### Avoid Ending `/` for Empty Elements
 For empty elements, avoid ending the tag with a `/`.
+
 **Bad**
 ```html
 <img alt="HTML Best Practices" src="/img/logo.png" />
 <br />
 ```
+
 **Good**
 ```html
 <img alt="HTML Best Practices" src="/img/logo.png">
@@ -141,12 +144,14 @@ For empty elements, avoid ending the tag with a `/`.
 
 ### Proper Progression of Heading Tags
 A page should always have an `h1` tag that describes what that page is about. Ideally, a page should have only a single `h1` tag. The page should then progressively go from `h1` to `h2` and then to `h3` and so on.
+
 **Bad**
 ```html
 <h1>My Page</h1>
 <h3>Joe Black</h3>
 <h4>Jon Doe</h4>
 ```
+
 **Good**
 ```html
 <h1>My Page</h1>
@@ -174,6 +179,7 @@ This will ensure that the resource is downloaded rather than opened. This works 
 ```
 
 ### Omit Boolean Attribute Value
+
 **Bad**
 ```html
 <audio autoplay="autoplay" src="/audio/theme.mp3">
@@ -191,6 +197,7 @@ Unless needed avoid giving ID attributes to every element that you create.
 
 ### Boolean Attributes
 A boolean attribute is one that needs no declared value. XHTML required you to declare a value, but HTML5 has no such requirement. In short, don't add a value.
+
 **Bad**
 ```html
 <input type="text" disabled="true">
@@ -237,14 +244,14 @@ Ensure that you specify a `maxlength` for every textbox control that you use.
 
 ### Use Proper Input Type
 If the field takes a number, please use `type="number"`, if it takes email use `type="email"`. This is especially useful in mobile devices as the type of keyboard that appears due to this will change.
-  
+
 ## Naming guideline
 
 ### General
 
 - Always specify a <span style="color: #ff9900;">`DOCTYPE`</span>, in our case it will almost always be <span style="color: #ff9900;">``</span>, if you think anything else is more appropriate please contact your mentor.
 - The document character set is to be specified as UTF-8. Example : <span style="color: #ff9900;">`<meta charset="utf-8">`</span>
-- HTML should not be mixed with presentation logic. 
+- HTML should not be mixed with presentation logic.
     - Do not use <span style="color: #ff9900;">`<center>`</span> and <span style="color: #ff9900;">`<marquee>`</span> tags or other tags or attributes that are associated with presentation.
     - Do not use <span style="color: #ff9900;">`align`, `width`, `height`</span> attributes in HTML. Use CSS attributes instead.
 
@@ -276,8 +283,8 @@ If the field takes a number, please use `type="number"`, if it takes email use `
 - **Class** attributes should be in all **LOWER** case, with each word separated by a hyphen.
 - Image tags should always be accompanied by an <span style="color: #ff9900;">`alt`</span> attribute.
 - For input controls **ID** should be prefixed with the type of control.
-- Following prefix should be used when using element of given type -   
-      
+- Following prefix should be used when using element of given type -
+
    <table>
   <thead>
     <tr>
@@ -329,7 +336,7 @@ If the field takes a number, please use `type="number"`, if it takes email use `
   </tbody>
 </table>
 
-    
+
 
 **Example**
 
@@ -344,4 +351,4 @@ If the field takes a number, please use `type="number"`, if it takes email use `
 # Enforcing Tool and Config
 
 - [W3C Validator](https://validator.w3.org/): Validate your HTML here.
-- Use ESLint for linting. https://github.com/BenoitZugmeyer/eslint-plugin-html 
+- Use ESLint for linting. https://github.com/BenoitZugmeyer/eslint-plugin-html
