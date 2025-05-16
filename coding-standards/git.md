@@ -11,7 +11,7 @@ This document outlines the standards and conventions for using Git within our co
   - [Table of Contents](#table-of-contents)
   - [1. Git Configuration](#1-git-configuration)
   - [2. Repository Structure](#2-repository-structure)
-    - [Main/Master Branch](#mainmaster-branch)
+    - [Main Branch](#main-branch)
     - [Development Branch](#development-branch)
     - [Branch Protection Rules](#branch-protection-rules)
     - [Feature Branches](#feature-branches)
@@ -21,15 +21,17 @@ This document outlines the standards and conventions for using Git within our co
       - [Subject](#subject)
       - [Body](#body)
       - [Footer](#footer)
-    - [Commit Message Samples](#commit-message-samples)
     - [Revert](#revert)
+    - [Commit Message Examples](#commit-message-examples)
   - [4. Commit Granularity](#4-commit-granularity)
-  - [5. Pull Requests (PRs)](#5-pull-requests-prs)
-  - [6. Submitting a Pull Request (PR)](#6-submitting-a-pull-request-pr)
-    - [After your pull request is merged](#after-your-pull-request-is-merged)
-  - [7. Code Reviews](#7-code-reviews)
-  - [8. Conflict Resolution](#8-conflict-resolution)
-  - [9. Tagging and Releases](#9-tagging-and-releases)
+  - [5. Submitting a Pull Request (PR)](#5-submitting-a-pull-request-pr)
+  - [6. Pull Requests (PRs)](#6-pull-requests-prs)
+    - [Pull Request Template](#pull-request-template)
+    - [Description and Related Changes](#description-and-related-changes)
+  - [7. Code Reviews and Merge Process](#7-code-reviews-and-merge-process)
+  - [8. After your pull request is merged](#8-after-your-pull-request-is-merged)
+  - [9. Conflict Resolution](#9-conflict-resolution)
+  - [10. Tagging and Releases](#10-tagging-and-releases)
   - [Conclusion](#conclusion)
 
 ## 1. Git Configuration
@@ -43,7 +45,7 @@ This document outlines the standards and conventions for using Git within our co
 
 ## 2. Repository Structure
 
-### Main/Master Branch
+### Main Branch
   - Try to have `main` branch instead of `master`.
   - The `main` branch should always be deployable.
   - All commits on `main` should be made through pull requests.
@@ -55,28 +57,21 @@ This document outlines the standards and conventions for using Git within our co
 ### Branch Protection Rules
   - Set branch protection rules for `main` and `development` branches to restrict developers to push unverified changes and allow only maintainers to push/merge.
   - Here is the quick read on how to set branch protection rules:
-    - github: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule
-    - gitlab: https://docs.gitlab.com/ee/user/project/protected_branches.html
+    - [github: managing-a-branch-protection-rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)
+    - [gitlab: protected_branches](https://docs.gitlab.com/ee/user/project/protected_branches.html)
 
 ### Feature Branches
   - Create separate branches for individual features or bug fixes.
   - Do NOT combine multiple features in a single branch. Always create SEPARATE branches for different changes.
   - Feature branch should have short but descriptive names.
-    - Accepted naming formats are using task [type](#type) as prefix, forward slash `/`, followed by a short `kebab-case-description`.
-    - Examples: `feature/user-authentication`, `bugfix/password-reset`, `chore/update-api-version` etc.
-  - Note: Some projects may use `task shortcode` as branch name instead. Consult the Project Manager for what format to follow.
+  - Accepted naming formats are using task [type](#type) as prefix, forward slash `/`, followed by a short `kebab-case-description`.
+  - Examples:
+    - `feat/user-authentication`
+    - `fix/password-reset`
+    - `chore/update-api-version`
+  -  Note: Some projects may use `task shortcode` as branch name instead (Example: `REST-123`). Consult the Project Manager for what format to follow.
 
 ## 3. Commit Messages
-
-- Write clear, concise, and descriptive commit messages.
-- Use the imperative mood ("add" instead of "added").
-- Start with a capital letter.
-- Do not end the commit message with a period.
-  - Example: `Add user authentication`
-- Always put your commit message in the below context & frame a proper message like this,
-  - If applied this commit will, \<your commit message\>
-  - Example 1: `Add validation to the email field`
-  - Example 2: `Update get users API response with lastname`
 
 ### Commit Message Format
 
@@ -95,10 +90,10 @@ The **header** is mandatory.
 Any line of the commit message cannot be longer than 100 characters! This allows the message to be easier
 to read in various git tools.
 
-Footer should contain a closing reference to an issue if any.
+Footer should contain a closing reference to an issue if any. Check the following links for more information:
 
-- github: https://docs.github.com/en/issues/tracking-your-work-with-issues/administering-issues/closing-an-issue
-- gitlab: https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically
+- [github: closing-an-issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/administering-issues/closing-an-issue)
+- [gitlab: closing-issues-automatically](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
 
 #### Type
 
@@ -128,72 +123,56 @@ The subject contains succinct description of the change:
 
 #### Body
 
-Just as in the **subject**, use the imperative, present tense: "change" not "changed" nor "changes".
-The body should include the motivation for the change and contrast this with previous behavior.
+- Just as in the **subject**, use the imperative, present tense: "change" not "changed" nor "changes".
+- The body should include the motivation for the change and contrast this with previous behavior.
 
 #### Footer
 
-The footer should contain any information about **Breaking Changes** and is also the place to
+- The footer should contain any information about **Breaking Changes** and is also the place to
 reference GitLab issues that this commit **Closes**.
-
-**Breaking Changes** should start with the word `BREAKING CHANGE:` with a space or two newlines. The rest of the commit message is then used for this.
-
-### Commit Message Samples
-
-```shell
-# lowercase
-docs: update change log to beta.5
-fix: need to depend on latest rxjs and zone.js
-chore: bump version to 1.2.3
-
-# Sentence case
-Feature: Add redis service
-Documentation: Create usage guide
-
-# Project shortcode
-PINT-345: Add new webpage
-PINB-678: Fix textbox positioning
-```
+- **Breaking Changes** should start with the word `BREAKING CHANGE:` with a space or two newlines. The rest of the commit message is then used for this.
 
 ### Revert
 
 If the commit reverts a previous commit, it should begin with `revert:`, followed by the header of the reverted commit. In the body it should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
+
+Alternatively, you can use the shell command `git revert <commit-id>` for reverting a specific commit.
+
+### Commit Message Examples
+
+In summary, ensure your commit messages follow the following guidelines:
+
+- Write clear, concise, and descriptive commit messages.
+- Add the [type](#type) as prefix for each commit.
+- Use the imperative mood ("add" instead of "added").
+- Use lowercase for commit message
+- Do not end the commit message with a period(.) symbol.
+
+```
+build: install npm package <package-name>
+chore: bump version to 1.2.3
+ci: add ci for <project-name>
+docs: update change log to beta.5
+fix: add a check for <process-name> before sending confirmation
+perf: increase concurrency number for <process-name>
+refactor: separate scheduler and business logic
+style: remove unnecessary commit
+test: add tests for <module-name>
+sample: update samples for <module-name>
+```
 
 ## 4. Commit Granularity
 
 - Make small, atomic commits that logically separate changes.
 - Avoid mixing unrelated changes in a single commit.
 
-## 5. Pull Requests (PRs)
+## 5. Submitting a Pull Request (PR)
 
-- Create PRs for merging changes into the `main` or `development` branches.
-- Ensure PRs are reviewed and approved by peers before merging.
-- Adding task links to PRs improves communication, provides context, and ensures that reviewers understand the purpose and requirements of the changes.
-- Provide a detailed description in the PR. Use the body to explain what is it, why is it needed and how is it done etc.
+Create PRs for merging changes into the `main` or `development` branches. Ensure that these branches are protected and that PRs are merged only after thorough review and testing.
 
-    ```text
-    What is the change
-    Why is it needed
-    How did we achieve this change
-    ```
-
-- It is always a best practise to maintain checklist in every PR to make sure everything is submitted properly along with your PR. Example checklist can be as follows:
-
-    ```text
-    [ ] No build errors
-    [ ] No linting issues
-    [ ] No formatting issues
-    [ ] Changes Tested Locally
-    [ ] Added PR title as per standards
-    [ ] Added PR description as per standards
-    [ ] Attached document link
-    [ ] Attached test cases file
-    [ ] Updated deployment checklist
-    ```
-
-- To maintain a clean and organized commit history, use the "squash and merge" option when creating a Pull Request (PR) against the development branch.
-
-## 6. Submitting a Pull Request (PR)
+If a complex code change is proposed:
+- Create a separate branch `feat/<my-complex-feature>` and target smaller PRs to this branch first.
+- Then, create a new PR to merge the changes from branch `feat/<my-complex-feature>` to your desired protected branch.
 
 Before you submit your Pull Request (PR) consider the following guidelines:
 
@@ -234,8 +213,51 @@ Before you submit your Pull Request (PR) consider the following guidelines:
     git rebase main -i
     git push -f
     ```
+## 6. Pull Requests (PRs)
 
-### After your pull request is merged
+We recommend using Pull Request Templates for all active projects
+
+- [Add PR Templates for GitHub](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)
+- [Description Templates for GitLab](https://docs.gitlab.com/user/project/description_templates/)
+
+### Pull Request Template
+
+It is always a best practise to maintain checklist in every PR to make sure everything is submitted properly along with your PR. Example checklist can be as follows:
+
+  ```text
+  [ ] No build errors
+  [ ] No linting issues
+  [ ] No formatting issues
+  [ ] Changes Tested Locally
+  [ ] Added PR title as per standards
+  [ ] Added PR description as per standards
+  [ ] Attached document link
+  [ ] Attached test cases file
+  [ ] Updated deployment checklist
+  ```
+
+### Description and Related Changes
+
+Provide a detailed description in the PR. Use the body to explain what is it, why is it needed and how is it done etc.
+
+- What is the change
+- Why is it needed
+- How did we achieve this change
+- Provide screenshots and testcases where necessary.
+
+Adding task links to PRs improves communication, provides context, and ensures that reviewers understand the purpose and requirements of the changes.
+
+## 7. Code Reviews and Merge Process
+
+Ensure PRs are reviewed and approved by peers before merging.
+
+- Conduct code reviews for every PR to ensure code quality and consistency.
+- Address all feedback and comments before merging the PR.
+- If you have CI setup, then ensure that CI passes before merging the PR.
+
+To maintain a clean and organized commit history, use the **"squash and merge"** option when creating a **Pull Request (PR)** against the development branch.
+
+## 8. After your pull request is merged
 
 After your pull request is merged, you can safely delete your branch and pull the changes
 from the main (upstream) repository:
@@ -264,22 +286,16 @@ from the main (upstream) repository:
   git pull --ff upstream main
   ```
 
-## 7. Code Reviews
-
-- Conduct code reviews for every PR to ensure code quality and consistency.
-- Address all feedback and comments before merging the PR.
-- If you have CI setup, then ensure that CI passes before merging the PR.
-
-## 8. Conflict Resolution
+## 9. Conflict Resolution
 
 - Resolve merge conflicts promptly.
 - Ensure conflicts are resolved locally before pushing changes.
 - Ensure that you test your changes locally after resolving conflicts.
 
-## 9. Tagging and Releases
+## 10. Tagging and Releases
 
 - Use semantic versioning for your projects.
-- In a version number formatted as `MAJOR.MINOR.PATCH`:
+- Version number is formatted as `MAJOR.MINOR.PATCH`:
   - Increment the `MAJOR` version when making incompatible API changes.
   - Increment the `MINOR` version when adding new functionality in a backward-compatible manner.
   - Increment the `PATCH` version when making backward-compatible bug fixes.
@@ -291,7 +307,7 @@ from the main (upstream) repository:
     git push origin v1.0.0
     ```
 
-- Projects hosted on GitHub can take advantage of the [auto-generate release notes](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes) feature.
+- Projects hosted on **GitHub** can take advantage of the [auto-generate release notes](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes) feature.
 
 ## Conclusion
 
