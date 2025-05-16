@@ -27,7 +27,7 @@ This document outlines the standards and conventions for using Git within our co
   - [5. Submitting a Pull Request (PR)](#5-submitting-a-pull-request-pr)
   - [6. Pull Requests (PRs)](#6-pull-requests-prs)
     - [Pull Request Template](#pull-request-template)
-    - [Description and Related Changes](#description-and-related-changes)
+    - [PR Description](#pr-description)
   - [7. Code Reviews and Merge Process](#7-code-reviews-and-merge-process)
   - [8. After your pull request is merged](#8-after-your-pull-request-is-merged)
   - [9. Conflict Resolution](#9-conflict-resolution)
@@ -145,7 +145,7 @@ In summary, ensure your commit messages follow the following guidelines:
 - Add the [type](#type) as prefix for each commit.
 - Use the imperative mood ("add" instead of "added").
 - Use lowercase for commit message
-- Do not end the commit message with a period(.) symbol.
+- Do not end the commit message with a dot(.) symbol.
 
 ```
 build: install npm package <package-name>
@@ -155,7 +155,7 @@ docs: update change log to beta.5
 fix: add a check for <process-name> before sending confirmation
 perf: increase concurrency number for <process-name>
 refactor: separate scheduler and business logic
-style: remove unnecessary commit
+style: remove unnecessary comment
 test: add tests for <module-name>
 sample: update samples for <module-name>
 ```
@@ -173,7 +173,7 @@ If a complex code change is proposed:
 - Create a separate branch `feat/<my-complex-feature>` and target smaller PRs to this branch first.
 - Then, create a new PR to merge the changes from branch `feat/<my-complex-feature>` to your desired protected branch.
 
-Before you submit your Pull Request (PR) consider the following guidelines:
+**Before you submit** your Pull Request (PR) consider the following guidelines:
 
 1. Search the Pull Requests/Merge Requests of the respective project for an open or closed PR that relates to your submission. You don't want to duplicate effort.
 2. Fork the repository.
@@ -245,16 +245,18 @@ Add standard headings to your template. Some example headings are as follows:
 - Test suite
 - Documentation
 
-### Description and Related Changes
+Adding task links to PRs improves communication, provides context, and ensures that reviewers understand the purpose and requirements of the changes.
 
-Provide a detailed description in the PR. Use the body to explain what is it, why is it needed and how is it done etc.
+### PR Description
+
+Provide a detailed description in the PR:
 
 - What is the change
 - Why is it needed
 - How did we achieve this change
-- Provide screenshots and testcases where necessary.
-
-Adding task links to PRs improves communication, provides context, and ensures that reviewers understand the purpose and requirements of the changes.
+- Provide screenshots
+- Add testcases where necessary
+- Add reference links as required
 
 ## 7. Code Reviews and Merge Process
 
@@ -263,8 +265,7 @@ Ensure PRs are reviewed and approved by peers before merging.
 - Conduct code reviews for every PR to ensure code quality and consistency.
 - Address all feedback and comments before merging the PR.
 - If you have CI setup, then ensure that CI passes before merging the PR.
-
-To maintain a clean and organized commit history, use the **"squash and merge"** option when creating a **Pull Request (PR)** against the development branch.
+- To maintain a clean and organized commit history, use the **"squash and merge"** option when creating a **Pull Request (PR)** against the development branch.
 
 ## 8. After your pull request is merged
 
