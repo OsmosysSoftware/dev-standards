@@ -64,8 +64,7 @@ This document outlines the standards and conventions for using Git within our co
   - Create separate branches for individual features or bug fixes.
   - Do NOT combine multiple features in a single branch. Always create SEPARATE branches for different changes.
   - Feature branch should have short but descriptive names.
-  - Accepted naming formats are using task [type](#type) as prefix, forward slash `/`, followed by a short `kebab-case-description`.
-  - Examples:
+  - Accepted naming format: use the task [type](#type) as a prefix, followed by `/` and a short `kebab-case-description`:
     - `feat/user-authentication`
     - `fix/password-reset`
     - `chore/update-api-version`
@@ -100,14 +99,14 @@ Footer should contain a closing reference to an issue if any. Check the followin
 Must be one of the following:
 
 - **build**: Changes that affect the build system or external dependencies (example scopes: nuget, gulp, broccoli, npm)
-- **chore**: Updating tasks etc; no production code change
+- **chore**: Updating tasks etc.; no production code change
 - **ci**: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
 - **docs**: Documentation only changes
 - **feat**: A new feature
 - **fix**: A bug fix
 - **perf**: A code change that improves performance
 - **refactor**: A code change that neither fixes a bug nor adds a feature
-- **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc.)
 - **test**: Adding missing tests or correcting existing tests
 - **sample**: A change to the samples
 
@@ -235,6 +234,16 @@ It is always a best practise to maintain checklist in every PR to make sure ever
   [ ] Attached test cases file
   [ ] Updated deployment checklist
   ```
+
+Add standard headings to your template. Some example headings are as follows:
+
+- Task Link
+- Description
+- Related changes
+- Query request and response
+- Screenshots
+- Test suite
+- Documentation
 
 ### Description and Related Changes
 
