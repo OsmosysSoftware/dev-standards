@@ -212,6 +212,7 @@ If a complex code change is proposed:
     git rebase main -i
     git push -f
     ```
+
 ## 6. Pull Requests (PRs)
 
 We recommend using Pull Request Templates for all active projects
