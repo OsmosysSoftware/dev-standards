@@ -178,20 +178,6 @@ This will ensure that the resource is downloaded rather than opened. This works 
 <a download href="/downloads/offline.zip">offline version</a>
 ```
 
-### Omit Boolean Attribute Value
-
-**Bad**
-```html
-<audio autoplay="autoplay" src="/audio/theme.mp3">
-<input type="text" disabled="disabled" name="txtFirstName">
-```
-
-**Good**
-```html
-<audio autoplay src="/audio/theme.mp3">
-<input type="text" disabled name="txtFirstName">
-```
-
 ### Do Not Use `id` Attribute Unnecessarily
 Unless needed avoid giving ID attributes to every element that you create.
 
@@ -205,6 +191,7 @@ A boolean attribute is one that needs no declared value. XHTML required you to d
 <select>
   <option value="1" selected="true">1</option>
 </select>
+<audio autoplay="autoplay" src="/audio/theme.mp3">
 ```
 
 **Good**
@@ -214,6 +201,7 @@ A boolean attribute is one that needs no declared value. XHTML required you to d
 <select>
   <option value="1" selected>1</option>
 </select>
+<audio autoplay src="/audio/theme.mp3">
 ```
 
 ### Forms
