@@ -2,6 +2,7 @@
 
 - [Angular Coding Standards](#angular-coding-standards)
   - [Coding Style Guide](#coding-style-guide)
+    - [Modern Angular Conventions (v20+)](#modern-angular-conventions-v20)
   - [Security](#security)
   - [Standard Enforcing Tools](#standard-enforcing-tools)
   - [Setting up ESLint, TypeScript (Airbnb rules), and Prettier](#setting-up-eslint-typescript-airbnb-rules-and-prettier)
@@ -13,16 +14,31 @@
   
 ## Coding Style Guide
 
-At Osmosys, we adhere to a comprehensive set of coding standards to ensure consistency and maintainability in our Angular projects. Our coding style is based on the guidelines provided by the [Angular Style Guide](https://angular.io/guide/styleguide).
+At Osmosys, we adhere to a comprehensive set of coding standards to ensure consistency and maintainability in our Angular projects. Our coding style is based on the guidelines provided by the [Angular Style Guide](https://angular.dev/style-guide).
 
-For TypeScript development, we follow the TypeScript guidelines established by Airbnb. You can find detailed TypeScript rules in the [Airbnb TypeScript Style Guide](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base).
+For TypeScript development, we follow the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) rules from [eslint-config-airbnb-base](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base), with TypeScript support added by `eslint-config-airbnb-typescript`. Airbnb does not publish an official TypeScript style guide.
 
 For the complete list of TypeScript rules from Airbnb, please refer to this [link](https://osmosysasia-my.sharepoint.com/:x:/g/personal/rajkumar_p_osmosys_co/EcSnDteKjvhGr-6jgmdIRDEBVsW7hjqfXs7o8NwUTea7oQ?e=QQAVfR).
+
+### Modern Angular Conventions (v20+)
+
+Follow these conventions for new code. They reflect the current Angular Style Guide and CLI defaults.
+
+- **Standalone by default** — components, directives and pipes are standalone since v19. Do not create NgModules for new code.
+- **File and class names** — since v20 the CLI no longer adds type suffixes: `ng generate component user-profile` creates `user-profile.ts` with class `UserProfile`. Files for one component share a base name (`user-profile.ts`, `user-profile.html`, `user-profile.css`, `user-profile.spec.ts`). Existing projects that keep the `.component.ts` style can set the `type` and `typeSeparator` schematic defaults in `angular.json`.
+- **Dependency injection** — prefer the `inject()` function over constructor parameter injection.
+- **Signals** — use `input()`, `output()`, `model()` and signal queries (`viewChild()`, `contentChild()`), and `signal()` / `computed()` for state. Mark properties initialised by Angular as `readonly`, and use `protected` for members only read by the template.
+- **Template control flow** — use `@if`, `@for` and `@switch`. `*ngIf`, `*ngFor` and `*ngSwitch` are deprecated since v20. `@for` requires a `track` expression.
+- **Bindings** — prefer `[class]` and `[style]` bindings over `NgClass` and `NgStyle`. Name event handlers for the action they perform (`saveUserData()`), not the triggering event (`handleClick()`).
+- **Change detection** — new components are generated with `OnPush` (v22) and new applications are zoneless by default (v21).
+- **HTTP** — use `provideHttpClient(withInterceptors([...]))` with functional interceptors. `HttpClientModule` is deprecated.
+- **Unit tests** — Vitest is the default test runner since v21. Karma support was removed in v22.
+- **Project structure** — organise by feature, not by type, with one concept per file.
 
 [Back to top](#angular-coding-standards)
 ## Security 
 
-Security is a top priority in our development process. We implement security practices outlined in the [Angular Security Guide](https://angular.io/guide/security) to safeguard our applications against common web application vulnerabilities and attacks, including cross-site scripting (XSS) attacks.
+Security is a top priority in our development process. We implement security practices outlined in the [Angular Security Guide](https://angular.dev/best-practices/security) to safeguard our applications against common web application vulnerabilities and attacks, including cross-site scripting (XSS) attacks.
 
 [Back to top](#angular-coding-standards)
 ## Standard Enforcing Tools
@@ -43,10 +59,10 @@ Before you begin, make sure you have the following software installed:
 
 1. [Node.js](https://nodejs.org/en)
 2. [npm](https://www.npmjs.com/)
-3. [Angular CLI](https://angular.io/cli)
+3. [Angular CLI](https://angular.dev/tools/cli)
 4. [Visual Studio Code](https://code.visualstudio.com/)
 
-It is highly advisable to ensure that you are working with the latest version of Angular. If your project is currently on a lower version, its recommended upgrading it to Angular 13 or a more recent stable release. (In case you decide not to upgrade, please make sure to resolve the dependency tree meticulously after installing the following packages. This will help maintain compatibility and ensure a smooth development process).
+It is highly advisable to ensure that you are working with the latest version of Angular. If your project is currently on a lower version, upgrade it to a [supported Angular version](https://angular.dev/reference/releases) (v22 is the current major). (In case you decide not to upgrade, please make sure to resolve the dependency tree meticulously after installing the following packages. This will help maintain compatibility and ensure a smooth development process).
 
 [Back to top](#angular-coding-standards)
 ### Visual Studio Code Extensions
@@ -357,8 +373,6 @@ To ensure proper setup, add the following configuration files to your project's 
             "@angular-eslint/no-host-metadata-property": "error",
             "@angular-eslint/use-lifecycle-interface": "error",
             "@angular-eslint/use-pipe-transform-interface": "error",
-            "@angular-eslint/component-class-suffix": "error",
-            "@angular-eslint/directive-class-suffix": "error",
             "import/no-extraneous-dependencies": [
               "error",
               {
